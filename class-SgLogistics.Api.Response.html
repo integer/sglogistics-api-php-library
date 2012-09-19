@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class SgLogistics\Api\Response | SG Logistics client API Library</title>
+
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
+	<script type="text/javascript" src="elementlist.js?1229034023"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-SgLogistics.html">SgLogistics<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-SgLogistics.Api.html">Api<span></span></a>
+						<ul>
+				<li><a href="namespace-SgLogistics.Api.Entity.html">Entity</a>
+						</li>
+				<li><a href="namespace-SgLogistics.Api.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-SgLogistics.Api.Protocol.html">Protocol</a>
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-SgLogistics.Api.Autoloader.html">Autoloader</a></li>
+				<li><a href="class-SgLogistics.Api.Client.html">Client</a></li>
+				<li class="active"><a href="class-SgLogistics.Api.Response.html">Response</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-SgLogistics.Api.html" title="Summary of SgLogistics\Api"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="sg-logistics-client-api-library-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+			</li>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Response</h1>
+
+
+	<div class="description">
+	
+<p>API method call response.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-SgLogistics.html">SgLogistics</a>\<a href="namespace-SgLogistics.Api.html">Api</a><br />
+		<b>Package:</b> Api<br />
+
+				<b>Category:</b>
+				SgLogistics<br />
+		<b>Located at</b> <a href="source-class-SgLogistics.Api.Response.html#13-150" title="Go to source code">SgLogistics/Response.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-SgLogistics.Api.Response.html#70-91" title="Go to source code">__construct</a>( <span>mixed <var>$result</var></span>, <span>integer <var>$status</var> = <code><a href="class-SgLogistics.Api.Response.html#STATUS_SUCCESS">SgLogistics\Api\Response::<b>STATUS_SUCCESS</b></a></code></span>, <span>string <var>$message</var> = <span class="php-quote">''</span></span>, <span>array <var>$exception</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>Constructor.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$result</var></dt>
+					<dd><code>mixed</code><br>$result The result returned by the called method.</dd>
+					<dt><var>$status</var></dt>
+					<dd><code>integer</code><br>$status The response status code.</dd>
+					<dt><var>$message</var></dt>
+					<dd><code>string</code><br>$message A message attached to the response.</dd>
+					<dt><var>$exception</var></dt>
+					<dd><code>array</code><br>$exception The definition of an exception which has been thrown during the
+method execution.</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>InvalidArgumentException</code><br>If the response status code indicates an exception but no exception definiton
+has been provided.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getStatus" id="_getStatus">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getStatus">#</a>
+		<code><a href="source-class-SgLogistics.Api.Response.html#93-101" title="Go to source code">getStatus</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get the response status code.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get the response status code.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>The response status code.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMessage" id="_getMessage">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMessage">#</a>
+		<code><a href="source-class-SgLogistics.Api.Response.html#103-111" title="Go to source code">getMessage</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get a message attached to the response.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get a message attached to the response.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>A message attached to the response.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getExceptionDefinition" id="_getExceptionDefinition">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getExceptionDefinition">#</a>
+		<code><a href="source-class-SgLogistics.Api.Response.html#113-121" title="Go to source code">getExceptionDefinition</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get the exception definition from the response.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get the exception definition from the response.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getException" id="_getException">
+
+		<td class="attributes"><code>
+			 public 
+			Exception|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getException">#</a>
+		<code><a href="source-class-SgLogistics.Api.Response.html#123-139" title="Go to source code">getException</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get an exception which has been thrown during the method execution.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get an exception which has been thrown during the method execution.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>Exception|null</code><br>An exception which has been thrown during the method execution.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getResult" id="_getResult">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getResult">#</a>
+		<code><a href="source-class-SgLogistics.Api.Response.html#141-149" title="Go to source code">getResult</a>( )</code>
+
+		<div class="description short">
+			
+<p>Get the result returned by the called method.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get the result returned by the called method.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>The result returned by the called method.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="STATUS_SUCCESS" id="STATUS_SUCCESS">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-SgLogistics.Api.Response.html#21-26" title="Go to source code"><b>STATUS_SUCCESS</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">200</span></code></td>
+		<td class="description"><div>
+			<a href="#STATUS_SUCCESS" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Everything is ok.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Everything is ok.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="STATUS_EXCEPTION" id="STATUS_EXCEPTION">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-SgLogistics.Api.Response.html#28-33" title="Go to source code"><b>STATUS_EXCEPTION</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">400</span></code></td>
+		<td class="description"><div>
+			<a href="#STATUS_EXCEPTION" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>An exception has occured during the method execution.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>An exception has occured during the method execution.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="STATUS_ERROR" id="STATUS_ERROR">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-SgLogistics.Api.Response.html#35-40" title="Go to source code"><b>STATUS_ERROR</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">500</span></code></td>
+		<td class="description"><div>
+			<a href="#STATUS_ERROR" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Something is seriously wrong.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Something is seriously wrong.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		SG Logistics client API Library API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

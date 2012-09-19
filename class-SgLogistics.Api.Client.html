@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class SgLogistics\Api\Client | SG Logistics client API Library</title>
+
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
+	<script type="text/javascript" src="elementlist.js?1229034023"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-SgLogistics.html">SgLogistics<span></span></a>
+						<ul>
+				<li class="active"><a href="namespace-SgLogistics.Api.html">Api<span></span></a>
+						<ul>
+				<li><a href="namespace-SgLogistics.Api.Entity.html">Entity</a>
+						</li>
+				<li><a href="namespace-SgLogistics.Api.Exception.html">Exception</a>
+						</li>
+				<li><a href="namespace-SgLogistics.Api.Protocol.html">Protocol</a>
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-SgLogistics.Api.Autoloader.html">Autoloader</a></li>
+				<li class="active"><a href="class-SgLogistics.Api.Client.html">Client</a></li>
+				<li><a href="class-SgLogistics.Api.Response.html">Response</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-SgLogistics.Api.html" title="Summary of SgLogistics\Api"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="sg-logistics-client-api-library-api-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+			</li>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Client</h1>
+
+
+	<div class="description">
+	
+<p>API client.</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-SgLogistics.html">SgLogistics</a>\<a href="namespace-SgLogistics.Api.html">Api</a><br />
+		<b>Package:</b> Api<br />
+
+				<b>Category:</b>
+				SgLogistics<br />
+		<b>Located at</b> <a href="source-class-SgLogistics.Api.Client.html#13-527" title="Go to source code">SgLogistics/Client.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#56-64" title="Go to source code">__construct</a>( <span><code><a href="class-SgLogistics.Api.Protocol.ProtocolInterface.html">SgLogistics\Api\Protocol\ProtocolInterface</a></code> <var>$protocol</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Constructor.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$protocol</var></dt>
+					<dd><code><code><a href="class-SgLogistics.Api.Protocol.ProtocolInterface.html">SgLogistics\Api\Protocol\ProtocolInterface</a></code></code><br>$protocol The communication protcol.</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="call" id="_call">
+
+		<td class="attributes"><code>
+			 protected 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_call">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#66-87" title="Go to source code">call</a>( <span>string <var>$method</var></span>, <span>array <var>$arguments</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+<p>Call the given remote method.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Call the given remote method.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$method</var></dt>
+					<dd><code>string</code><br>$method Name of the method to be called.</dd>
+					<dt><var>$arguments</var></dt>
+					<dd><code>array</code><br>$arguments A list of arguments to be passed to the called method.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br>The result returned by the called method.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>Exception</code><br>An exception thrown during the method execution.<br />
+					<code>BadMethodCallException</code><br>If some other error occured.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setCredentials" id="_setCredentials">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-SgLogistics.Api.Client.html">SgLogistics\Api\Client</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setCredentials">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#89-103" title="Go to source code">setCredentials</a>( <span>string <var>$name</var></span>, <span>string <var>$secret</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Set the given credentials.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set the given credentials.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name Client name.</dd>
+					<dt><var>$secret</var></dt>
+					<dd><code>string</code><br>$secret Client secret.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Client.html">SgLogistics\Api\Client</a></code></code><br>Provides a fluent interface.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="verify" id="_verify">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_verify">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#105-113" title="Go to source code">verify</a>( )</code>
+
+		<div class="description short">
+			
+<p>Verify if the set credentials are correct.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Verify if the set credentials are correct.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True if the set credentials are correct, false otherwise.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getAccessToken" id="_getAccessToken">
+
+		<td class="attributes"><code>
+			 protected 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getAccessToken">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#115-135" title="Go to source code">getAccessToken</a>( <span>string <var>$method</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Get the access token.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get the access token.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$method</var></dt>
+					<dd><code>string</code><br>$method Name of the method to be called.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The access token.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>BadMethodCallException</code><br>If no credentials are set and therefore there is no access token.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addProduct" id="_addProduct">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addProduct">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#137-151" title="Go to source code">addProduct</a>( <span><code><a href="class-SgLogistics.Api.Entity.Product.html">SgLogistics\Api\Entity\Product</a></code> <var>$product</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Make sure that the given product will exist within the SGL system. If there
+is no such product then the given product is added into the system.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Make sure that the given product will exist within the SGL system. If there
+is no such product then the given product is added into the system.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$product</var></dt>
+					<dd><code><code><a href="class-SgLogistics.Api.Entity.Product.html">SgLogistics\Api\Entity\Product</a></code></code><br>$product A product that should exists within the system.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True if the operation was successful, false otherwise.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.MissingValue.html">SgLogistics\Api\Exception\MissingValue</a></code></code><br>If a value of some required property is missing.<br />
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If a value of some property is not valid one.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addOrder" id="_addOrder">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addOrder">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#153-171" title="Go to source code">addOrder</a>( <span><code><a href="class-SgLogistics.Api.Entity.Order.html">SgLogistics\Api\Entity\Order</a></code> <var>$order</var></span>, <span>boolean <var>$makeHardReservations</var></span>, <span>boolean <var>$unreserveProducts</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Add the given customer order to the SGL system.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Add the given customer order to the SGL system.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$order</var></dt>
+					<dd><code><code><a href="class-SgLogistics.Api.Entity.Order.html">SgLogistics\Api\Entity\Order</a></code></code><br>$order The customer order to be added.</dd>
+					<dt><var>$makeHardReservations</var></dt>
+					<dd><code>boolean</code><br>$makeHardReservations Whether to make hard reservations of the order items.</dd>
+					<dt><var>$unreserveProducts</var></dt>
+					<dd><code>boolean</code><br>$unreserveProducts Whether to cancel soft product reservations according to the
+order items.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True if the operation was successful, false otherwise.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.MissingValue.html">SgLogistics\Api\Exception\MissingValue</a></code></code><br>If a value of some required property is missing.<br />
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If a value of some property is not valid one.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="cancelOrder" id="_cancelOrder">
+
+		<td class="attributes"><code>
+			 public 
+			true
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_cancelOrder">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#173-185" title="Go to source code">cancelOrder</a>( <span>string <var>$id</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Cancel the given order entirely.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Cancel the given order entirely.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd><code>string</code><br>$id The ID of order to be cancelled entirely.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>true</code><br>If the operation was successful.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>InvalidArgumentException</code><br>If there is no such order.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="cancelOrderPart" id="_cancelOrderPart">
+
+		<td class="attributes"><code>
+			 public 
+			true
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_cancelOrderPart">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#187-202" title="Go to source code">cancelOrderPart</a>( <span><code><a href="class-SgLogistics.Api.Entity.OrderPart.html">SgLogistics\Api\Entity\OrderPart</a></code> <var>$part</var></span>, <span>boolean <var>$returnShippingPrice</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Cancel the given part of an order.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Cancel the given part of an order.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$part</var></dt>
+					<dd><code><code><a href="class-SgLogistics.Api.Entity.OrderPart.html">SgLogistics\Api\Entity\OrderPart</a></code></code><br>$part The order part to be cancelled.</dd>
+					<dt><var>$returnShippingPrice</var></dt>
+					<dd><code>boolean</code><br>$returnShippingPrice Should the price paid for S/H be returned as well?</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>true</code><br>If the operation was successful.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>InvalidArgumentException</code><br>If there is no such order.<br />
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If the given order does not contain the given product or the amount to cancel is
+higher than amount contained within the order.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getOrderState" id="_getOrderState">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getOrderState">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#204-235" title="Go to source code">getOrderState</a>( <span>integer|array <var>$id</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Get order(s) state(s). The returned array is in the following format:</p>
+
+<pre>
+[
+        order_id =&gt; [
+                <span
+class="php-quote">'state'</span> =&gt; order_state_code,
+                <span
+class="php-quote">'items'</span> =&gt; [
+                                [
+                                <span
+class="php-quote">'brand'</span> =&gt; product_brand,
+                                <span
+class="php-quote">'code'</span> =&gt; product_code,
+                                <span
+class="php-quote">'amount'</span> =&gt; amount_of_pieces,
+                                <span
+class="php-quote">'state'</span> =&gt; item_state_code
+                                ],
+                                ...
+                ]
+        ],
+                ...
+]
+</pre>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get order(s) state(s). The returned array is in the following format:</p>
+
+<pre>
+[
+        order_id =&gt; [
+                <span
+class="php-quote">'state'</span> =&gt; order_state_code,
+                <span
+class="php-quote">'items'</span> =&gt; [
+                                [
+                                <span
+class="php-quote">'brand'</span> =&gt; product_brand,
+                                <span
+class="php-quote">'code'</span> =&gt; product_code,
+                                <span
+class="php-quote">'amount'</span> =&gt; amount_of_pieces,
+                                <span
+class="php-quote">'state'</span> =&gt; item_state_code
+                                ],
+                                ...
+                ]
+        ],
+                ...
+]
+</pre>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd><code>integer|array</code><br>$id Order IDs. Can be a single ID or a list of IDs in which case the result will
+an array where its keys are IDs of corresponding orders.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>The result in a format described above.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If there is no such order.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getOrderStateLog" id="_getOrderStateLog">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getOrderStateLog">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#237-275" title="Go to source code">getOrderStateLog</a>( <span>integer|array <var>$id</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Get order(s) log(s). The returned array is in the following format:</p>
+
+<pre>
+[
+        order_id =&gt; [
+                [
+                        [
+                                <span
+class="php-quote">'date'</span> =&gt; date_and_time_of_an_event,
+                                <span
+class="php-quote">'state'</span> =&gt; order_state_code,
+                                <span
+class="php-quote">'items'</span> =&gt; [
+                                        [
+                                                <span
+class="php-quote">'date'</span> =&gt; date_and_time_of_an_event,
+                                                <span
+class="php-quote">'brand'</span> =&gt; product_brand,
+                                                <span
+class="php-quote">'code'</span> =&gt; product_code,
+                                                <span
+class="php-quote">'amount'</span> =&gt; amount_of_pieces,
+                                                <span
+class="php-quote">'state'</span> =&gt; item_state_code
+                                        ],
+                                        ...
+                                ]
+                        ],
+                        ...
+                ]
+        ],
+        ...
+]
+</pre>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get order(s) log(s). The returned array is in the following format:</p>
+
+<pre>
+[
+        order_id =&gt; [
+                [
+                        [
+                                <span
+class="php-quote">'date'</span> =&gt; date_and_time_of_an_event,
+                                <span
+class="php-quote">'state'</span> =&gt; order_state_code,
+                                <span
+class="php-quote">'items'</span> =&gt; [
+                                        [
+                                                <span
+class="php-quote">'date'</span> =&gt; date_and_time_of_an_event,
+                                                <span
+class="php-quote">'brand'</span> =&gt; product_brand,
+                                                <span
+class="php-quote">'code'</span> =&gt; product_code,
+                                                <span
+class="php-quote">'amount'</span> =&gt; amount_of_pieces,
+                                                <span
+class="php-quote">'state'</span> =&gt; item_state_code
+                                        ],
+                                        ...
+                                ]
+                        ],
+                        ...
+                ]
+        ],
+        ...
+]
+</pre>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd><code>integer|array</code><br>$id Order IDs. Can be a single ID or a list of IDs in which case the result will
+an array where its keys are IDs of corresponding orders.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>The result in a format described above.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If there is no such order.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="closeOrder" id="_closeOrder">
+
+		<td class="attributes"><code>
+			 public 
+			true
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_closeOrder">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#277-290" title="Go to source code">closeOrder</a>( <span>integer <var>$id</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Close the given order (the order has been picked up by a customer). The given
+order has to be meant for a personal pick-up and also has to be ready for
+it.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Close the given order (the order has been picked up by a customer). The given
+order has to be meant for a personal pick-up and also has to be ready for
+it.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd><code>integer</code><br>$id Order ID.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>true</code><br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If there is no such order or it is not ready to be picked up.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getReturns" id="_getReturns">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getReturns">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#292-322" title="Go to source code">getReturns</a>( <span>string|integer <var>$since</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Get a list of returns (cancels, repayments and complaints) since the given
+date. The returned array is in the following format:</p>
+
+<pre>
+[
+        [
+                        <span
+class="php-quote">'id'</span> =&gt; return_id,
+                        <span
+class="php-quote">'orderId =&gt; order_id,
+                        '</span>type<span
+class="php-quote">' =&gt;  cancel/replayment/complaint,
+                        '</span><span
+class="php-keyword2">date</span><span
+class="php-quote">' =&gt; date_and_time_when_the_item_was_returned,
+                        '</span>items<span
+class="php-quote">' =&gt; [
+                        [
+                                '</span>brand<span
+class="php-quote">' =&gt; product_brand,
+                                '</span>code<span
+class="php-quote">' =&gt; product_code,
+                                '</span>amount<span
+class="php-quote">' =&gt; amount_of_pieces
+                                ],
+                                ...
+                        ]
+        ]
+        ...
+]
+</span></pre>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get a list of returns (cancels, repayments and complaints) since the given
+date. The returned array is in the following format:</p>
+
+<pre>
+[
+        [
+                        <span
+class="php-quote">'id'</span> =&gt; return_id,
+                        <span
+class="php-quote">'orderId =&gt; order_id,
+                        '</span>type<span
+class="php-quote">' =&gt;  cancel/replayment/complaint,
+                        '</span><span
+class="php-keyword2">date</span><span
+class="php-quote">' =&gt; date_and_time_when_the_item_was_returned,
+                        '</span>items<span
+class="php-quote">' =&gt; [
+                        [
+                                '</span>brand<span
+class="php-quote">' =&gt; product_brand,
+                                '</span>code<span
+class="php-quote">' =&gt; product_code,
+                                '</span>amount<span
+class="php-quote">' =&gt; amount_of_pieces
+                                ],
+                                ...
+                        ]
+        ]
+        ...
+]
+</span></pre>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$since</var></dt>
+					<dd><code>string|integer</code><br>$since Date and time since which the list will be returned.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>The result in a format described above.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getInvoice" id="_getInvoice">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getInvoice">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#324-337" title="Go to source code">getInvoice</a>( <span>integer <var>$id</var></span>, <span>string <var>$format</var> = <code><a href="class-SgLogistics.Api.Client.html#DOCUMENT_FORMAT_PDF">SgLogistics\Api\Client::<b>DOCUMENT_FORMAT_PDF</b></a></code></span> )</code>
+
+		<div class="description short">
+			
+<p>Get an invoice for the given order.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get an invoice for the given order.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd><code>integer</code><br>$id ID of an order for which to get an invoice.</dd>
+					<dt><var>$format</var></dt>
+					<dd><code>string</code><br>$format Invoice format.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The requested invoice as a base64 encoded data stream.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If there is no such order or an unknown document format is requested.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getPaymentConfirmation" id="_getPaymentConfirmation">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getPaymentConfirmation">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#339-352" title="Go to source code">getPaymentConfirmation</a>( <span>integer <var>$id</var></span>, <span>string <var>$format</var> = <code><a href="class-SgLogistics.Api.Client.html#DOCUMENT_FORMAT_PDF">SgLogistics\Api\Client::<b>DOCUMENT_FORMAT_PDF</b></a></code></span> )</code>
+
+		<div class="description short">
+			
+<p>Get a payment confirmation document for the given order.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get a payment confirmation document for the given order.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd><code>integer</code><br>$id ID of an order for which to get a payment confirmation document.</dd>
+					<dt><var>$format</var></dt>
+					<dd><code>string</code><br>$format Document format.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The requested payment confirmation document as a base64 encoded data stream.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If there is no such order.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getReturnReceipt" id="_getReturnReceipt">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getReturnReceipt">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#354-367" title="Go to source code">getReturnReceipt</a>( <span>integer <var>$id</var></span>, <span>string <var>$format</var> = <code><a href="class-SgLogistics.Api.Client.html#DOCUMENT_FORMAT_PDF">SgLogistics\Api\Client::<b>DOCUMENT_FORMAT_PDF</b></a></code></span> )</code>
+
+		<div class="description short">
+			
+<p>Get a return receipt document for the given order.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get a return receipt document for the given order.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd><code>integer</code><br>$id ID of an order for which to get a return receipt document.</dd>
+					<dt><var>$format</var></dt>
+					<dd><code>string</code><br>$format Document format.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The requested return receipt document as a base64 encoded data stream.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If there is no such order.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="updateShippingAddress" id="_updateShippingAddress">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_updateShippingAddress">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#369-383" title="Go to source code">updateShippingAddress</a>( <span>integer <var>$id</var></span>, <span><code><a href="class-SgLogistics.Api.Entity.OrderAddress.html">SgLogistics\Api\Entity\OrderAddress</a></code> <var>$address</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Updates the given order shipping address.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Updates the given order shipping address.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd><code>integer</code><br>$id ID of an order for which to update the shipping address.</dd>
+					<dt><var>$address</var></dt>
+					<dd><code><code><a href="class-SgLogistics.Api.Entity.OrderAddress.html">SgLogistics\Api\Entity\OrderAddress</a></code></code><br>$address New shipping address.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If there is no such order.<br />
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If the given shipping address is not valid<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="makeSoftProductReservation" id="_makeSoftProductReservation">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_makeSoftProductReservation">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#385-403" title="Go to source code">makeSoftProductReservation</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span>, <span>integer <var>$amount</var> = <span class="php-num">1</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Make a soft reservation of the given product.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Make a soft reservation of the given product.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$brand</var></dt>
+					<dd><code>string</code><br>$brand Product brand.</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>string</code><br>$code Product code.</dd>
+					<dt><var>$amount</var></dt>
+					<dd><code>integer</code><br>$amount Amount of pieces of the given product.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>Amount of remaining pieces of the given product.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If there is no such product.<br />
+					<code><code><a href="class-SgLogistics.Api.Exception.SharedLimitDoesNotExist.html">SgLogistics\Api\Exception\SharedLimitDoesNotExist</a></code></code><br>If there is no shared limit for the given product.<br />
+					<code><code><a href="class-SgLogistics.Api.Exception.SharedLimitReached.html">SgLogistics\Api\Exception\SharedLimitReached</a></code></code><br>If the requested number of pieces is not avialable.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="makeHardProductReservation" id="_makeHardProductReservation">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_makeHardProductReservation">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#405-423" title="Go to source code">makeHardProductReservation</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span>, <span>integer <var>$amount</var> = <span class="php-num">1</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Make a hard reservation of the given product.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Make a hard reservation of the given product.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$brand</var></dt>
+					<dd><code>string</code><br>$brand Product brand.</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>string</code><br>$code Product code.</dd>
+					<dt><var>$amount</var></dt>
+					<dd><code>integer</code><br>$amount Amount of pieces of the given product.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>Amount of remaining pieces of the given product.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If there is no such product.<br />
+					<code><code><a href="class-SgLogistics.Api.Exception.SharedLimitDoesNotExist.html">SgLogistics\Api\Exception\SharedLimitDoesNotExist</a></code></code><br>If there is no shared limit for the given product.<br />
+					<code><code><a href="class-SgLogistics.Api.Exception.SharedLimitReached.html">SgLogistics\Api\Exception\SharedLimitReached</a></code></code><br>If the requested number of pieces is not avialable.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="makeSoftReservationsHard" id="_makeSoftReservationsHard">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_makeSoftReservationsHard">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#425-436" title="Go to source code">makeSoftReservationsHard</a>( <span>array <var>$softReservations</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Try to harden the given soft reservations. If any of the given reservations
+do not exist corresponding hard ones are tried to be created.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Try to harden the given soft reservations. If any of the given reservations
+do not exist corresponding hard ones are tried to be created.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$softReservations</var></dt>
+					<dd><code>array</code><br>$softReservations List of soft reservations which should be made hard.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>List of successfully hardened reservations.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="makeHardReservationsSoft" id="_makeHardReservationsSoft">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_makeHardReservationsSoft">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#438-449" title="Go to source code">makeHardReservationsSoft</a>( <span>array <var>$hardReservations</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Try to soften the given hard reservations. If any of the given reservations
+do not exist corresponding soft ones are tried to be created.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Try to soften the given hard reservations. If any of the given reservations
+do not exist corresponding soft ones are tried to be created.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$hardReservations</var></dt>
+					<dd><code>array</code><br>$hardReservations List of hard reservations which should be made soft.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>List of successfully softened reservations.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="unmakeSoftProductReservation" id="_unmakeSoftProductReservation">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_unmakeSoftProductReservation">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#451-465" title="Go to source code">unmakeSoftProductReservation</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span>, <span>integer <var>$amount</var> = <span class="php-num">1</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Unmake a soft reservation of the given product.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Unmake a soft reservation of the given product.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$brand</var></dt>
+					<dd><code>string</code><br>$brand Product brand.</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>string</code><br>$code Product code.</dd>
+					<dt><var>$amount</var></dt>
+					<dd><code>integer</code><br>$amount Amount of pieces of the given product.</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If there is no such product.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="unmakeHardProductReservation" id="_unmakeHardProductReservation">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_unmakeHardProductReservation">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#467-481" title="Go to source code">unmakeHardProductReservation</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span>, <span>integer <var>$amount</var> = <span class="php-num">1</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Unmake a hard reservation of the given product.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Unmake a hard reservation of the given product.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$brand</var></dt>
+					<dd><code>string</code><br>$brand Product brand.</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>string</code><br>$code Product code.</dd>
+					<dt><var>$amount</var></dt>
+					<dd><code>integer</code><br>$amount Amount of pieces of the given product.</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If there is no such product.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRemainingAmount" id="_getRemainingAmount">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRemainingAmount">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#483-496" title="Go to source code">getRemainingAmount</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Get an amount of remaining pieces of the given product.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get an amount of remaining pieces of the given product.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$brand</var></dt>
+					<dd><code>string</code><br>$brand Product brand.</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>string</code><br>$code Product code.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>Amount of remaining pieces of the given product.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If there is no such product.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSharedLimit" id="_getSharedLimit">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSharedLimit">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#498-511" title="Go to source code">getSharedLimit</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Get the shared limit for the given product.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get the shared limit for the given product.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$brand</var></dt>
+					<dd><code>string</code><br>$brand Product brand.</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>string</code><br>$code Product code.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>The shared limit for the given product or -1 if there is no limit.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If there is no such product.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getReservedAmount" id="_getReservedAmount">
+
+		<td class="attributes"><code>
+			 public 
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getReservedAmount">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#513-526" title="Go to source code">getReservedAmount</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Get the number of reserved pieces of the given product.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get the number of reserved pieces of the given product.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$brand</var></dt>
+					<dd><code>string</code><br>$brand Product brand.</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>string</code><br>$code Product code.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>integer</code><br>The number of reserved pieces of the given product.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If there is no such product.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="DOCUMENT_FORMAT_PDF" id="DOCUMENT_FORMAT_PDF">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-SgLogistics.Api.Client.html#21-26" title="Go to source code"><b>DOCUMENT_FORMAT_PDF</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-quote">'pdf'</span></code></td>
+		<td class="description"><div>
+			<a href="#DOCUMENT_FORMAT_PDF" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Document format will be PDF.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Document format will be PDF.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="DOCUMENT_FORMAT_HTML" id="DOCUMENT_FORMAT_HTML">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name"><code>
+				<a href="source-class-SgLogistics.Api.Client.html#28-33" title="Go to source code"><b>DOCUMENT_FORMAT_HTML</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-quote">'html'</span></code></td>
+		<td class="description"><div>
+			<a href="#DOCUMENT_FORMAT_HTML" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Document format will be HTML.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Document format will be HTML.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		SG Logistics client API Library API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

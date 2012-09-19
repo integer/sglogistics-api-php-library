@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: http://slevomat.github.com/sglogistics-api-php-library/sitemap.xml

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/index.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/namespace-SgLogistics.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/namespace-SgLogistics.Api.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/namespace-SgLogistics.Api.Entity.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/namespace-SgLogistics.Api.Exception.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/namespace-SgLogistics.Api.Protocol.html</loc>
+</url>
+
+
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Autoloader.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Client.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Entity.ApiEntity.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Entity.Order.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Entity.OrderAddress.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Entity.OrderItem.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Entity.OrderPart.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Entity.Product.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Protocol.Rest.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Response.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Protocol.ProtocolInterface.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Exception.InvalidAccess.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Exception.InvalidValue.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Exception.MissingValue.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Exception.Response.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Exception.ServerError.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Exception.SharedLimitDoesNotExist.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Exception.SharedLimitReached.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Exception.Value.html</loc>
+</url>
+</urlset>
