@@ -475,6 +475,18 @@ class Client
 	}
 
 	/**
+	 * Unmake the given soft product reservations.
+	 *
+	 * @param array $softReservations List of soft reservations which should be unmade.
+	 *
+	 * @return true
+	 */
+	public function unmakeSoftProductReservations(array $softReservations)
+	{
+		return (array) $this->call(__FUNCTION__, array('softReservations' => $softReservations));
+	}
+
+	/**
 	 * Unmake a hard reservation of the given product.
 	 *
 	 * @param string $brand Product brand.
@@ -490,6 +502,18 @@ class Client
 		return (int) $this->call(
 			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount)
 		);
+	}
+
+	/**
+	 * Unmake the given hard product reservations.
+	 *
+	 * @param array $hardReservations List of hard reservations which should be unmade.
+	 *
+	 * @return true
+	 */
+	public function unmakeHardProductReservations(array $hardReservations)
+	{
+		return (array) $this->call(__FUNCTION__, array('hardReservations' => $hardReservations));
 	}
 
 	/**
