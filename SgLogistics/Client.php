@@ -532,6 +532,18 @@ class Client
 	}
 
 	/**
+	 * Get an amount of remaining pieces of multiple products at once.
+	 *
+	 * @param array $products Product definition
+	 *
+	 * @return array Amount of remaining pieces of given products.
+	 */
+	public function getRemainingAmounts(array $products)
+	{
+		return $this->call(__FUNCTION__, array('products' => $products));
+	}
+
+	/**
 	 * Get the shared limit for the given product.
 	 *
 	 * @param string $brand Product brand.
