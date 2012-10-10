@@ -4,8 +4,8 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012 Slevomat.cz, s.r.o.
- * @version 0.9
- * @apiVersion 0.9
+ * @version 1.0
+ * @apiVersion 1.0
  */
 
 namespace SgLogistics\Api;
@@ -74,7 +74,7 @@ class Client
 	 * @throws \Exception An exception thrown during the method execution.
 	 * @throws \BadMethodCallException If some other error occured.
 	 */
-	protected function call($method, array $arguments = array())
+	public function call($method, array $arguments = array())
 	{
 		$arguments['accessToken'] = $this->getAccessToken($method);
 
@@ -154,20 +154,15 @@ class Client
 	 * Add the given customer order to the SGL system.
 	 *
 	 * @param Entity\Order $order The customer order to be added.
-	 * @param bool $makeHardReservations Whether to make hard reservations of the order items.
-	 * @param bool $unreserveProducts Whether to cancel soft product reservations according to the order items.
 	 *
 	 * @return bool True if the operation was successful, false otherwise.
 	 *
 	 * @throws Exception\MissingValue If a value of some required property is missing.
 	 * @throws Exception\InvalidValue If a value of some property is not valid one.
 	 */
-	public function addOrder(Entity\Order $order, $makeHardReservations, $unreserveProducts)
+	public function addOrder(Entity\Order $order)
 	{
-		return (bool) $this->call(__FUNCTION__, $order->export() + array(
-			'makeHardReservations' => (bool) $makeHardReservations,
-			'unreserveProducts' => (bool) $unreserveProducts
-		));
+		return (bool) $this->call(__FUNCTION__, $order->export());
 	}
 
 	/**
@@ -449,19 +444,46 @@ class Client
 	}
 
 	/**
+	 * Try to prolong the given soft reservations.
+	 * If any of the given reservations do not exist corresponding ones are tried to be created.
+	 *
+	 * @param array $softReservations List of soft reservations which should be made hard.
+	 *
+	 * @return array List of successfully hardened reservations.
+	 */
+	public function prolongSoftReservations(array $softReservations)
+	{
+		return (array) $this->call(__FUNCTION__, array('softReservations' => $softReservations));
+	}
+
+	/**
 	 * Unmake a soft reservation of the given product.
 	 *
 	 * @param string $brand Product brand.
 	 * @param string $code Product code.
 	 * @param int $amount Amount of pieces of the given product.
 	 *
+	 * @return int Amount of remaining pieces of the given product.
+	 *
 	 * @throws Exception\InvalidValue If there is no such product.
 	 */
 	public function unmakeSoftProductReservation($brand, $code, $amount = 1)
 	{
-		return (bool) $this->call(
+		return (int) $this->call(
 			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount)
 		);
+	}
+
+	/**
+	 * Unmake the given soft product reservations.
+	 *
+	 * @param array $softReservations List of soft reservations which should be unmade.
+	 *
+	 * @return true
+	 */
+	public function unmakeSoftProductReservations(array $softReservations)
+	{
+		return (array) $this->call(__FUNCTION__, array('softReservations' => $softReservations));
 	}
 
 	/**
@@ -471,13 +493,27 @@ class Client
 	 * @param string $code Product code.
 	 * @param int $amount Amount of pieces of the given product.
 	 *
+	 * @return int Amount of remaining pieces of the given product.
+	 *
 	 * @throws Exception\InvalidValue If there is no such product.
 	 */
 	public function unmakeHardProductReservation($brand, $code, $amount = 1)
 	{
-		return (bool) $this->call(
+		return (int) $this->call(
 			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount)
 		);
+	}
+
+	/**
+	 * Unmake the given hard product reservations.
+	 *
+	 * @param array $hardReservations List of hard reservations which should be unmade.
+	 *
+	 * @return true
+	 */
+	public function unmakeHardProductReservations(array $hardReservations)
+	{
+		return (array) $this->call(__FUNCTION__, array('hardReservations' => $hardReservations));
 	}
 
 	/**
@@ -493,6 +529,18 @@ class Client
 	public function getRemainingAmount($brand, $code)
 	{
 		return (int) $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code));
+	}
+
+	/**
+	 * Get an amount of remaining pieces of multiple products at once.
+	 *
+	 * @param array $products Product definition
+	 *
+	 * @return array Amount of remaining pieces of given products.
+	 */
+	public function getRemainingAmounts(array $products)
+	{
+		return $this->call(__FUNCTION__, array('products' => $products));
 	}
 
 	/**

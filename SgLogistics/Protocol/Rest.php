@@ -4,8 +4,8 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012 Slevomat.cz, s.r.o.
- * @version 0.9
- * @apiVersion 0.9
+ * @version 1.0
+ * @apiVersion 1.0
  */
 
 namespace SgLogistics\Api\Protocol;
@@ -97,7 +97,6 @@ class Rest implements ProtocolInterface
 
 		$c = curl_init($url);
 		curl_setopt_array($c, array(
-			CURLOPT_FOLLOWLOCATION => true,
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_POST => true,
 			CURLOPT_POSTFIELDS => $post
