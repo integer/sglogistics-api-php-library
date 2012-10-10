@@ -74,7 +74,7 @@ class Client
 	 * @throws \Exception An exception thrown during the method execution.
 	 * @throws \BadMethodCallException If some other error occured.
 	 */
-	protected function call($method, array $arguments = array())
+	public function call($method, array $arguments = array())
 	{
 		$arguments['accessToken'] = $this->getAccessToken($method);
 
