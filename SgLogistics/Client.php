@@ -154,20 +154,15 @@ class Client
 	 * Add the given customer order to the SGL system.
 	 *
 	 * @param Entity\Order $order The customer order to be added.
-	 * @param bool $makeHardReservations Whether to make hard reservations of the order items.
-	 * @param bool $unreserveProducts Whether to cancel soft product reservations according to the order items.
 	 *
 	 * @return bool True if the operation was successful, false otherwise.
 	 *
 	 * @throws Exception\MissingValue If a value of some required property is missing.
 	 * @throws Exception\InvalidValue If a value of some property is not valid one.
 	 */
-	public function addOrder(Entity\Order $order, $makeHardReservations, $unreserveProducts)
+	public function addOrder(Entity\Order $order)
 	{
-		return (bool) $this->call(__FUNCTION__, $order->export() + array(
-			'makeHardReservations' => (bool) $makeHardReservations,
-			'unreserveProducts' => (bool) $unreserveProducts
-		));
+		return (bool) $this->call(__FUNCTION__, $order->export());
 	}
 
 	/**
