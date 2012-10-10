@@ -450,11 +450,13 @@ class Client
 	 * @param string $code Product code.
 	 * @param int $amount Amount of pieces of the given product.
 	 *
+	 * @return int Amount of remaining pieces of the given product.
+	 *
 	 * @throws Exception\InvalidValue If there is no such product.
 	 */
 	public function unmakeSoftProductReservation($brand, $code, $amount = 1)
 	{
-		return (bool) $this->call(
+		return (int) $this->call(
 			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount)
 		);
 	}
@@ -466,11 +468,13 @@ class Client
 	 * @param string $code Product code.
 	 * @param int $amount Amount of pieces of the given product.
 	 *
+	 * @return int Amount of remaining pieces of the given product.
+	 *
 	 * @throws Exception\InvalidValue If there is no such product.
 	 */
 	public function unmakeHardProductReservation($brand, $code, $amount = 1)
 	{
-		return (bool) $this->call(
+		return (int) $this->call(
 			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount)
 		);
 	}
