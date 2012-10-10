@@ -97,7 +97,6 @@ class Rest implements ProtocolInterface
 
 		$c = curl_init($url);
 		curl_setopt_array($c, array(
-			CURLOPT_FOLLOWLOCATION => true,
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_POST => true,
 			CURLOPT_POSTFIELDS => $post
