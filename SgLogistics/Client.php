@@ -444,6 +444,19 @@ class Client
 	}
 
 	/**
+	 * Try to prolong the given soft reservations.
+	 * If any of the given reservations do not exist corresponding ones are tried to be created.
+	 *
+	 * @param array $softReservations List of soft reservations which should be made hard.
+	 *
+	 * @return array List of successfully hardened reservations.
+	 */
+	public function prolongSoftReservations(array $softReservations)
+	{
+		return (array) $this->call(__FUNCTION__, array('softReservations' => $softReservations));
+	}
+
+	/**
 	 * Unmake a soft reservation of the given product.
 	 *
 	 * @param string $brand Product brand.
