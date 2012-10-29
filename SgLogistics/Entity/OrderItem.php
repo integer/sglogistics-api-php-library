@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012 Slevomat.cz, s.r.o.
- * @version 1.0
+ * @version 1.1
  * @apiVersion 1.0
  */
 
@@ -22,6 +22,7 @@ namespace SgLogistics\Api\Entity;
  * @property integer $amount
  * @property float $unitPrice
  * @property string $description
+ * @property integer $type
  */
 class OrderItem extends ApiEntity
 {
@@ -54,6 +55,20 @@ class OrderItem extends ApiEntity
 	const STATE_COMPLAINT = 4;
 
 	/**
+	 * Order item type - normal.
+	 *
+	 * @var int
+	 */
+	const TYPE_NORMAL = 1;
+
+	/**
+	 * Order item type - consignment.
+	 *
+	 * @var int
+	 */
+	const TYPE_CONSIGNMENT = 2;
+
+	/**
 	 * Entity data.
 	 *
 	 * @var array
@@ -64,6 +79,24 @@ class OrderItem extends ApiEntity
 		'code' => null,
 		'amount' => null,
 		'unitPrice' => null,
-		'description' => null
+		'description' => null,
+		'type' => self::TYPE_NORMAL
 	);
+
+	/**
+	 * Sets an attribute value.
+	 *
+	 * @param string $name Attribute name
+	 * @param mixed $value Attribute value
+	 *
+	 * @throws \InvalidArgumentException If the "type" attribute was not self::TYPE_NORMAL nor self::TYPE_CONSIGNMENT
+	 */
+	public function __set($name, $value)
+	{
+		if ('type' === $name && self::TYPE_CONSIGNMENT !== $value && self::TYPE_NORMAL !== $value) {
+			throw new \InvalidArgumentException(sprintf('The value of the "%s" attribute has to be SgLogistics\\Api\\Entity\\OrderItem::TYPE_NORMAL or SgLogistics\\Api\\Entity\\OrderItem::TYPE_CONSIGNMENT.', $name));
+		}
+
+		parent::__set($name, $value);
+	}
 }
