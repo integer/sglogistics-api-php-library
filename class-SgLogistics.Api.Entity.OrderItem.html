@@ -131,11 +131,60 @@
 
 				<b>Category:</b>
 				SgLogistics<br />
-		<b>Located at</b> <a href="source-class-SgLogistics.Api.Entity.OrderItem.html#13-69" title="Go to source code">SgLogistics/Entity/OrderItem.php</a><br />
+		<b>Located at</b> <a href="source-class-SgLogistics.Api.Entity.OrderItem.html#13-102" title="Go to source code">SgLogistics/Entity/OrderItem.php</a><br />
 	</div>
 
 
 
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__set" id="___set">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___set">#</a>
+		<code><a href="source-class-SgLogistics.Api.Entity.OrderItem.html#86-101" title="Go to source code">__set</a>( <span>string <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Sets an attribute value.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Sets an attribute value.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name Attribute name</dd>
+					<dt><var>$value</var></dt>
+					<dd><code>mixed</code><br>$value Attribute value</dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>InvalidArgumentException</code><br>If the "type" attribute was not self::TYPE_NORMAL nor self::TYPE_CONSIGNMENT<br />
+				</div>
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-SgLogistics.Api.Entity.ApiEntity.html#___set">SgLogistics\Api\Entity\ApiEntity::__set()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
 
 	<table class="summary inherited">
 	<caption>Methods inherited from <a href="class-SgLogistics.Api.Entity.ApiEntity.html#methods">SgLogistics\Api\Entity\ApiEntity</a></caption>
@@ -144,7 +193,6 @@
 			<a href="class-SgLogistics.Api.Entity.ApiEntity.html#___construct">__construct()</a>, 
 			<a href="class-SgLogistics.Api.Entity.ApiEntity.html#___get">__get()</a>, 
 			<a href="class-SgLogistics.Api.Entity.ApiEntity.html#___isset">__isset()</a>, 
-			<a href="class-SgLogistics.Api.Entity.ApiEntity.html#___set">__set()</a>, 
 			<a href="class-SgLogistics.Api.Entity.ApiEntity.html#_export">export()</a>, 
 			<a href="class-SgLogistics.Api.Entity.ApiEntity.html#_import">import()</a>
 		</code></td>
@@ -163,7 +211,7 @@
 
 		<td class="attributes"><code>integer</code></td>
 		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#28-33" title="Go to source code"><b>STATE_DEFAULT</b></a>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#29-34" title="Go to source code"><b>STATE_DEFAULT</b></a>
 		</code></td>
 		<td class="value"><code><span class="php-num">1</span></code></td>
 		<td class="description"><div>
@@ -187,7 +235,7 @@
 
 		<td class="attributes"><code>integer</code></td>
 		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#35-40" title="Go to source code"><b>STATE_CANCELLED</b></a>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#36-41" title="Go to source code"><b>STATE_CANCELLED</b></a>
 		</code></td>
 		<td class="value"><code><span class="php-num">2</span></code></td>
 		<td class="description"><div>
@@ -211,7 +259,7 @@
 
 		<td class="attributes"><code>integer</code></td>
 		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#42-47" title="Go to source code"><b>STATE_REPAYMENT</b></a>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#43-48" title="Go to source code"><b>STATE_REPAYMENT</b></a>
 		</code></td>
 		<td class="value"><code><span class="php-num">3</span></code></td>
 		<td class="description"><div>
@@ -235,7 +283,7 @@
 
 		<td class="attributes"><code>integer</code></td>
 		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#49-54" title="Go to source code"><b>STATE_COMPLAINT</b></a>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#50-55" title="Go to source code"><b>STATE_COMPLAINT</b></a>
 		</code></td>
 		<td class="value"><code><span class="php-num">4</span></code></td>
 		<td class="description"><div>
@@ -255,6 +303,54 @@
 			</div>
 		</div></td>
 	</tr>
+	<tr data-order="TYPE_NORMAL" id="TYPE_NORMAL">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#57-62" title="Go to source code"><b>TYPE_NORMAL</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">1</span></code></td>
+		<td class="description"><div>
+			<a href="#TYPE_NORMAL" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Order item type - normal.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Order item type - normal.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="TYPE_CONSIGNMENT" id="TYPE_CONSIGNMENT">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#64-69" title="Go to source code"><b>TYPE_CONSIGNMENT</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">2</span></code></td>
+		<td class="description"><div>
+			<a href="#TYPE_CONSIGNMENT" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Order item type - consignment.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Order item type - consignment.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
 	</table>
 
 
@@ -269,7 +365,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#56-68" title="Go to source code"><var>$data</var></a>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#71-84" title="Go to source code"><var>$data</var></a>
 		</td>
 		<td class="value"><code><span class="php-keyword1">array</span>(
 	<span class="php-quote">'id'</span> =&gt; <span class="php-keyword1">null</span>,
@@ -277,7 +373,8 @@
 	<span class="php-quote">'code'</span> =&gt; <span class="php-keyword1">null</span>,
 	<span class="php-quote">'amount'</span> =&gt; <span class="php-keyword1">null</span>,
 	<span class="php-quote">'unitPrice'</span> =&gt; <span class="php-keyword1">null</span>,
-	<span class="php-quote">'description'</span> =&gt; <span class="php-keyword1">null</span>
+	<span class="php-quote">'description'</span> =&gt; <span class="php-keyword1">null</span>,
+	<span class="php-quote">'type'</span> =&gt; self::TYPE_NORMAL
 )</code></td>
 		<td class="description"><div>
 			<a href="#$data" class="anchor">#</a>
@@ -423,6 +520,28 @@
 		</td>
 		<td class="description"><div>
 			<a href="#m$description" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="type" id="m$type">
+		<td class="attributes"><code>
+			public  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#25" title="Go to source code"><var>$type</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$type" class="anchor">#</a>
 
 			<div class="description short">
 				
