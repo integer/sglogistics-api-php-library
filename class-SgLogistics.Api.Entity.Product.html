@@ -7,7 +7,7 @@
 	<title>Class SgLogistics\Api\Entity\Product | SG Logistics client API Library</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?1229034023"></script>
+	<script type="text/javascript" src="elementlist.js?2052193474"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -41,9 +41,9 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-SgLogistics.Api.Entity.Address.html">Address</a></li>
 				<li><a href="class-SgLogistics.Api.Entity.ApiEntity.html">ApiEntity</a></li>
 				<li><a href="class-SgLogistics.Api.Entity.Order.html">Order</a></li>
-				<li><a href="class-SgLogistics.Api.Entity.OrderAddress.html">OrderAddress</a></li>
 				<li><a href="class-SgLogistics.Api.Entity.OrderItem.html">OrderItem</a></li>
 				<li><a href="class-SgLogistics.Api.Entity.OrderPart.html">OrderPart</a></li>
 				<li class="active"><a href="class-SgLogistics.Api.Entity.Product.html">Product</a></li>
@@ -131,7 +131,7 @@
 
 				<b>Category:</b>
 				SgLogistics<br />
-		<b>Located at</b> <a href="source-class-SgLogistics.Api.Entity.Product.html#13-72" title="Go to source code">SgLogistics/Entity/Product.php</a><br />
+		<b>Located at</b> <a href="source-class-SgLogistics.Api.Entity.Product.html#13-79" title="Go to source code">SgLogistics/Entity/Product.php</a><br />
 	</div>
 
 
@@ -149,7 +149,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___set">#</a>
-		<code><a href="source-class-SgLogistics.Api.Entity.Product.html#40-55" title="Go to source code">__set</a>( <span>string <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Entity.Product.html#42-62" title="Go to source code">__set</a>( <span>string <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
 
 		<div class="description short">
 			
@@ -175,6 +175,8 @@
 				<h4>Throws</h4>
 				<div class="list">
 					<code>InvalidArgumentException</code><br>If the file provided as the "picture" attribute value does not exist<br />
+					<code>InvalidArgumentException</code><br>If the "address" attribute was not an instance of
+\SgLogistics\Api\Entity\Address<br />
 				</div>
 
 
@@ -195,7 +197,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_export">#</a>
-		<code><a href="source-class-SgLogistics.Api.Entity.Product.html#57-71" title="Go to source code">export</a>( )</code>
+		<code><a href="source-class-SgLogistics.Api.Entity.Product.html#64-78" title="Go to source code">export</a>( )</code>
 
 		<div class="description short">
 			
@@ -256,14 +258,15 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-SgLogistics.Api.Entity.Product.html#27-38" title="Go to source code"><var>$data</var></a>
+				<a href="source-class-SgLogistics.Api.Entity.Product.html#28-40" title="Go to source code"><var>$data</var></a>
 		</td>
 		<td class="value"><code><span class="php-keyword1">array</span>(
 	<span class="php-quote">'brand'</span> =&gt; <span class="php-keyword1">null</span>,
 	<span class="php-quote">'code'</span> =&gt; <span class="php-keyword1">null</span>,
 	<span class="php-quote">'name'</span> =&gt; <span class="php-keyword1">null</span>,
 	<span class="php-quote">'picture'</span> =&gt; <span class="php-keyword1">null</span>,
-	<span class="php-quote">'weight'</span> =&gt; <span class="php-keyword1">null</span>
+	<span class="php-quote">'weight'</span> =&gt; <span class="php-keyword1">null</span>,
+	<span class="php-quote">'address'</span> =&gt; <span class="php-keyword1">null</span>
 )</code></td>
 		<td class="description"><div>
 			<a href="#$data" class="anchor">#</a>
@@ -387,6 +390,28 @@
 		</td>
 		<td class="description"><div>
 			<a href="#m$weight" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="address" id="m$address">
+		<td class="attributes"><code>
+			public  
+			<code><a href="class-SgLogistics.Api.Entity.Address.html">SgLogistics\Api\Entity\Address</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SgLogistics.Api.Entity.Product.html#24" title="Go to source code"><var>$address</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$address" class="anchor">#</a>
 
 			<div class="description short">
 				

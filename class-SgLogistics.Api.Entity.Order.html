@@ -7,7 +7,7 @@
 	<title>Class SgLogistics\Api\Entity\Order | SG Logistics client API Library</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?1229034023"></script>
+	<script type="text/javascript" src="elementlist.js?2052193474"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -41,9 +41,9 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-SgLogistics.Api.Entity.Address.html">Address</a></li>
 				<li><a href="class-SgLogistics.Api.Entity.ApiEntity.html">ApiEntity</a></li>
 				<li class="active"><a href="class-SgLogistics.Api.Entity.Order.html">Order</a></li>
-				<li><a href="class-SgLogistics.Api.Entity.OrderAddress.html">OrderAddress</a></li>
 				<li><a href="class-SgLogistics.Api.Entity.OrderItem.html">OrderItem</a></li>
 				<li><a href="class-SgLogistics.Api.Entity.OrderPart.html">OrderPart</a></li>
 				<li><a href="class-SgLogistics.Api.Entity.Product.html">Product</a></li>
@@ -131,52 +131,13 @@
 
 				<b>Category:</b>
 				SgLogistics<br />
-		<b>Located at</b> <a href="source-class-SgLogistics.Api.Entity.Order.html#13-167" title="Go to source code">SgLogistics/Entity/Order.php</a><br />
+		<b>Located at</b> <a href="source-class-SgLogistics.Api.Entity.Order.html#13-152" title="Go to source code">SgLogistics/Entity/Order.php</a><br />
 	</div>
 
 
 
 	<table class="summary" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="export" id="_export">
-
-		<td class="attributes"><code>
-			 public 
-			array
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_export">#</a>
-		<code><a href="source-class-SgLogistics.Api.Entity.Order.html#116-129" title="Go to source code">export</a>( )</code>
-
-		<div class="description short">
-			
-<p>Exports the entity into an array.</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Exports the entity into an array.</p>
-
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code>array</code><br />
-				</div>
-
-
-
-				<h4>Overrides</h4>
-				<div class="list"><code><a href="class-SgLogistics.Api.Entity.ApiEntity.html#_export">SgLogistics\Api\Entity\ApiEntity::export()</a></code></div>
-
-		</div>
-		</div></td>
-	</tr>
 	<tr data-order="addItem" id="_addItem">
 
 		<td class="attributes"><code>
@@ -188,7 +149,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addItem">#</a>
-		<code><a href="source-class-SgLogistics.Api.Entity.Order.html#131-148" title="Go to source code">addItem</a>( <span><code><a href="class-SgLogistics.Api.Entity.OrderItem.html">SgLogistics\Api\Entity\OrderItem</a></code> <var>$item</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Entity.Order.html#116-133" title="Go to source code">addItem</a>( <span><code><a href="class-SgLogistics.Api.Entity.OrderItem.html">SgLogistics\Api\Entity\OrderItem</a></code> <var>$item</var></span> )</code>
 
 		<div class="description short">
 			
@@ -234,7 +195,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___set">#</a>
-		<code><a href="source-class-SgLogistics.Api.Entity.Order.html#150-166" title="Go to source code">__set</a>( <span>string <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Entity.Order.html#135-151" title="Go to source code">__set</a>( <span>string <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
 
 		<div class="description short">
 			
@@ -260,9 +221,9 @@
 				<h4>Throws</h4>
 				<div class="list">
 					<code>InvalidArgumentException</code><br>If the "shippingAddress" attribute was not an instance of
-\SgLogistics\Api\Entity\OrderAddress<br />
+\SgLogistics\Api\Entity\Address<br />
 					<code>InvalidArgumentException</code><br>If the "billingAddress" attribute was not an instance of
-\SgLogistics\Api\Entity\OrderAddress<br />
+\SgLogistics\Api\Entity\Address<br />
 				</div>
 
 
@@ -281,6 +242,7 @@
 			<a href="class-SgLogistics.Api.Entity.ApiEntity.html#___construct">__construct()</a>, 
 			<a href="class-SgLogistics.Api.Entity.ApiEntity.html#___get">__get()</a>, 
 			<a href="class-SgLogistics.Api.Entity.ApiEntity.html#___isset">__isset()</a>, 
+			<a href="class-SgLogistics.Api.Entity.ApiEntity.html#_export">export()</a>, 
 			<a href="class-SgLogistics.Api.Entity.ApiEntity.html#_import">import()</a>
 		</code></td>
 	</tr>
@@ -696,7 +658,7 @@
 	<tr data-order="billingAddress" id="m$billingAddress">
 		<td class="attributes"><code>
 			public  
-			<code><a href="class-SgLogistics.Api.Entity.OrderAddress.html">SgLogistics\Api\Entity\OrderAddress</a></code>
+			<code><a href="class-SgLogistics.Api.Entity.Address.html">SgLogistics\Api\Entity\Address</a></code>
 		</code></td>
 
 		<td class="name">
@@ -718,7 +680,7 @@
 	<tr data-order="shippingAddress" id="m$shippingAddress">
 		<td class="attributes"><code>
 			public  
-			<code><a href="class-SgLogistics.Api.Entity.OrderAddress.html">SgLogistics\Api\Entity\OrderAddress</a></code>
+			<code><a href="class-SgLogistics.Api.Entity.Address.html">SgLogistics\Api\Entity\Address</a></code>
 		</code></td>
 
 		<td class="name">
