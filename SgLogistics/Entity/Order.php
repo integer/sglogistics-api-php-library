@@ -114,21 +114,6 @@ class Order extends ApiEntity
 	);
 
 	/**
-	 * Exports the entity into an array.
-	 *
-	 * @return array
-	 */
-	public function export()
-	{
-		$data = $this->data;
-		$data['items'] = array_map(function($i) { return $i->export(); }, $data['items']);
-
-		return array_map(function($value) {
-			return $value instanceof ApiEntity ? $value->export() : $value;
-		}, $data);
-	}
-
-	/**
 	 * Adds an item to the order.
 	 *
 	 * @param OrderItem $item
