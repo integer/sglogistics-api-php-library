@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012 Slevomat.cz, s.r.o.
- * @version 1.1
+ * @version 1.2
  * @apiVersion 1.0
  */
 
@@ -21,8 +21,8 @@ namespace SgLogistics\Api\Entity;
  * @property integer $deliveryType
  * @property integer $pickupStoreId
  * @property float $shippingPrice
- * @property OrderAddress $billingAddress
- * @property OrderAddress $shippingAddress
+ * @property Address $billingAddress
+ * @property Address $shippingAddress
  * @property array $items
  */
 class Order extends ApiEntity
@@ -114,21 +114,6 @@ class Order extends ApiEntity
 	);
 
 	/**
-	 * Exports the entity into an array.
-	 *
-	 * @return array
-	 */
-	public function export()
-	{
-		$data = $this->data;
-		$data['items'] = array_map(function($i) { return $i->export(); }, $data['items']);
-
-		return array_map(function($value) {
-			return $value instanceof ApiEntity ? $value->export() : $value;
-		}, $data);
-	}
-
-	/**
 	 * Adds an item to the order.
 	 *
 	 * @param OrderItem $item
@@ -153,13 +138,13 @@ class Order extends ApiEntity
 	 * @param string $name Attribute name
 	 * @param mixed $value Attribute value
 	 *
-	 * @throws \InvalidArgumentException If the "shippingAddress" attribute was not an instance of \SgLogistics\Api\Entity\OrderAddress
-	 * @throws \InvalidArgumentException If the "billingAddress" attribute was not an instance of \SgLogistics\Api\Entity\OrderAddress
+	 * @throws \InvalidArgumentException If the "shippingAddress" attribute was not an instance of \SgLogistics\Api\Entity\Address
+	 * @throws \InvalidArgumentException If the "billingAddress" attribute was not an instance of \SgLogistics\Api\Entity\Address
 	 */
 	public function __set($name, $value)
 	{
-		if (('billingAddress' === $name || 'shippingAddress' === $name) && !$value instanceof OrderAddress) {
-			throw new \InvalidArgumentException(sprintf('The value of the "%s" attribute has to be an instance of \SgLogistics\Api\Entity\OrderAddress.', $name));
+		if (('billingAddress' === $name || 'shippingAddress' === $name) && !$value instanceof Address) {
+			throw new \InvalidArgumentException(sprintf('The value of the "%s" attribute has to be an instance of \SgLogistics\Api\Entity\Address.', $name));
 		}
 
 		parent::__set($name, $value);

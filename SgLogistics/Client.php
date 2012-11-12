@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012 Slevomat.cz, s.r.o.
- * @version 1.1
+ * @version 1.2
  * @apiVersion 1.0
  */
 
@@ -365,14 +365,14 @@ class Client
 	 * Updates the given order shipping address.
 	 *
 	 * @param int $id ID of an order for which to update the shipping address.
-	 * @param Entity\OrderAddress $address New shipping address.
+	 * @param Entity\Address $address New shipping address.
 	 *
 	 * @return boolean
 	 *
 	 * @throws Exception\InvalidValue If there is no such order.
 	 * @throws Exception\InvalidValue If the given shipping address is not valid
 	 */
-	public function updateShippingAddress($id, Entity\OrderAddress $address)
+	public function updateShippingAddress($id, Entity\Address $address)
 	{
 		return (bool) $this->call(__FUNCTION__, array('id' => $id, 'address' => $address->export()));
 	}

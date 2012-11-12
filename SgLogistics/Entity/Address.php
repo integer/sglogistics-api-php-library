@@ -4,14 +4,14 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012 Slevomat.cz, s.r.o.
- * @version 1.1
+ * @version 1.2
  * @apiVersion 1.0
  */
 
 namespace SgLogistics\Api\Entity;
 
 /**
- * Order shipping address.
+ * Address.
  *
  * @category SgLogistics
  * @package  Api
@@ -26,7 +26,7 @@ namespace SgLogistics\Api\Entity;
  * @property string $companyId
  * @property string $companyVatId
  */
-class OrderAddress extends ApiEntity
+class Address extends ApiEntity
 {
 	/**
 	 * Country code for the Czech Republic.

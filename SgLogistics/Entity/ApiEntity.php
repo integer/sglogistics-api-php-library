@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012 Slevomat.cz, s.r.o.
- * @version 1.1
+ * @version 1.2
  * @apiVersion 1.0
  */
 
@@ -58,9 +58,17 @@ abstract class ApiEntity
 	 */
 	public function export()
 	{
-		return array_map(function($value) {
-			return $value instanceof ApiEntity ? $value->export() : $value;
-		}, $this->data);
+		$exportCallback = function($value) use (&$exportCallback) {
+			if (is_array($value)) {
+				return array_map($exportCallback, $value);
+			} elseif ($value instanceof ApiEntity) {
+				return $value->export();
+			} else {
+				return $value;
+			}
+		};
+
+		return array_map($exportCallback, $this->data);
 	}
 
 	/**
