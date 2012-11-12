@@ -21,6 +21,7 @@ namespace SgLogistics\Api\Entity;
  * @property string $name
  * @property string $picture
  * @property integer $weight
+ * @property Address $address
  */
 class Product extends ApiEntity
 {
@@ -34,7 +35,8 @@ class Product extends ApiEntity
 		'code' => null,
 		'name' => null,
 		'picture' => null,
-		'weight' => null
+		'weight' => null,
+		'address' => null
 	);
 
 	/**
@@ -44,11 +46,16 @@ class Product extends ApiEntity
 	 * @param mixed $value Attribute value
 	 *
 	 * @throws \InvalidArgumentException If the file provided as the "picture" attribute value does not exist
+	 * @throws \InvalidArgumentException If the "address" attribute was not an instance of \SgLogistics\Api\Entity\Address
 	 */
 	public function __set($name, $value)
 	{
 		if ('picture' === $name && !is_file($value)) {
 			throw new \InvalidArgumentException(sprintf('File "%s" does not exist.', $value));
+		}
+
+		if ('address' === $name && !$value instanceof Address) {
+			throw new \InvalidArgumentException(sprintf('The value of the "%s" attribute has to be an instance of \SgLogistics\Api\Entity\Address.', $name));
 		}
 
 		parent::__set($name, $value);
