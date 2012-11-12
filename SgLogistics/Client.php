@@ -198,6 +198,7 @@ class Client
 
 	/**
 	 * Get order(s) state(s).
+	 *
 	 * The returned array is in the following format:
 	 * <code>
 	 * [
@@ -231,6 +232,7 @@ class Client
 
 	/**
 	 * Get order(s) log(s).
+	 *
 	 * The returned array is in the following format:
 	 * <code>
 	 * [
@@ -286,6 +288,7 @@ class Client
 
 	/**
 	 * Get a list of returns (cancels, repayments and complaints) since the given date.
+	 *
 	 * The returned array is in the following format:
 	 * <code>
 	 * [
