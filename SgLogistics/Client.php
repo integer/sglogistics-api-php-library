@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012 Slevomat.cz, s.r.o.
- * @version 1.2
+ * @version 1.3
  * @apiVersion 1.0
  */
 
@@ -198,6 +198,7 @@ class Client
 
 	/**
 	 * Get order(s) state(s).
+	 *
 	 * The returned array is in the following format:
 	 * <code>
 	 * [
@@ -231,6 +232,7 @@ class Client
 
 	/**
 	 * Get order(s) log(s).
+	 *
 	 * The returned array is in the following format:
 	 * <code>
 	 * [
@@ -239,16 +241,6 @@ class Client
 	 *				[
 	 *					'date' => date_and_time_of_an_event,
 	 *					'state' => order_state_code,
-	 *					'items' => [
-	 *						[
-	 *							'date' => date_and_time_of_an_event,
-	 *							'brand' => product_brand,
-	 *							'code' => product_code,
-	 *							'amount' => amount_of_pieces,
-	 *							'state' => item_state_code
-	 *						],
-	 *						...
-	 *					]
 	 *				],
 	 *				...
 	 *			]
@@ -286,6 +278,7 @@ class Client
 
 	/**
 	 * Get a list of returns (cancels, repayments and complaints) since the given date.
+	 *
 	 * The returned array is in the following format:
 	 * <code>
 	 * [
@@ -449,7 +442,7 @@ class Client
 	 *
 	 * @param array $softReservations List of soft reservations which should be made hard.
 	 *
-	 * @return array List of successfully hardened reservations.
+	 * @return array List of successfully prolonged reservations.
 	 */
 	public function prolongSoftReservations(array $softReservations)
 	{
@@ -571,5 +564,34 @@ class Client
 	public function getReservedAmount($brand, $code)
 	{
 		return (int) $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code));
+	}
+
+	/**
+	 * Get the avaiable amount of the given product in all client's warehouses.
+	 *
+	 * The returned array is in the following format:
+	 * <code>
+	 * [
+	 *		[
+	 * 			'warehouse' => [
+	 * 				'id' => warehouse_id,
+	 * 				'name' => warehouse_name
+	 * 			],
+	 * 			'amount' => available_amount
+	 *		]
+	 *		...
+	 * ]
+	 * </code>
+	 *
+	 * @param string $brand Product brand.
+	 * @param string $code Product code.
+	 *
+	 * @return array The available amount in all client's warehouses
+	 *
+	 * @throws Exception\InvalidValue If there is no such product.
+	 */
+	public function getInventoryAmount($brand, $code)
+	{
+		return $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code));
 	}
 }
