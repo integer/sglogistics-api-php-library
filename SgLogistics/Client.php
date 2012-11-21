@@ -241,16 +241,6 @@ class Client
 	 *				[
 	 *					'date' => date_and_time_of_an_event,
 	 *					'state' => order_state_code,
-	 *					'items' => [
-	 *						[
-	 *							'date' => date_and_time_of_an_event,
-	 *							'brand' => product_brand,
-	 *							'code' => product_code,
-	 *							'amount' => amount_of_pieces,
-	 *							'state' => item_state_code
-	 *						],
-	 *						...
-	 *					]
 	 *				],
 	 *				...
 	 *			]
@@ -452,7 +442,7 @@ class Client
 	 *
 	 * @param array $softReservations List of soft reservations which should be made hard.
 	 *
-	 * @return array List of successfully hardened reservations.
+	 * @return array List of successfully prolonged reservations.
 	 */
 	public function prolongSoftReservations(array $softReservations)
 	{
