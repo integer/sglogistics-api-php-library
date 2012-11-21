@@ -565,4 +565,33 @@ class Client
 	{
 		return (int) $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code));
 	}
+
+	/**
+	 * Get the avaiable amount of the given product in all client's warehouses.
+	 *
+	 * The returned array is in the following format:
+	 * <code>
+	 * [
+	 *		[
+	 * 			'warehouse' => [
+	 * 				'id' => warehouse_id,
+	 * 				'name' => warehouse_name
+	 * 			],
+	 * 			'amount' => available_amount
+	 *		]
+	 *		...
+	 * ]
+	 * </code>
+	 *
+	 * @param string $brand Product brand.
+	 * @param string $code Product code.
+	 *
+	 * @return array The available amount in all client's warehouses
+	 *
+	 * @throws Exception\InvalidValue If there is no such product.
+	 */
+	public function getInventoryAmount($brand, $code)
+	{
+		return $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code));
+	}
 }
