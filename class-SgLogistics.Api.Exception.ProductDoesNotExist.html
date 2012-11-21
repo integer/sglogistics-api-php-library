@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Class SgLogistics\Api\Exception\SharedLimitReached | SG Logistics client API Library</title>
+	<title>Class SgLogistics\Api\Exception\ProductDoesNotExist | SG Logistics client API Library</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
 	<script type="text/javascript" src="elementlist.js?3925950863"></script>
@@ -47,11 +47,11 @@
 				<li><a href="class-SgLogistics.Api.Exception.InvalidAccess.html">InvalidAccess</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.InvalidValue.html">InvalidValue</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.MissingValue.html">MissingValue</a></li>
-				<li><a href="class-SgLogistics.Api.Exception.ProductDoesNotExist.html">ProductDoesNotExist</a></li>
+				<li class="active"><a href="class-SgLogistics.Api.Exception.ProductDoesNotExist.html">ProductDoesNotExist</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.Response.html">Response</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.ServerError.html">ServerError</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.SharedLimitDoesNotExist.html">SharedLimitDoesNotExist</a></li>
-				<li class="active"><a href="class-SgLogistics.Api.Exception.SharedLimitReached.html">SharedLimitReached</a></li>
+				<li><a href="class-SgLogistics.Api.Exception.SharedLimitReached.html">SharedLimitReached</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.Value.html">Value</a></li>
 			</ul>
 
@@ -95,13 +95,12 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class SharedLimitReached</h1>
+	<h1>Class ProductDoesNotExist</h1>
 
 
 	<div class="description">
 	
-<p>Thrown when there are no available pieces of a product which could be
-reserved.</p>
+<p>Exception thrown when the requested product does not exist.</p>
 
 	</div>
 
@@ -126,7 +125,21 @@ RuntimeException
 		</dd>
 		<dd style="padding-left:90px">
 			<img src="resources/inherit.png" alt="Extended by" />
-<b><span>SgLogistics\Api\Exception\SharedLimitReached</span></b>			
+			<a href="class-SgLogistics.Api.Exception.Value.html"><span>SgLogistics\Api\Exception\Value</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:120px">
+			<img src="resources/inherit.png" alt="Extended by" />
+			<a href="class-SgLogistics.Api.Exception.InvalidValue.html"><span>SgLogistics\Api\Exception\InvalidValue</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:150px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>SgLogistics\Api\Exception\ProductDoesNotExist</span></b>			
 			
 			
 		</dd>
@@ -143,11 +156,11 @@ RuntimeException
 		
 		
 		<b>Namespace:</b> <a href="namespace-SgLogistics.html">SgLogistics</a>\<a href="namespace-SgLogistics.Api.html">Api</a>\<a href="namespace-SgLogistics.Api.Exception.html">Exception</a><br />
-		<b>Package:</b> Api\Exception<br />
+		<b>Package:</b> Api<br />
 
 				<b>Category:</b>
 				SgLogistics<br />
-		<b>Located at</b> <a href="source-class-SgLogistics.Api.Exception.SharedLimitReached.html#13-70" title="Go to source code">SgLogistics/Exception/SharedLimitReached.php</a><br />
+		<b>Located at</b> <a href="source-class-SgLogistics.Api.Exception.ProductDoesNotExist.html#13-68" title="Go to source code">SgLogistics/Exception/ProductDoesNotExist.php</a><br />
 	</div>
 
 
@@ -165,40 +178,38 @@ RuntimeException
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-SgLogistics.Api.Exception.SharedLimitReached.html#36-49" title="Go to source code">__construct</a>( <span>string <var>$message</var></span>, <span>string <var>$product</var></span>, <span>integer <var>$limit</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Exception.ProductDoesNotExist.html#35-47" title="Go to source code">__construct</a>( <span>string <var>$productBrand</var></span>, <span>string <var>$productCode</var></span> )</code>
 
 		<div class="description short">
 			
-<p>Constructor.</p>
+<p>Creates the exception.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Constructor.</p>
+<p>Creates the exception.</p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$message</var></dt>
-					<dd><code>string</code><br>$message Message</dd>
-					<dt><var>$product</var></dt>
-					<dd><code>string</code><br>$product Product</dd>
-					<dt><var>$limit</var></dt>
-					<dd><code>integer</code><br>$limit The number of remaining pieces of the product.</dd>
+					<dt><var>$productBrand</var></dt>
+					<dd><code>string</code><br>$productBrand Given product brand</dd>
+					<dt><var>$productCode</var></dt>
+					<dd><code>string</code><br>$code Given product code</dd>
 				</dl></div>
 
 
 
 
 				<h4>Overrides</h4>
-				<div class="list"><code><a href="class-SgLogistics.Api.Exception.Response.html#___construct">SgLogistics\Api\Exception\Response::__construct()</a></code></div>
+				<div class="list"><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html#___construct">SgLogistics\Api\Exception\InvalidValue::__construct()</a></code></div>
 
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="getProduct" id="_getProduct">
+	<tr data-order="getProductBrand" id="_getProductBrand">
 
 		<td class="attributes"><code>
 			 public 
@@ -208,25 +219,25 @@ RuntimeException
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getProduct">#</a>
-		<code><a href="source-class-SgLogistics.Api.Exception.SharedLimitReached.html#51-59" title="Go to source code">getProduct</a>( )</code>
+		<a class="anchor" href="#_getProductBrand">#</a>
+		<code><a href="source-class-SgLogistics.Api.Exception.ProductDoesNotExist.html#49-57" title="Go to source code">getProductBrand</a>( )</code>
 
 		<div class="description short">
 			
-<p>Get the product.</p>
+<p>Vrátí brand požadovaného produktu.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Get the product.</p>
+<p>Vrátí brand požadovaného produktu.</p>
 
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>string</code><br>Product<br />
+					<code>string</code><br />
 				</div>
 
 
@@ -235,35 +246,35 @@ RuntimeException
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="getLimit" id="_getLimit">
+	<tr data-order="getProductCode" id="_getProductCode">
 
 		<td class="attributes"><code>
 			 public 
-			integer
+			string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getLimit">#</a>
-		<code><a href="source-class-SgLogistics.Api.Exception.SharedLimitReached.html#61-69" title="Go to source code">getLimit</a>( )</code>
+		<a class="anchor" href="#_getProductCode">#</a>
+		<code><a href="source-class-SgLogistics.Api.Exception.ProductDoesNotExist.html#59-67" title="Go to source code">getProductCode</a>( )</code>
 
 		<div class="description short">
 			
-<p>Get the number of remaining pieces of the product.</p>
+<p>Vrátí kód požadovaného produktu.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Get the number of remaining pieces of the product.</p>
+<p>Vrátí kód požadovaného produktu.</p>
 
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>integer</code><br>The number of remaining pieces of the product.<br />
+					<code>string</code><br />
 				</div>
 
 
@@ -274,6 +285,15 @@ RuntimeException
 	</tr>
 	</table>
 
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-SgLogistics.Api.Exception.Value.html#methods">SgLogistics\Api\Exception\Value</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-SgLogistics.Api.Exception.Value.html#_getParameterName">getParameterName()</a>, 
+			<a href="class-SgLogistics.Api.Exception.Value.html#_getValue">getValue()</a>
+		</code></td>
+	</tr>
+	</table>
 	<table class="summary inherited">
 	<caption>Methods inherited from <a href="class-SgLogistics.Api.Exception.Response.html#methods">SgLogistics\Api\Exception\Response</a></caption>
 	<tr>
@@ -310,6 +330,63 @@ getTraceAsString()
 
 
 
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="productBrand" id="$productBrand">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SgLogistics.Api.Exception.ProductDoesNotExist.html#21-26" title="Go to source code"><var>$productBrand</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$productBrand" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Brand produktu.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Brand produktu.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="productCode" id="$productCode">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SgLogistics.Api.Exception.ProductDoesNotExist.html#28-33" title="Go to source code"><var>$productCode</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$productCode" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Kód produktu.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Kód produktu.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
 
 	<table class="summary inherited">
 	<caption>Properties inherited from Exception</caption>
