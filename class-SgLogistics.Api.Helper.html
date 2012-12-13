@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Class SgLogistics\Api\Protocol\Rest | SG Logistics client API Library</title>
+	<title>Class SgLogistics\Api\Helper | SG Logistics client API Library</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
 	<script type="text/javascript" src="elementlist.js?2692129699"></script>
@@ -29,7 +29,7 @@
 						</li>
 				<li><a href="namespace-SgLogistics.Api.Exception.html">Exception</a>
 						</li>
-				<li class="active"><a href="namespace-SgLogistics.Api.Protocol.html">Protocol</a>
+				<li><a href="namespace-SgLogistics.Api.Protocol.html">Protocol</a>
 						</li>
 							</ul></li></ul></li>
 			</ul>
@@ -41,13 +41,12 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li class="active"><a href="class-SgLogistics.Api.Protocol.Rest.html">Rest</a></li>
+				<li><a href="class-SgLogistics.Api.Autoloader.html">Autoloader</a></li>
+				<li><a href="class-SgLogistics.Api.Client.html">Client</a></li>
+				<li class="active"><a href="class-SgLogistics.Api.Helper.html">Helper</a></li>
+				<li><a href="class-SgLogistics.Api.Response.html">Response</a></li>
 			</ul>
 
-			<h3>Interfaces</h3>
-			<ul>
-				<li><a href="class-SgLogistics.Api.Protocol.ProtocolInterface.html">ProtocolInterface</a></li>
-			</ul>
 
 
 
@@ -73,7 +72,7 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="namespace-SgLogistics.Api.Protocol.html" title="Summary of SgLogistics\Api\Protocol"><span>Namespace</span></a>
+				<a href="namespace-SgLogistics.Api.html" title="Summary of SgLogistics\Api"><span>Namespace</span></a>
 			</li>
 			<li class="active">
 <span>Class</span>			</li>
@@ -91,24 +90,15 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class Rest</h1>
+	<h1>Class Helper</h1>
 
 
 	<div class="description">
 	
-<p>REST protocol.</p>
+<p>API client helper.</p>
 
 	</div>
 
-	<dl class="tree">
-		<dd style="padding-left:0px">
-<b><span>SgLogistics\Api\Protocol\Rest</span></b>			
-			 implements 
-				<a href="class-SgLogistics.Api.Protocol.ProtocolInterface.html"><span>SgLogistics\Api\Protocol\ProtocolInterface</span></a>
-			
-			
-		</dd>
-	</dl>
 
 
 
@@ -120,103 +110,102 @@
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-SgLogistics.html">SgLogistics</a>\<a href="namespace-SgLogistics.Api.html">Api</a>\<a href="namespace-SgLogistics.Api.Protocol.html">Protocol</a><br />
-		<b>Package:</b> Api\Protocol<br />
+		<b>Namespace:</b> <a href="namespace-SgLogistics.html">SgLogistics</a>\<a href="namespace-SgLogistics.Api.html">Api</a><br />
+		<b>Package:</b> Api<br />
 
 				<b>Category:</b>
 				SgLogistics<br />
-		<b>Located at</b> <a href="source-class-SgLogistics.Api.Protocol.Rest.html#13-124" title="Go to source code">SgLogistics/Protocol/Rest.php</a><br />
+		<b>Located at</b> <a href="source-class-SgLogistics.Api.Helper.html#13-58" title="Go to source code">SgLogistics/Helper.php</a><br />
 	</div>
 
 
 
 	<table class="summary" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="__construct" id="___construct">
+	<tr data-order="normalizeProductCode" id="_normalizeProductCode">
 
 		<td class="attributes"><code>
-			 public 
-			
+			 public static
+			string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-SgLogistics.Api.Protocol.Rest.html#36-50" title="Go to source code">__construct</a>( <span>string <var>$hostUrl</var></span> )</code>
+		<a class="anchor" href="#_normalizeProductCode">#</a>
+		<code><a href="source-class-SgLogistics.Api.Helper.html#21-31" title="Go to source code">normalizeProductCode</a>( <span>string <var>$code</var></span> )</code>
 
 		<div class="description short">
 			
-<p>Constructor.</p>
+<p>Returns a normalized product code.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Constructor.</p>
+<p>Returns a normalized product code.</p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$hostUrl</var></dt>
-					<dd><code>string</code><br>$hostUrl Server URL.</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>string</code><br>$code Product code</dd>
 				</dl></div>
 
-
-				<h4>Throws</h4>
+				<h4>Returns</h4>
 				<div class="list">
-					<code>Exception</code><br>If the cURL PHP extension is not loaded<br />
+					<code>string</code><br />
 				</div>
+
 
 
 
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="request" id="_request">
+	<tr data-order="toAscii" id="_toAscii">
 
 		<td class="attributes"><code>
-			 public 
-			<code><a href="class-SgLogistics.Api.Response.html">SgLogistics\Api\Response</a></code>
+			 public static
+			string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_request">#</a>
-		<code><a href="source-class-SgLogistics.Api.Protocol.Rest.html#75-123" title="Go to source code">request</a>( <span>string <var>$method</var></span>, <span>array <var>$arguments</var> = <span class="php-keyword1">array</span>()</span> )</code>
+		<a class="anchor" href="#_toAscii">#</a>
+		<code><a href="source-class-SgLogistics.Api.Helper.html#33-57" title="Go to source code">toAscii</a>( <span>string <var>$text</var></span> )</code>
 
 		<div class="description short">
 			
-<p>Sends a request and returns the response.</p>
+<p>Converts the given string to ASCII.</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Sends a request and returns the response.</p>
+<p>Converts the given string to ASCII.</p>
+
+<p><a
+href="https://github.com/nette/nette/blob/release-2.0.x/Nette/Utils/Strings.php#L170">https://github.com/nette/nette/blob/release-2.0.x/Nette/Utils/Strings.php#L170</a></p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$method</var></dt>
-					<dd><code>string</code><br>$method Method name</dd>
-					<dt><var>$arguments</var></dt>
-					<dd><code>array</code><br>$arguments Array of arguments</dd>
+					<dt><var>$text</var></dt>
+					<dd><code>string</code><br>$text The converted text (in UTF-8)</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><code><a href="class-SgLogistics.Api.Response.html">SgLogistics\Api\Response</a></code></code><br>Method call result.<br />
+					<code>string</code><br />
 				</div>
 
 
 
 
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-SgLogistics.Api.Protocol.ProtocolInterface.html#_request">SgLogistics\Api\Protocol\ProtocolInterface::request()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
