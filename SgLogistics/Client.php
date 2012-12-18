@@ -310,6 +310,35 @@ class Client
 	}
 
 	/**
+	 * Returns information about a single cancel/repayment/cimplaint.
+	 *
+	 * The returned array is in the following format:
+	 * <code>
+	 * [
+	 * 		'id' => return_id,
+	 * 		'orderId => order_id,
+	 * 		'type' =>  cancel/replayment/complaint,
+	 * 		'date' => date_and_time_when_the_item_was_returned,
+	 * 		'items' => [
+	 *			[
+	 *				'brand' => product_brand,
+	 *				'code' => product_code,
+	 *				'amount' => amount_of_pieces
+	 * 			],
+	 * 			...
+	 * 		]
+	 * ]
+	 * </code>
+	 *
+	 * @param int $id Return ID
+	 * @return array
+	 */
+	public function getReturn($id)
+	{
+		return $this->call(__FUNCTION__, array('id' => $id));
+	}
+
+	/**
 	 * Get an invoice for the given order.
 	 *
 	 * @param int $id ID of an order for which to get an invoice.
