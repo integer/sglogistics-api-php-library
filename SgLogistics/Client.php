@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012 Slevomat.cz, s.r.o.
- * @version 1.4
+ * @version 1.5
  * @apiVersion 1.0
  */
 
@@ -307,6 +307,35 @@ class Client
 	public function getReturns($since)
 	{
 		return $this->call(__FUNCTION__, array('since' => $since));
+	}
+
+	/**
+	 * Returns information about a single cancel/repayment/cimplaint.
+	 *
+	 * The returned array is in the following format:
+	 * <code>
+	 * [
+	 * 		'id' => return_id,
+	 * 		'orderId => order_id,
+	 * 		'type' =>  cancel/replayment/complaint,
+	 * 		'date' => date_and_time_when_the_item_was_returned,
+	 * 		'items' => [
+	 *			[
+	 *				'brand' => product_brand,
+	 *				'code' => product_code,
+	 *				'amount' => amount_of_pieces
+	 * 			],
+	 * 			...
+	 * 		]
+	 * ]
+	 * </code>
+	 *
+	 * @param int $id Return ID
+	 * @return array
+	 */
+	public function getReturn($id)
+	{
+		return $this->call(__FUNCTION__, array('id' => $id));
 	}
 
 	/**
