@@ -218,7 +218,7 @@ class Client
 	 * ]
 	 * </code>
 	 *
-	 * @param integer|array $id Order IDs. Can be a single ID or a list of IDs in which case the result will an array
+	 * @param array $id Order IDs. Can be a single ID or a list of IDs in which case the result will an array
 	 *                          where its keys are IDs of corresponding orders.
 	 *
 	 * @return array The result in a format described above.
@@ -249,7 +249,7 @@ class Client
 	 * ]
 	 * </code>
 	 *
-	 * @param integer|array $id Order IDs. Can be a single ID or a list of IDs in which case the result will an array
+	 * @param array $id Order IDs. Can be a single ID or a list of IDs in which case the result will an array
 	 *                          where its keys are IDs of corresponding orders.
 	 *
 	 * @return array The result in a format described above.
