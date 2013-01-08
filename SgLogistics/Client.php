@@ -207,14 +207,14 @@ class Client
 	 * 			'date' => date_and_time_of_an_event,
 	 * 			'items' => [
 	 * 				[
-	 *					'brand' => product_brand,
-	 *					'code' => product_code,
-	 *					'amount' => amount_of_pieces,
-	 *					'state' => item_state_code
+	 * 					'brand' => product_brand,
+	 * 					'code' => product_code,
+	 * 					'amount' => amount_of_pieces,
+	 * 					'state' => item_state_code
 	 * 				],
 	 * 				...
-	 *			]
-	 *		],
+	 * 			]
+	 * 		],
 	 * 		...
 	 * ]
 	 * </code>
