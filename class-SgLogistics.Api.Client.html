@@ -115,7 +115,7 @@
 
 				<b>Category:</b>
 				SgLogistics<br />
-		<b>Located at</b> <a href="source-class-SgLogistics.Api.Client.html#13-626" title="Go to source code">SgLogistics/Client.php</a><br />
+		<b>Located at</b> <a href="source-class-SgLogistics.Api.Client.html#13-627" title="Go to source code">SgLogistics/Client.php</a><br />
 	</div>
 
 
@@ -436,7 +436,7 @@ is no such product then the given product is added into the system.</p>
 
 		<td class="attributes"><code>
 			 public 
-			true
+			integer
 			
 			</code>
 		</td>
@@ -465,7 +465,7 @@ is no such product then the given product is added into the system.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>true</code><br>If the operation was successful.<br />
+					<code>integer</code><br>Cancel ID<br />
 				</div>
 
 				<h4>Throws</h4>
@@ -482,7 +482,7 @@ is no such product then the given product is added into the system.</p>
 
 		<td class="attributes"><code>
 			 public 
-			true
+			integer
 			
 			</code>
 		</td>
@@ -513,7 +513,7 @@ is no such product then the given product is added into the system.</p>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>true</code><br>If the operation was successful.<br />
+					<code>integer</code><br>Cancel ID<br />
 				</div>
 
 				<h4>Throws</h4>
@@ -539,7 +539,7 @@ higher than amount contained within the order.<br />
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getOrderState">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#199-231" title="Go to source code">getOrderState</a>( <span>integer|array <var>$id</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#199-232" title="Go to source code">getOrderState</a>( <span>array <var>$id</var></span> )</code>
 
 		<div class="description short">
 			
@@ -555,24 +555,26 @@ higher than amount contained within the order.<br />
 
 <pre>
 [
-        order_id =&gt; [
-                <span
+                order_id =&gt; [
+                        <span
 class="php-quote">'state'</span> =&gt; order_state_code,
-                <span
+                        <span
+class="php-quote">'date'</span> =&gt; date_and_time_of_an_event,
+                        <span
 class="php-quote">'items'</span> =&gt; [
                                 [
-                                <span
+                                        <span
 class="php-quote">'brand'</span> =&gt; product_brand,
-                                <span
+                                        <span
 class="php-quote">'code'</span> =&gt; product_code,
-                                <span
+                                        <span
 class="php-quote">'amount'</span> =&gt; amount_of_pieces,
-                                <span
+                                        <span
 class="php-quote">'state'</span> =&gt; item_state_code
                                 ],
                                 ...
-                ]
-        ],
+                        ]
+                ],
                 ...
 ]
 </pre>
@@ -582,7 +584,7 @@ class="php-quote">'state'</span> =&gt; item_state_code
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>integer|array</code><br>$id Order IDs. Can be a single ID or a list of IDs in which case the result will
+					<dd><code>array</code><br>$id Order IDs. Can be a single ID or a list of IDs in which case the result will
 an array where its keys are IDs of corresponding orders.</dd>
 				</dl></div>
 
@@ -612,7 +614,7 @@ an array where its keys are IDs of corresponding orders.</dd>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getOrderStateLog">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#233-262" title="Go to source code">getOrderStateLog</a>( <span>integer|array <var>$id</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#234-263" title="Go to source code">getOrderStateLog</a>( <span>array <var>$id</var></span> )</code>
 
 		<div class="description short">
 			
@@ -648,7 +650,7 @@ class="php-quote">'state'</span> =&gt; order_state_code,
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$id</var></dt>
-					<dd><code>integer|array</code><br>$id Order IDs. Can be a single ID or a list of IDs in which case the result will
+					<dd><code>array</code><br>$id Order IDs. Can be a single ID or a list of IDs in which case the result will
 an array where its keys are IDs of corresponding orders.</dd>
 				</dl></div>
 
@@ -678,7 +680,7 @@ an array where its keys are IDs of corresponding orders.</dd>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_closeOrder">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#264-277" title="Go to source code">closeOrder</a>( <span>integer <var>$id</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#265-278" title="Go to source code">closeOrder</a>( <span>integer <var>$id</var></span> )</code>
 
 		<div class="description short">
 			
@@ -728,7 +730,7 @@ it.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getReturns">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#279-310" title="Go to source code">getReturns</a>( <span>string|integer <var>$since</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#280-311" title="Go to source code">getReturns</a>( <span>string|integer <var>$since</var></span> )</code>
 
 		<div class="description short">
 			
@@ -803,7 +805,7 @@ class="php-quote">' =&gt; amount_of_pieces
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getReturn">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#312-339" title="Go to source code">getReturn</a>( <span>integer <var>$id</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#313-340" title="Go to source code">getReturn</a>( <span>integer <var>$id</var></span> )</code>
 
 		<div class="description short">
 			
@@ -873,7 +875,7 @@ class="php-quote">' =&gt; amount_of_pieces
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getInvoice">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#341-354" title="Go to source code">getInvoice</a>( <span>integer <var>$id</var></span>, <span>string <var>$format</var> = <code><a href="class-SgLogistics.Api.Client.html#DOCUMENT_FORMAT_PDF">SgLogistics\Api\Client::<b>DOCUMENT_FORMAT_PDF</b></a></code></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#342-355" title="Go to source code">getInvoice</a>( <span>integer <var>$id</var></span>, <span>string <var>$format</var> = <code><a href="class-SgLogistics.Api.Client.html#DOCUMENT_FORMAT_PDF">SgLogistics\Api\Client::<b>DOCUMENT_FORMAT_PDF</b></a></code></span> )</code>
 
 		<div class="description short">
 			
@@ -921,7 +923,7 @@ class="php-quote">' =&gt; amount_of_pieces
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getPaymentConfirmation">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#356-369" title="Go to source code">getPaymentConfirmation</a>( <span>integer <var>$id</var></span>, <span>string <var>$format</var> = <code><a href="class-SgLogistics.Api.Client.html#DOCUMENT_FORMAT_PDF">SgLogistics\Api\Client::<b>DOCUMENT_FORMAT_PDF</b></a></code></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#357-370" title="Go to source code">getPaymentConfirmation</a>( <span>integer <var>$id</var></span>, <span>string <var>$format</var> = <code><a href="class-SgLogistics.Api.Client.html#DOCUMENT_FORMAT_PDF">SgLogistics\Api\Client::<b>DOCUMENT_FORMAT_PDF</b></a></code></span> )</code>
 
 		<div class="description short">
 			
@@ -969,7 +971,7 @@ class="php-quote">' =&gt; amount_of_pieces
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getReturnReceipt">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#371-384" title="Go to source code">getReturnReceipt</a>( <span>integer <var>$id</var></span>, <span>string <var>$format</var> = <code><a href="class-SgLogistics.Api.Client.html#DOCUMENT_FORMAT_PDF">SgLogistics\Api\Client::<b>DOCUMENT_FORMAT_PDF</b></a></code></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#372-385" title="Go to source code">getReturnReceipt</a>( <span>integer <var>$id</var></span>, <span>string <var>$format</var> = <code><a href="class-SgLogistics.Api.Client.html#DOCUMENT_FORMAT_PDF">SgLogistics\Api\Client::<b>DOCUMENT_FORMAT_PDF</b></a></code></span> )</code>
 
 		<div class="description short">
 			
@@ -1017,7 +1019,7 @@ class="php-quote">' =&gt; amount_of_pieces
 
 		<td class="name"><div>
 		<a class="anchor" href="#_updateShippingAddress">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#386-400" title="Go to source code">updateShippingAddress</a>( <span>integer <var>$id</var></span>, <span><code><a href="class-SgLogistics.Api.Entity.Address.html">SgLogistics\Api\Entity\Address</a></code> <var>$address</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#387-401" title="Go to source code">updateShippingAddress</a>( <span>integer <var>$id</var></span>, <span><code><a href="class-SgLogistics.Api.Entity.Address.html">SgLogistics\Api\Entity\Address</a></code> <var>$address</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1066,7 +1068,7 @@ class="php-quote">' =&gt; amount_of_pieces
 
 		<td class="name"><div>
 		<a class="anchor" href="#_makeSoftProductReservation">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#402-420" title="Go to source code">makeSoftProductReservation</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span>, <span>integer <var>$amount</var> = <span class="php-num">1</span></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#403-421" title="Go to source code">makeSoftProductReservation</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span>, <span>integer <var>$amount</var> = <span class="php-num">1</span></span> )</code>
 
 		<div class="description short">
 			
@@ -1118,7 +1120,7 @@ class="php-quote">' =&gt; amount_of_pieces
 
 		<td class="name"><div>
 		<a class="anchor" href="#_makeHardProductReservation">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#422-440" title="Go to source code">makeHardProductReservation</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span>, <span>integer <var>$amount</var> = <span class="php-num">1</span></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#423-441" title="Go to source code">makeHardProductReservation</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span>, <span>integer <var>$amount</var> = <span class="php-num">1</span></span> )</code>
 
 		<div class="description short">
 			
@@ -1170,7 +1172,7 @@ class="php-quote">' =&gt; amount_of_pieces
 
 		<td class="name"><div>
 		<a class="anchor" href="#_makeSoftReservationsHard">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#442-453" title="Go to source code">makeSoftReservationsHard</a>( <span>array <var>$softReservations</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#443-454" title="Go to source code">makeSoftReservationsHard</a>( <span>array <var>$softReservations</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1214,7 +1216,7 @@ do not exist corresponding hard ones are tried to be created.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_makeHardReservationsSoft">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#455-466" title="Go to source code">makeHardReservationsSoft</a>( <span>array <var>$hardReservations</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#456-467" title="Go to source code">makeHardReservationsSoft</a>( <span>array <var>$hardReservations</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1258,7 +1260,7 @@ do not exist corresponding soft ones are tried to be created.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_prolongSoftReservations">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#468-479" title="Go to source code">prolongSoftReservations</a>( <span>array <var>$softReservations</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#469-480" title="Go to source code">prolongSoftReservations</a>( <span>array <var>$softReservations</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1302,7 +1304,7 @@ do not exist corresponding ones are tried to be created.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_unmakeSoftProductReservation">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#481-497" title="Go to source code">unmakeSoftProductReservation</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span>, <span>integer <var>$amount</var> = <span class="php-num">1</span></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#482-498" title="Go to source code">unmakeSoftProductReservation</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span>, <span>integer <var>$amount</var> = <span class="php-num">1</span></span> )</code>
 
 		<div class="description short">
 			
@@ -1352,7 +1354,7 @@ do not exist corresponding ones are tried to be created.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_unmakeSoftProductReservations">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#499-509" title="Go to source code">unmakeSoftProductReservations</a>( <span>array <var>$softReservations</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#500-510" title="Go to source code">unmakeSoftProductReservations</a>( <span>array <var>$softReservations</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1394,7 +1396,7 @@ do not exist corresponding ones are tried to be created.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_unmakeHardProductReservation">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#511-527" title="Go to source code">unmakeHardProductReservation</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span>, <span>integer <var>$amount</var> = <span class="php-num">1</span></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#512-528" title="Go to source code">unmakeHardProductReservation</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span>, <span>integer <var>$amount</var> = <span class="php-num">1</span></span> )</code>
 
 		<div class="description short">
 			
@@ -1444,7 +1446,7 @@ do not exist corresponding ones are tried to be created.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_unmakeHardProductReservations">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#529-539" title="Go to source code">unmakeHardProductReservations</a>( <span>array <var>$hardReservations</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#530-540" title="Go to source code">unmakeHardProductReservations</a>( <span>array <var>$hardReservations</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1486,7 +1488,7 @@ do not exist corresponding ones are tried to be created.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getRemainingAmount">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#541-554" title="Go to source code">getRemainingAmount</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#542-555" title="Go to source code">getRemainingAmount</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1534,7 +1536,7 @@ do not exist corresponding ones are tried to be created.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getRemainingAmounts">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#556-566" title="Go to source code">getRemainingAmounts</a>( <span>array <var>$products</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#557-567" title="Go to source code">getRemainingAmounts</a>( <span>array <var>$products</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1576,7 +1578,7 @@ do not exist corresponding ones are tried to be created.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getSharedLimit">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#568-581" title="Go to source code">getSharedLimit</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#569-582" title="Go to source code">getSharedLimit</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1624,7 +1626,7 @@ do not exist corresponding ones are tried to be created.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getReservedAmount">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#583-596" title="Go to source code">getReservedAmount</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#584-597" title="Go to source code">getReservedAmount</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1672,7 +1674,7 @@ do not exist corresponding ones are tried to be created.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getInventoryAmount">#</a>
-		<code><a href="source-class-SgLogistics.Api.Client.html#598-625" title="Go to source code">getInventoryAmount</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Client.html#599-626" title="Go to source code">getInventoryAmount</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span> )</code>
 
 		<div class="description short">
 			
