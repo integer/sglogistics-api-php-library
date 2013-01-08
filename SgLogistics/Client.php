@@ -3,8 +3,8 @@
 /**
  * SG Logistics client API
  *
- * @copyright Copyright (c) 2012 Slevomat.cz, s.r.o.
- * @version 1.5
+ * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
+ * @version 1.6
  * @apiVersion 1.0
  */
 
@@ -170,13 +170,13 @@ class Client
 	 *
 	 * @param string $id The ID of order to be cancelled entirely.
 	 *
-	 * @return true If the operation was successful.
+	 * @return int Cancel ID
 	 *
 	 * @throws \InvalidArgumentException If there is no such order.
 	 */
 	public function cancelOrder($id)
 	{
-		return (bool) $this->call(__FUNCTION__, array('id' => $id));
+		return (int) $this->call(__FUNCTION__, array('id' => $id));
 	}
 
 	/**
@@ -185,7 +185,7 @@ class Client
 	 * @param Entity\OrderPart $part The order part to be cancelled.
 	 * @param boolean $returnShippingPrice Should the price paid for S/H be returned as well?
 	 *
-	 * @return true If the operation was successful.
+	 * @return int Cancel ID
 	 *
 	 * @throws \InvalidArgumentException If there is no such order.
 	 * @throws Exception\InvalidValue If the given order does not contain the given product or the amount to cancel
@@ -193,7 +193,7 @@ class Client
 	 */
 	public function cancelOrderPart(Entity\OrderPart $part, $returnShippingPrice = false)
 	{
-		return (bool) $this->call(__FUNCTION__, $part->export() + array('returnShippingPrice' => $returnShippingPrice));
+		return (int) $this->call(__FUNCTION__, $part->export() + array('returnShippingPrice' => $returnShippingPrice));
 	}
 
 	/**
@@ -202,23 +202,24 @@ class Client
 	 * The returned array is in the following format:
 	 * <code>
 	 * [
-	 *		order_id => [
-	 *			'state' => order_state_code,
-	 *			'items' => [
+	 * 		order_id => [
+	 * 			'state' => order_state_code,
+	 * 			'date' => date_and_time_of_an_event,
+	 * 			'items' => [
 	 * 				[
-	 *					'brand' => product_brand,
-	 *					'code' => product_code,
-	 *					'amount' => amount_of_pieces,
-	 *					'state' => item_state_code
+	 * 					'brand' => product_brand,
+	 * 					'code' => product_code,
+	 * 					'amount' => amount_of_pieces,
+	 * 					'state' => item_state_code
 	 * 				],
 	 * 				...
-	 *			]
-	 *		],
+	 * 			]
+	 * 		],
 	 * 		...
 	 * ]
 	 * </code>
 	 *
-	 * @param integer|array $id Order IDs. Can be a single ID or a list of IDs in which case the result will an array
+	 * @param array $id Order IDs. Can be a single ID or a list of IDs in which case the result will an array
 	 *                          where its keys are IDs of corresponding orders.
 	 *
 	 * @return array The result in a format described above.
@@ -249,7 +250,7 @@ class Client
 	 * ]
 	 * </code>
 	 *
-	 * @param integer|array $id Order IDs. Can be a single ID or a list of IDs in which case the result will an array
+	 * @param array $id Order IDs. Can be a single ID or a list of IDs in which case the result will an array
 	 *                          where its keys are IDs of corresponding orders.
 	 *
 	 * @return array The result in a format described above.

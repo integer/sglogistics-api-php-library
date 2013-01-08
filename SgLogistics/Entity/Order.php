@@ -3,8 +3,8 @@
 /**
  * SG Logistics client API
  *
- * @copyright Copyright (c) 2012 Slevomat.cz, s.r.o.
- * @version 1.5
+ * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
+ * @version 1.6
  * @apiVersion 1.0
  */
 
