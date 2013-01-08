@@ -98,6 +98,48 @@ class Order extends ApiEntity
 	const DELIVERY_POST = 2;
 
 	/**
+	 * Expedition state - unknown.
+	 *
+	 * @var integer
+	 */
+	const EXPEDITION_STATE_UNKNOWN = -1;
+
+	/**
+	 * Expedition state - the package is in courier's input depot.
+	 *
+	 * @var integer
+	 */
+	const EXPEDITION_STATE_INPUT_DEPOT = 1;
+
+	/**
+	 * Expedition state - the package is in courier's output depot.
+	 *
+	 * @var integer
+	 */
+	const EXPEDITION_STATE_OUTPUT_DEPOT = 2;
+
+	/**
+	 * Expedition state - the package is being delivered by the courier.
+	 *
+	 * @var integer
+	 */
+	const EXPEDITION_STATE_BEING_DELIVERED = 3;
+
+	/**
+	 * Expedition state - the package was not delivered.
+	 *
+	 * @var integer
+	 */
+	const EXPEDITION_STATE_DELIVERY_UNSUCCESSFUL = 4;
+
+	/**
+	 * Expedition state - the package was delivered.
+	 *
+	 * @var integer
+	 */
+	const EXPEDITION_STATE_DELIVERED = 5;
+
+	/**
 	 * Entity data.
 	 *
 	 * @var array
