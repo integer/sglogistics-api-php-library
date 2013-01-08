@@ -202,9 +202,10 @@ class Client
 	 * The returned array is in the following format:
 	 * <code>
 	 * [
-	 *		order_id => [
-	 *			'state' => order_state_code,
-	 *			'items' => [
+	 * 		order_id => [
+	 * 			'state' => order_state_code,
+	 * 			'date' => date_and_time_of_an_event,
+	 * 			'items' => [
 	 * 				[
 	 *					'brand' => product_brand,
 	 *					'code' => product_code,
