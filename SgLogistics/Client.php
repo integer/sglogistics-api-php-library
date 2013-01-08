@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.6
+ * @version 1.7
  * @apiVersion 1.0
  */
 
@@ -197,7 +197,7 @@ class Client
 	}
 
 	/**
-	 * Get order(s) state(s).
+	 * Get order(s) state(s) along with tracking information if available.
 	 *
 	 * The returned array is in the following format:
 	 * <code>
@@ -211,6 +211,16 @@ class Client
 	 * 					'code' => product_code,
 	 * 					'amount' => amount_of_pieces,
 	 * 					'state' => item_state_code
+	 * 				],
+	 * 				...
+	 * 			],
+	 * 			'expeditionState' => [
+	 * 				[
+	 * 					'courier' => courier_identificator
+	 * 					'number' => package_number,
+	 * 					'trackingUrl' => url_for_detailed_package_tracking,
+	 * 					'state' => tracking_state,
+	 * 					'date' => date_and_time_of_the_tracking_state
 	 * 				],
 	 * 				...
 	 * 			]
@@ -258,6 +268,43 @@ class Client
 	 * @throws Exception\InvalidValue If there is no such order.
 	 */
 	public function getOrderStateLog($id)
+	{
+		return $this->call(__FUNCTION__, array('id' => $id));
+	}
+
+	/**
+	 * Get order(s) expedition tracking log(s).
+	 *
+	 * The returned array is in the following format:
+	 * <code>
+	 * [
+	 * 		order_id => [
+	 * 			[
+	 * 				'courier' => courier_identificator
+	 * 				'number' => package_number,
+	 * 				'trackingUrl' => url_for_detailed_package_tracking,
+	 * 				'states' => [
+	 * 					[
+	 * 						'state' => tracking_state,
+	 * 						'date' => date_and_time_of_the_tracking_state
+	 * 					],
+	 * 					...
+	 * 				]
+	 * 			],
+	 * 			...
+	 * 		],
+	 * 		...
+	 * ]
+	 * </code>
+	 *
+	 * @param array $id Order IDs. Can be a single ID or a list of IDs in which case the result will an array
+	 *                          where its keys are IDs of corresponding orders.
+	 *
+	 * @return array The result in a format described above.
+	 *
+	 * @throws Exception\InvalidValue If there is no such order.
+	 */
+	public function getOrderExpeditionStateLog($id)
 	{
 		return $this->call(__FUNCTION__, array('id' => $id));
 	}
