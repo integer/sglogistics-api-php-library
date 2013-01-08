@@ -273,6 +273,43 @@ class Client
 	}
 
 	/**
+	 * Get order(s) expedition tracking log(s).
+	 *
+	 * The returned array is in the following format:
+	 * <code>
+	 * [
+	 * 		order_id => [
+	 * 			[
+	 * 				'courier' => courier_identificator
+	 * 				'number' => package_number,
+	 * 				'trackingUrl' => url_for_detailed_package_tracking,
+	 * 				'states' => [
+	 * 					[
+	 * 						'state' => tracking_state,
+	 * 						'date' => date_and_time_of_the_tracking_state
+	 * 					],
+	 * 					...
+	 * 				]
+	 * 			],
+	 * 			...
+	 * 		],
+	 * 		...
+	 * ]
+	 * </code>
+	 *
+	 * @param array $id Order IDs. Can be a single ID or a list of IDs in which case the result will an array
+	 *                          where its keys are IDs of corresponding orders.
+	 *
+	 * @return array The result in a format described above.
+	 *
+	 * @throws Exception\InvalidValue If there is no such order.
+	 */
+	public function getOrderExpeditionStateLog($id)
+	{
+		return $this->call(__FUNCTION__, array('id' => $id));
+	}
+
+	/**
 	 * Close the given order (the order has been picked up by a customer).
 	 * The given order has to be meant for a personal pick-up and also has to be ready for it.
 	 *
