@@ -197,7 +197,7 @@ class Client
 	}
 
 	/**
-	 * Get order(s) state(s).
+	 * Get order(s) state(s) along with tracking information if available.
 	 *
 	 * The returned array is in the following format:
 	 * <code>
@@ -211,6 +211,16 @@ class Client
 	 * 					'code' => product_code,
 	 * 					'amount' => amount_of_pieces,
 	 * 					'state' => item_state_code
+	 * 				],
+	 * 				...
+	 * 			],
+	 * 			'expeditionState' => [
+	 * 				[
+	 * 					'courier' => courier_identificator
+	 * 					'number' => package_number,
+	 * 					'trackingUrl' => url_for_detailed_package_tracking,
+	 * 					'state' => tracking_state,
+	 * 					'date' => date_and_time_of_the_tracking_state
 	 * 				],
 	 * 				...
 	 * 			]
