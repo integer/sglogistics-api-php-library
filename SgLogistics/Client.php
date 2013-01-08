@@ -170,13 +170,13 @@ class Client
 	 *
 	 * @param string $id The ID of order to be cancelled entirely.
 	 *
-	 * @return true If the operation was successful.
+	 * @return int Cancel ID
 	 *
 	 * @throws \InvalidArgumentException If there is no such order.
 	 */
 	public function cancelOrder($id)
 	{
-		return (bool) $this->call(__FUNCTION__, array('id' => $id));
+		return (int) $this->call(__FUNCTION__, array('id' => $id));
 	}
 
 	/**
@@ -185,7 +185,7 @@ class Client
 	 * @param Entity\OrderPart $part The order part to be cancelled.
 	 * @param boolean $returnShippingPrice Should the price paid for S/H be returned as well?
 	 *
-	 * @return true If the operation was successful.
+	 * @return int Cancel ID
 	 *
 	 * @throws \InvalidArgumentException If there is no such order.
 	 * @throws Exception\InvalidValue If the given order does not contain the given product or the amount to cancel
@@ -193,7 +193,7 @@ class Client
 	 */
 	public function cancelOrderPart(Entity\OrderPart $part, $returnShippingPrice = false)
 	{
-		return (bool) $this->call(__FUNCTION__, $part->export() + array('returnShippingPrice' => $returnShippingPrice));
+		return (int) $this->call(__FUNCTION__, $part->export() + array('returnShippingPrice' => $returnShippingPrice));
 	}
 
 	/**
