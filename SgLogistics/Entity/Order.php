@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.7
+ * @version 1.7.1
  * @apiVersion 1.0
  */
 
@@ -138,6 +138,13 @@ class Order extends ApiEntity
 	 * @var integer
 	 */
 	const EXPEDITION_STATE_DELIVERED = 5;
+
+	/**
+	 * Expedition state - the package was not delivered but an additional attempt will be made.
+	 *
+	 * @var integer
+	 */
+	const EXPEDITION_STATE_RETRYING_DELIVERY = 6;
 
 	/**
 	 * Entity data.
