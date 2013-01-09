@@ -140,6 +140,13 @@ class Order extends ApiEntity
 	const EXPEDITION_STATE_DELIVERED = 5;
 
 	/**
+	 * Expedition state - the package was not delivered but an additional attempt will be made.
+	 *
+	 * @var integer
+	 */
+	const EXPEDITION_STATE_RETRYING_DELIVERY = 6;
+
+	/**
 	 * Entity data.
 	 *
 	 * @var array
