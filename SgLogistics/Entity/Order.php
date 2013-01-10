@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.7.1
+ * @version 1.7.2
  * @apiVersion 1.0
  */
 
@@ -84,6 +84,13 @@ class Order extends ApiEntity
 	const STATE_RETURNED = 8;
 
 	/**
+	 * It was not possible to deliver the order.
+	 *
+	 * @var int
+	 */
+	const STATE_DELIVERY_FAILED = 9;
+
+	/**
 	 * Delivery method - personal pickup.
 	 *
 	 * @var int
@@ -145,6 +152,13 @@ class Order extends ApiEntity
 	 * @var integer
 	 */
 	const EXPEDITION_STATE_RETRYING_DELIVERY = 6;
+
+	/**
+	 * Expedition state - the package was returned to the sender.
+	 *
+	 * @var integer
+	 */
+	const EXPEDITION_STATE_RETURNED_TO_SENDER = 7;
 
 	/**
 	 * Entity data.
