@@ -11,17 +11,19 @@
 namespace SgLogistics\Api\Entity;
 
 /**
- * An order part.
+ * Invoice row.
  *
  * @category SgLogistics
  * @package  Api
  *
- * @property int $orderId
  * @property string $brand
  * @property string $code
- * @property int $amount
+ * @property integer $campaign
+ * @property string $description
+ * @property float $amount
+ * @property float $vatRate
  */
-class OrderPart extends ApiEntity
+class InvoiceRow extends ApiEntity
 {
 	/**
 	 * Entity data.
@@ -29,9 +31,11 @@ class OrderPart extends ApiEntity
 	 * @var array
 	 */
 	protected $data = array(
-		'orderId' => null,
 		'brand' => null,
 		'code' => null,
-		'amount' => null
+		'campaign' => null,
+		'description' => null,
+		'amount' => null,
+		'vatRate' => null
 	);
 }

@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.7.2
+ * @version 1.8
  * @apiVersion 1.0
  */
 
@@ -151,6 +151,21 @@ class Client
 	}
 
 	/**
+	 * Add the given client invoice to the SGL system.
+	 *
+	 * @param Entity\Invoice $invoice The client invoice to be added.
+	 *
+	 * @return bool True if the operation was successful, false otherwise.
+	 *
+	 * @throws Exception\MissingValue If a value of some required property is missing.
+	 * @throws Exception\InvalidValue If a value of some property is not valid one.
+	 */
+	public function addInvoice(Entity\Invoice $invoice)
+	{
+		return (bool) $this->call(__FUNCTION__, $invoice->export());
+	}
+
+	/**
 	 * Add the given customer order to the SGL system.
 	 *
 	 * @param Entity\Order $order The customer order to be added.
@@ -177,6 +192,20 @@ class Client
 	public function cancelOrder($id)
 	{
 		return (int) $this->call(__FUNCTION__, array('id' => $id));
+	}
+
+	/**
+	 * Delete the given order.
+	 *
+	 * @param string $id The ID of order to be deleted.
+	 *
+	 * @return bool
+	 *
+	 * @throws \InvalidArgumentException If there is no such order.
+	 */
+	public function deleteOrder($id)
+	{
+		return (bool) $this->call(__FUNCTION__, array('id' => $id));
 	}
 
 	/**
