@@ -151,6 +151,21 @@ class Client
 	}
 
 	/**
+	 * Add the given client invoice to the SGL system.
+	 *
+	 * @param Entity\Invoice $invoice The client invoice to be added.
+	 *
+	 * @return bool True if the operation was successful, false otherwise.
+	 *
+	 * @throws Exception\MissingValue If a value of some required property is missing.
+	 * @throws Exception\InvalidValue If a value of some property is not valid one.
+	 */
+	public function addInvoice(Entity\Invoice $invoice)
+	{
+		return (bool) $this->call(__FUNCTION__, $invoice->export());
+	}
+
+	/**
 	 * Add the given customer order to the SGL system.
 	 *
 	 * @param Entity\Order $order The customer order to be added.
