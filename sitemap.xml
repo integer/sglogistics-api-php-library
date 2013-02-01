@@ -33,6 +33,12 @@
 	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Entity.ApiEntity.html</loc>
 </url>
 <url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Entity.Invoice.html</loc>
+</url>
+<url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Entity.InvoiceRow.html</loc>
+</url>
+<url>
 	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Entity.Order.html</loc>
 </url>
 <url>

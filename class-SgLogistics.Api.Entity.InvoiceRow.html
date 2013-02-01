@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Class SgLogistics\Api\Entity\Address | SG Logistics client API Library</title>
+	<title>Class SgLogistics\Api\Entity\InvoiceRow | SG Logistics client API Library</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
 	<script type="text/javascript" src="elementlist.js?426588062"></script>
@@ -41,10 +41,10 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li class="active"><a href="class-SgLogistics.Api.Entity.Address.html">Address</a></li>
+				<li><a href="class-SgLogistics.Api.Entity.Address.html">Address</a></li>
 				<li><a href="class-SgLogistics.Api.Entity.ApiEntity.html">ApiEntity</a></li>
 				<li><a href="class-SgLogistics.Api.Entity.Invoice.html">Invoice</a></li>
-				<li><a href="class-SgLogistics.Api.Entity.InvoiceRow.html">InvoiceRow</a></li>
+				<li class="active"><a href="class-SgLogistics.Api.Entity.InvoiceRow.html">InvoiceRow</a></li>
 				<li><a href="class-SgLogistics.Api.Entity.Order.html">Order</a></li>
 				<li><a href="class-SgLogistics.Api.Entity.OrderItem.html">OrderItem</a></li>
 				<li><a href="class-SgLogistics.Api.Entity.OrderPart.html">OrderPart</a></li>
@@ -94,12 +94,12 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class Address</h1>
+	<h1>Class InvoiceRow</h1>
 
 
 	<div class="description">
 	
-<p>Address.</p>
+<p>Invoice row.</p>
 
 	</div>
 
@@ -112,7 +112,7 @@
 		</dd>
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by" />
-<b><span>SgLogistics\Api\Entity\Address</span></b>			
+<b><span>SgLogistics\Api\Entity\InvoiceRow</span></b>			
 			
 			
 		</dd>
@@ -133,7 +133,7 @@
 
 				<b>Category:</b>
 				SgLogistics<br />
-		<b>Located at</b> <a href="source-class-SgLogistics.Api.Entity.Address.html#13-61" title="Go to source code">SgLogistics/Entity/Address.php</a><br />
+		<b>Located at</b> <a href="source-class-SgLogistics.Api.Entity.InvoiceRow.html#13-41" title="Go to source code">SgLogistics/Entity/InvoiceRow.php</a><br />
 	</div>
 
 
@@ -159,57 +159,6 @@
 
 
 
-	<table class="summary" id="constants">
-	<caption>Constants summary</caption>
-	<tr data-order="COUNTRY_CZ" id="COUNTRY_CZ">
-
-		<td class="attributes"><code>string</code></td>
-		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.Address.html#31-36" title="Go to source code"><b>COUNTRY_CZ</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-quote">'CZ'</span></code></td>
-		<td class="description"><div>
-			<a href="#COUNTRY_CZ" class="anchor">#</a>
-
-			<div class="description short">
-				
-<p>Country code for the Czech Republic.</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Country code for the Czech Republic.</p>
-
-
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="COUNTRY_SK" id="COUNTRY_SK">
-
-		<td class="attributes"><code>string</code></td>
-		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.Address.html#38-43" title="Go to source code"><b>COUNTRY_SK</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-quote">'SK'</span></code></td>
-		<td class="description"><div>
-			<a href="#COUNTRY_SK" class="anchor">#</a>
-
-			<div class="description short">
-				
-<p>Country code for the Slovak Rebublic.</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Country code for the Slovak Rebublic.</p>
-
-
-			</div>
-		</div></td>
-	</tr>
-	</table>
 
 
 
@@ -223,18 +172,15 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-SgLogistics.Api.Entity.Address.html#45-60" title="Go to source code"><var>$data</var></a>
+				<a href="source-class-SgLogistics.Api.Entity.InvoiceRow.html#28-40" title="Go to source code"><var>$data</var></a>
 		</td>
 		<td class="value"><code><span class="php-keyword1">array</span>(
-	<span class="php-quote">'name'</span> =&gt; <span class="php-keyword1">null</span>,
-	<span class="php-quote">'street'</span> =&gt; <span class="php-keyword1">null</span>,
-	<span class="php-quote">'city'</span> =&gt; <span class="php-keyword1">null</span>,
-	<span class="php-quote">'zipCode'</span> =&gt; <span class="php-keyword1">null</span>,
-	<span class="php-quote">'countryCode'</span> =&gt; <span class="php-keyword1">null</span>,
-	<span class="php-quote">'email'</span> =&gt; <span class="php-keyword1">null</span>,
-	<span class="php-quote">'phone'</span> =&gt; <span class="php-keyword1">null</span>,
-	<span class="php-quote">'companyId'</span> =&gt; <span class="php-keyword1">null</span>,
-	<span class="php-quote">'companyVatId'</span> =&gt; <span class="php-keyword1">null</span>
+	<span class="php-quote">'brand'</span> =&gt; <span class="php-keyword1">null</span>,
+	<span class="php-quote">'code'</span> =&gt; <span class="php-keyword1">null</span>,
+	<span class="php-quote">'campaign'</span> =&gt; <span class="php-keyword1">null</span>,
+	<span class="php-quote">'description'</span> =&gt; <span class="php-keyword1">null</span>,
+	<span class="php-quote">'amount'</span> =&gt; <span class="php-keyword1">null</span>,
+	<span class="php-quote">'vatRate'</span> =&gt; <span class="php-keyword1">null</span>
 )</code></td>
 		<td class="description"><div>
 			<a href="#$data" class="anchor">#</a>
@@ -259,17 +205,17 @@
 
 	<table class="summary" id="magicProperties">
 	<caption>Magic properties summary</caption>
-	<tr data-order="name" id="m$name">
+	<tr data-order="brand" id="m$brand">
 		<td class="attributes"><code>
 			public  
 			string
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-SgLogistics.Api.Entity.Address.html#19" title="Go to source code"><var>$name</var></a>
+				<a href="source-class-SgLogistics.Api.Entity.InvoiceRow.html#19" title="Go to source code"><var>$brand</var></a>
 		</td>
 		<td class="description"><div>
-			<a href="#m$name" class="anchor">#</a>
+			<a href="#m$brand" class="anchor">#</a>
 
 			<div class="description short">
 				
@@ -281,17 +227,17 @@
 			</div>
 		</div></td>
 	</tr>
-	<tr data-order="street" id="m$street">
+	<tr data-order="code" id="m$code">
 		<td class="attributes"><code>
 			public  
 			string
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-SgLogistics.Api.Entity.Address.html#20" title="Go to source code"><var>$street</var></a>
+				<a href="source-class-SgLogistics.Api.Entity.InvoiceRow.html#20" title="Go to source code"><var>$code</var></a>
 		</td>
 		<td class="description"><div>
-			<a href="#m$street" class="anchor">#</a>
+			<a href="#m$code" class="anchor">#</a>
 
 			<div class="description short">
 				
@@ -303,17 +249,17 @@
 			</div>
 		</div></td>
 	</tr>
-	<tr data-order="city" id="m$city">
+	<tr data-order="campaign" id="m$campaign">
 		<td class="attributes"><code>
 			public  
-			string
+			integer
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-SgLogistics.Api.Entity.Address.html#21" title="Go to source code"><var>$city</var></a>
+				<a href="source-class-SgLogistics.Api.Entity.InvoiceRow.html#21" title="Go to source code"><var>$campaign</var></a>
 		</td>
 		<td class="description"><div>
-			<a href="#m$city" class="anchor">#</a>
+			<a href="#m$campaign" class="anchor">#</a>
 
 			<div class="description short">
 				
@@ -325,17 +271,17 @@
 			</div>
 		</div></td>
 	</tr>
-	<tr data-order="zipCode" id="m$zipCode">
+	<tr data-order="description" id="m$description">
 		<td class="attributes"><code>
 			public  
 			string
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-SgLogistics.Api.Entity.Address.html#22" title="Go to source code"><var>$zipCode</var></a>
+				<a href="source-class-SgLogistics.Api.Entity.InvoiceRow.html#22" title="Go to source code"><var>$description</var></a>
 		</td>
 		<td class="description"><div>
-			<a href="#m$zipCode" class="anchor">#</a>
+			<a href="#m$description" class="anchor">#</a>
 
 			<div class="description short">
 				
@@ -347,17 +293,17 @@
 			</div>
 		</div></td>
 	</tr>
-	<tr data-order="countryCode" id="m$countryCode">
+	<tr data-order="amount" id="m$amount">
 		<td class="attributes"><code>
 			public  
-			string
+			float
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-SgLogistics.Api.Entity.Address.html#23" title="Go to source code"><var>$countryCode</var></a>
+				<a href="source-class-SgLogistics.Api.Entity.InvoiceRow.html#23" title="Go to source code"><var>$amount</var></a>
 		</td>
 		<td class="description"><div>
-			<a href="#m$countryCode" class="anchor">#</a>
+			<a href="#m$amount" class="anchor">#</a>
 
 			<div class="description short">
 				
@@ -369,83 +315,17 @@
 			</div>
 		</div></td>
 	</tr>
-	<tr data-order="email" id="m$email">
+	<tr data-order="vatRate" id="m$vatRate">
 		<td class="attributes"><code>
 			public  
-			string
+			float
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-SgLogistics.Api.Entity.Address.html#24" title="Go to source code"><var>$email</var></a>
+				<a href="source-class-SgLogistics.Api.Entity.InvoiceRow.html#24" title="Go to source code"><var>$vatRate</var></a>
 		</td>
 		<td class="description"><div>
-			<a href="#m$email" class="anchor">#</a>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="phone" id="m$phone">
-		<td class="attributes"><code>
-			public  
-			string
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-SgLogistics.Api.Entity.Address.html#25" title="Go to source code"><var>$phone</var></a>
-		</td>
-		<td class="description"><div>
-			<a href="#m$phone" class="anchor">#</a>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="companyId" id="m$companyId">
-		<td class="attributes"><code>
-			public  
-			string
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-SgLogistics.Api.Entity.Address.html#26" title="Go to source code"><var>$companyId</var></a>
-		</td>
-		<td class="description"><div>
-			<a href="#m$companyId" class="anchor">#</a>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="companyVatId" id="m$companyVatId">
-		<td class="attributes"><code>
-			public  
-			string
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-SgLogistics.Api.Entity.Address.html#27" title="Go to source code"><var>$companyVatId</var></a>
-		</td>
-		<td class="description"><div>
-			<a href="#m$companyVatId" class="anchor">#</a>
+			<a href="#m$vatRate" class="anchor">#</a>
 
 			<div class="description short">
 				
