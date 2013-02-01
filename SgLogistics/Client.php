@@ -180,6 +180,20 @@ class Client
 	}
 
 	/**
+	 * Delete the given order.
+	 *
+	 * @param string $id The ID of order to be deleted.
+	 *
+	 * @return bool
+	 *
+	 * @throws \InvalidArgumentException If there is no such order.
+	 */
+	public function deleteOrder($id)
+	{
+		return (bool) $this->call(__FUNCTION__, array('id' => $id));
+	}
+
+	/**
 	 * Cancel the given part of an order.
 	 *
 	 * @param Entity\OrderPart $part The order part to be cancelled.
