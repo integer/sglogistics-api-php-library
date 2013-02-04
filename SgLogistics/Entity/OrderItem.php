@@ -55,6 +55,13 @@ class OrderItem extends ApiEntity
 	const STATE_COMPLAINT = 4;
 
 	/**
+	 * Order item state - the order was not picked up.
+	 *
+	 * @var int
+	 */
+	const STATE_UNANSWERED = 5;
+
+	/**
 	 * Order item type - normal.
 	 *
 	 * @var int
