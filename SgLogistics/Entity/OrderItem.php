@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.8
+ * @version 1.9
  * @apiVersion 1.0
  */
 
@@ -53,6 +53,13 @@ class OrderItem extends ApiEntity
 	 * @var int
 	 */
 	const STATE_COMPLAINT = 4;
+
+	/**
+	 * Order item state - the order was not picked up.
+	 *
+	 * @var int
+	 */
+	const STATE_UNANSWERED = 5;
 
 	/**
 	 * Order item type - normal.

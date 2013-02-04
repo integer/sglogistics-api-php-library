@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.8
+ * @version 1.9
  * @apiVersion 1.0
  */
 
@@ -22,9 +22,45 @@ namespace SgLogistics\Api\Entity;
  * @property string $picture
  * @property integer $weight
  * @property Address $address
+ * @property string $type
  */
 class Product extends ApiEntity
 {
+	/**
+	 * Product type - services.
+	 *
+	 * @var string
+	 */
+	const TYPE_SERVICES = 'services';
+
+	/**
+	 * Product type - chemist's goods.
+	 *
+	 * @var string
+	 */
+	const TYPE_GOODS_CHEMIST = 'goods_chemist';
+
+	/**
+	 * Product type - home and decor.
+	 *
+	 * @var string
+	 */
+	const TYPE_GOODS_HOME = 'goods_home';
+
+	/**
+	 * Product type - fashion goods.
+	 *
+	 * @var string
+	 */
+	const TYPE_GOODS_FASHION = 'goods_fashion';
+
+	/**
+	 * Product type - other goods.
+	 *
+	 * @var string
+	 */
+	const TYPE_GOODS_OTHER = 'goods_other';
+
 	/**
 	 * Entity data.
 	 *
@@ -36,7 +72,8 @@ class Product extends ApiEntity
 		'name' => null,
 		'picture' => null,
 		'weight' => null,
-		'address' => null
+		'address' => null,
+		'type' => null
 	);
 
 	/**
@@ -58,6 +95,10 @@ class Product extends ApiEntity
 			throw new \InvalidArgumentException(sprintf('The value of the "%s" attribute has to be an instance of \SgLogistics\Api\Entity\Address.', $name));
 		}
 
+		if ('type' === $name && !in_array($value, static::getTypes())) {
+			throw new \InvalidArgumentException(sprintf('The value of the "%s" attribute has to be one of %s.', $name, implode(', ', static::getTypes())));
+		}
+
 		parent::__set($name, $value);
 	}
 
@@ -75,5 +116,29 @@ class Product extends ApiEntity
 		}
 
 		return $export;
+	}
+
+	/**
+	 * Returns possible product types.
+	 *
+	 * @return string
+	 */
+	public static function getTypes()
+	{
+		static $types;
+		if (!isset($types)) {
+			$reflection = new \ReflectionClass(get_called_class());
+			$constants = $reflection->getConstants();
+
+			foreach ($constants as $name => $value) {
+				if (0 !== strpos($name, 'TYPE_')) {
+					unset($constants[$name]);
+				}
+			}
+
+			$types = array_values($constants);
+		}
+
+		return $types;
 	}
 }
