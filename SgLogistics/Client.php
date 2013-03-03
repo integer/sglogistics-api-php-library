@@ -709,4 +709,30 @@ class Client
 	{
 		return $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code));
 	}
+
+	/**
+	 * Get the avaiable amount of all products in one client's warehouse.
+	 *
+	 * The returned array is in the following format:
+	 * <code>
+	 * [
+	 *		[
+	 *			'brand' => brand,
+	 *			'code' => code,
+	 *			'amount' => available_amount
+	 *		],
+	 *		...
+	 * ]
+	 * </code>
+	 *
+	 * @param string $warehouseId Warehouse id.
+	 *
+	 * @return array The available amount in client's warehouse
+	 *
+	 * @throws \SgLogistics\Api\Exception\InvalidValue If the warehouse doesn't exists.
+	 */
+	public function getWarehouseInventory($warehouseId)
+	{
+		return $this->call(__FUNCTION__, array('id' => (string) $warehouseId));
+	}
 }
