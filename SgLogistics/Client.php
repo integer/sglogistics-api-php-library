@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.9
+ * @version 1.10
  * @apiVersion 1.0
  */
 
@@ -31,6 +31,27 @@ class Client
 	 * @var string
 	 */
 	const DOCUMENT_FORMAT_HTML = 'html';
+
+	/**
+	 * Document format will be CSV.
+	 *
+	 * @var string
+	 */
+	const DOCUMENT_FORMAT_CSV = 'csv';
+
+	/**
+	 * History type - only receipts.
+	 *
+	 * @var string
+	 */
+	const HISTORY_TYPE_RECEIPTS = 'receipts';
+
+	/**
+	 * History type - orders and orders and returns.
+	 *
+	 * @var string
+	 */
+	const HISTORY_TYPE_ORDERS = 'orders';
 
 	/**
 	 * The communication protcol.
@@ -364,6 +385,7 @@ class Client
 	 * 			'orderId => order_id,
 	 * 			'type' =>  cancel/replayment/complaint,
 	 * 			'date' => date_and_time_when_the_item_was_returned,
+	 * 			'returnedToPickupStore => customer_returned_item_to_pickup_store,
 	 * 			'items' => [
 	 *				[
 	 *					'brand' => product_brand,
@@ -387,28 +409,36 @@ class Client
 	}
 
 	/**
-	 * Returns information about a single cancel/repayment/cimplaint.
+	 * Returns information about cancel(s)/repayment(s)/complaint(s).
 	 *
 	 * The returned array is in the following format:
 	 * <code>
 	 * [
-	 * 		'id' => return_id,
-	 * 		'orderId => order_id,
-	 * 		'type' =>  cancel/replayment/complaint,
-	 * 		'date' => date_and_time_when_the_item_was_returned,
-	 * 		'items' => [
-	 *			[
-	 *				'brand' => product_brand,
-	 *				'code' => product_code,
-	 *				'amount' => amount_of_pieces
-	 * 			],
-	 * 			...
-	 * 		]
+	 * 		return_id => [
+	 * 			'id' => return_id,
+	 * 			'orderId => order_id,
+	 * 			'type' =>  cancel/replayment/complaint,
+	 * 			'date' => date_and_time_when_the_item_was_returned,
+	 * 			'returnedToPickupStore' => customer_returned_item_to_pickup_store,
+	 * 			'items' => [
+	 * 				[
+	 * 					'brand' => product_brand,
+	 * 					'code' => product_code,
+	 * 					'amount' => amount_of_pieces
+	 * 				],
+	 * 				...
+	 * 			]
+	 * 		],
+	 * 		...
 	 * ]
 	 * </code>
 	 *
-	 * @param int $id Return ID
-	 * @return array
+	 * @param array $id Return IDs. Can be a single ID or a list of IDs in which case the result will an array
+	 * 							where its keys are IDs of corresponding cancels.
+	 *
+	 * @return array The result in a format described above.
+	 *
+	 * @throws Exception\InvalidValue If there is no such order.
 	 */
 	public function getReturn($id)
 	{
@@ -699,5 +729,67 @@ class Client
 	public function getInventoryAmount($brand, $code)
 	{
 		return $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code));
+	}
+
+	/**
+	 * Get the avaiable amount of all products in one client's warehouse.
+	 *
+	 * The returned array is in the following format:
+	 * <code>
+	 * [
+	 *		[
+	 *			'brand' => brand,
+	 *			'code' => code,
+	 *			'amount' => available_amount
+	 *		],
+	 *		...
+	 * ]
+	 * </code>
+	 *
+	 * @param string $warehouseId Warehouse id.
+	 *
+	 * @return array The available amount in client's warehouse
+	 *
+	 * @throws \SgLogistics\Api\Exception\InvalidValue If the warehouse doesn't exists.
+	 */
+	public function getWarehouseInventory($warehouseId)
+	{
+		return $this->call(__FUNCTION__, array('id' => (string) $warehouseId));
+	}
+
+	/**
+	 * Get history of the given product.
+	 *
+	 *
+	 * @param string $brand Product brand.
+	 * @param string $code Product code.
+	 * @param string $type Type of history events.
+	 * @param string $format Document format.
+	 *
+	 * @return string The product history as a base64 encoded data stream.
+	 *
+	 * @throws Exception\InvalidValue If there is no such product.
+	 */
+	public function getProductHistory($brand, $code, $type = self::HISTORY_TYPE_ORDERS, $format = self::DOCUMENT_FORMAT_CSV)
+	{
+		return $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'format' => (string) $format, 'type' => (string) $type));
+	}
+
+	/**
+	 * Get history of given products.
+	 *
+	 *
+	 * @param array $products Products.
+	 * @param string $code Product code.
+	 * @param string $type Type of history events.
+	 * @param string $format Document format.
+	 *
+	 * @return string The product history as a base64 encoded data stream.
+	 *
+	 * @throws Exception\InvalidValue If there is no such product.
+	 */
+	public function getProductsHistory($products, $type = self::HISTORY_TYPE_ORDERS, $format = self::DOCUMENT_FORMAT_CSV)
+	{
+		return $this->call(__FUNCTION__, array('products' => (array) $products, 'format' => (string) $format, 'type' => (string) $type));
 	}
 }
