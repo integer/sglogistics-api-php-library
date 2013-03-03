@@ -388,28 +388,36 @@ class Client
 	}
 
 	/**
-	 * Returns information about a single cancel/repayment/cimplaint.
+	 * Returns information about cancel(s)/repayment(s)/complaint(s).
 	 *
 	 * The returned array is in the following format:
 	 * <code>
 	 * [
-	 * 		'id' => return_id,
-	 * 		'orderId => order_id,
-	 * 		'type' =>  cancel/replayment/complaint,
-	 * 		'date' => date_and_time_when_the_item_was_returned,
-	 * 		'items' => [
-	 *			[
-	 *				'brand' => product_brand,
-	 *				'code' => product_code,
-	 *				'amount' => amount_of_pieces
-	 * 			],
-	 * 			...
-	 * 		]
+	 * 		return_id => [
+	 * 			'id' => return_id,
+	 * 			'orderId => order_id,
+	 * 			'type' =>  cancel/replayment/complaint,
+	 * 			'date' => date_and_time_when_the_item_was_returned,
+	 * 			'returnedToPickupStore' => customer_returned_item_to_pickup_store,
+	 * 			'items' => [
+	 * 				[
+	 * 					'brand' => product_brand,
+	 * 					'code' => product_code,
+	 * 					'amount' => amount_of_pieces
+	 * 				],
+	 * 				...
+	 * 			]
+	 * 		],
+	 * 		...
 	 * ]
 	 * </code>
 	 *
-	 * @param int $id Return ID
-	 * @return array
+	 * @param array $id Return IDs. Can be a single ID or a list of IDs in which case the result will an array
+	 * 							where its keys are IDs of corresponding cancels.
+	 *
+	 * @return array The result in a format described above.
+	 *
+	 * @throws Exception\InvalidValue If there is no such order.
 	 */
 	public function getReturn($id)
 	{
