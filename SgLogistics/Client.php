@@ -33,6 +33,27 @@ class Client
 	const DOCUMENT_FORMAT_HTML = 'html';
 
 	/**
+	 * Document format will be CSV.
+	 *
+	 * @var string
+	 */
+	const DOCUMENT_FORMAT_CSV = 'csv';
+
+	/**
+	 * History type - only receipts.
+	 *
+	 * @var string
+	 */
+	const HISTORY_TYPE_RECEIPTS = 'receipts';
+
+	/**
+	 * History type - orders and orders and returns.
+	 *
+	 * @var string
+	 */
+	const HISTORY_TYPE_ORDERS = 'orders';
+
+	/**
 	 * The communication protcol.
 	 *
 	 * @var Protocol\ProtocolInterface
@@ -734,5 +755,41 @@ class Client
 	public function getWarehouseInventory($warehouseId)
 	{
 		return $this->call(__FUNCTION__, array('id' => (string) $warehouseId));
+	}
+
+	/**
+	 * Get history of the given product.
+	 *
+	 *
+	 * @param string $brand Product brand.
+	 * @param string $code Product code.
+	 * @param string $type Type of history events.
+	 * @param string $format Document format.
+	 *
+	 * @return string The product history as a base64 encoded data stream.
+	 *
+	 * @throws Exception\InvalidValue If there is no such product.
+	 */
+	public function getProductHistory($brand, $code, $type = self::HISTORY_TYPE_ORDERS, $format = self::DOCUMENT_FORMAT_CSV)
+	{
+		return $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'format' => (string) $format, 'type' => (string) $type));
+	}
+
+	/**
+	 * Get history of given products.
+	 *
+	 *
+	 * @param array $products Products.
+	 * @param string $code Product code.
+	 * @param string $type Type of history events.
+	 * @param string $format Document format.
+	 *
+	 * @return string The product history as a base64 encoded data stream.
+	 *
+	 * @throws Exception\InvalidValue If there is no such product.
+	 */
+	public function getProductsHistory($products, $type = self::HISTORY_TYPE_ORDERS, $format = self::DOCUMENT_FORMAT_CSV)
+	{
+		return $this->call(__FUNCTION__, array('products' => (array) $products, 'format' => (string) $format, 'type' => (string) $type));
 	}
 }
