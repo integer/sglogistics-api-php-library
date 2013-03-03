@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Class SgLogistics\Api\Exception\ServerError | SG Logistics client API Library</title>
+	<title>Class SgLogistics\Api\Exception\Maintenance | SG Logistics client API Library</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
 	<script type="text/javascript" src="elementlist.js?3272025187"></script>
@@ -46,11 +46,11 @@
 			<ul>
 				<li><a href="class-SgLogistics.Api.Exception.InvalidAccess.html">InvalidAccess</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.InvalidValue.html">InvalidValue</a></li>
-				<li><a href="class-SgLogistics.Api.Exception.Maintenance.html">Maintenance</a></li>
+				<li class="active"><a href="class-SgLogistics.Api.Exception.Maintenance.html">Maintenance</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.MissingValue.html">MissingValue</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.ProductDoesNotExist.html">ProductDoesNotExist</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.Response.html">Response</a></li>
-				<li class="active"><a href="class-SgLogistics.Api.Exception.ServerError.html">ServerError</a></li>
+				<li><a href="class-SgLogistics.Api.Exception.ServerError.html">ServerError</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.SharedLimitDoesNotExist.html">SharedLimitDoesNotExist</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.SharedLimitReached.html">SharedLimitReached</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.Value.html">Value</a></li>
@@ -96,13 +96,12 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class ServerError</h1>
+	<h1>Class Maintenance</h1>
 
 
 	<div class="description">
 	
-<p>Exception thrown when the SGL server makes kaboom while processing the
-request.</p>
+<p>Exception thrown when the SGL system is down for maintenance.</p>
 
 	</div>
 
@@ -127,7 +126,7 @@ RuntimeException
 		</dd>
 		<dd style="padding-left:90px">
 			<img src="resources/inherit.png" alt="Extended by" />
-<b><span>SgLogistics\Api\Exception\ServerError</span></b>			
+<b><span>SgLogistics\Api\Exception\Maintenance</span></b>			
 			
 			
 		</dd>
@@ -148,17 +147,54 @@ RuntimeException
 
 				<b>Category:</b>
 				SgLogistics<br />
-		<b>Located at</b> <a href="source-class-SgLogistics.Api.Exception.ServerError.html#13-21" title="Go to source code">SgLogistics/Exception/ServerError.php</a><br />
+		<b>Located at</b> <a href="source-class-SgLogistics.Api.Exception.Maintenance.html#13-28" title="Go to source code">SgLogistics/Exception/Maintenance.php</a><br />
 	</div>
 
 
 
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-SgLogistics.Api.Exception.Maintenance.html#21-27" title="Go to source code">__construct</a>( )</code>
+
+		<div class="description short">
+			
+<p>Creates the exception.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Creates the exception.</p>
+
+
+
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-SgLogistics.Api.Exception.Response.html#___construct">SgLogistics\Api\Exception\Response::__construct()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
 
 	<table class="summary inherited">
 	<caption>Methods inherited from <a href="class-SgLogistics.Api.Exception.Response.html#methods">SgLogistics\Api\Exception\Response</a></caption>
 	<tr>
 		<td><code>
-			<a href="class-SgLogistics.Api.Exception.Response.html#___construct">__construct()</a>, 
 			<a href="class-SgLogistics.Api.Exception.Response.html#_createFromResponse">createFromResponse()</a>, 
 			<a href="class-SgLogistics.Api.Exception.Response.html#_getDefinition">getDefinition()</a>, 
 			<a href="class-SgLogistics.Api.Exception.Response.html#_getResponse">getResponse()</a>

@@ -69,6 +69,9 @@
 	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Exception.InvalidValue.html</loc>
 </url>
 <url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Exception.Maintenance.html</loc>
+</url>
+<url>
 	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Exception.MissingValue.html</loc>
 </url>
 <url>
