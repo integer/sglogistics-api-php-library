@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.10
+ * @version 1.11
  * @apiVersion 1.0
  */
 
@@ -386,6 +386,7 @@ class Client
 	 * 			'type' =>  cancel/replayment/complaint,
 	 * 			'date' => date_and_time_when_the_item_was_returned,
 	 * 			'returnedToPickupStore => customer_returned_item_to_pickup_store,
+	 * 			'returnShipping' => return_shipping_payment,
 	 * 			'items' => [
 	 *				[
 	 *					'brand' => product_brand,
@@ -420,6 +421,7 @@ class Client
 	 * 			'type' =>  cancel/replayment/complaint,
 	 * 			'date' => date_and_time_when_the_item_was_returned,
 	 * 			'returnedToPickupStore' => customer_returned_item_to_pickup_store,
+	 * 			'returnShipping' => return_shipping_payment,
 	 * 			'items' => [
 	 * 				[
 	 * 					'brand' => product_brand,
