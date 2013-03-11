@@ -70,8 +70,9 @@ class Response extends \RuntimeException
 	 */
 	public static function createFromResponse(\SgLogistics\Api\Response $response)
 	{
-		$definition = array_values($response->getExceptionDefinition());
-		$className = array_shift($definition);
+		$definition = $response->getExceptionDefinition();
+		$className = $definition['class'];
+		unset($definition['class'], $definition['type']);
 
 		if (!class_exists($className)) {
 			$exception = new Response(sprintf('There was an exception of type "%s" in the API response but such exception does not exist.', $className));
@@ -80,7 +81,7 @@ class Response extends \RuntimeException
 		}
 
 		$r = new \ReflectionClass($className);
-		$exception = $r->newInstanceArgs($definition);
+		$exception = $r->newInstanceArgs(array_values(isset($definition['parameters']) ?  $definition['parameters'] : $definition));
 		$exception->response = $response;
 
 		return $exception;
