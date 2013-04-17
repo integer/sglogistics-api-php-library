@@ -97,8 +97,8 @@
 </span></span><span id="4" class="l"><a class="l" href="#4">  4: </a><span class="php-comment"> * SG Logistics client API
 </span></span><span id="5" class="l"><a class="l" href="#5">  5: </a><span class="php-comment"> *
 </span></span><span id="6" class="l"><a class="l" href="#6">  6: </a><span class="php-comment"> * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
-</span></span><span id="7" class="l"><a class="l" href="#7">  7: </a><span class="php-comment"> * @version 1.11
-</span></span><span id="8" class="l"><a class="l" href="#8">  8: </a><span class="php-comment"> * @apiVersion 1.0
+</span></span><span id="7" class="l"><a class="l" href="#7">  7: </a><span class="php-comment"> * @version 1.12
+</span></span><span id="8" class="l"><a class="l" href="#8">  8: </a><span class="php-comment"> * @apiVersion 1.1
 </span></span><span id="9" class="l"><a class="l" href="#9">  9: </a><span class="php-comment"> */</span>
 </span><span id="10" class="l"><a class="l" href="#10"> 10: </a>
 </span><span id="11" class="l"><a class="l" href="#11"> 11: </a><span class="php-keyword1">namespace</span> SgLogistics\Api;
@@ -887,8 +887,59 @@
 </span><span id="794" class="l"><a class="l" href="#794">794: </a>    {
 </span><span id="795" class="l"><a class="l" href="#795">795: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;call(__FUNCTION__, <span class="php-keyword1">array</span>(<span class="php-quote">'products'</span> =&gt; (<span class="php-keyword1">array</span>) <span class="php-var">$products</span>, <span class="php-quote">'format'</span> =&gt; (string) <span class="php-var">$format</span>, <span class="php-quote">'type'</span> =&gt; (string) <span class="php-var">$type</span>));
 </span><span id="796" class="l"><a class="l" href="#796">796: </a>    }
-</span><span id="797" class="l"><a class="l" href="#797">797: </a>}
-</span><span id="798" class="l"><a class="l" href="#798">798: </a></span></code></pre>
+</span><span id="797" class="l"><a class="l" href="#797">797: </a>
+</span><span id="798" class="l"><a class="l" href="#798">798: </a>    <span class="php-comment">/**
+</span></span><span id="799" class="l"><a class="l" href="#799">799: </a><span class="php-comment">     * Get prices of the given product.
+</span></span><span id="800" class="l"><a class="l" href="#800">800: </a><span class="php-comment">     *
+</span></span><span id="801" class="l"><a class="l" href="#801">801: </a><span class="php-comment">     * The returned array is in the following format:
+</span></span><span id="802" class="l"><a class="l" href="#802">802: </a><span class="php-comment">     * &lt;code&gt;
+</span></span><span id="803" class="l"><a class="l" href="#803">803: </a><span class="php-comment">     *  [
+</span></span><span id="804" class="l"><a class="l" href="#804">804: </a><span class="php-comment">     *      'sellingPrice' =&gt; sellingPrice,
+</span></span><span id="805" class="l"><a class="l" href="#805">805: </a><span class="php-comment">     *      'buyingPrice' =&gt; buyingPrice,
+</span></span><span id="806" class="l"><a class="l" href="#806">806: </a><span class="php-comment">     *  ]
+</span></span><span id="807" class="l"><a class="l" href="#807">807: </a><span class="php-comment">     * &lt;/code&gt;
+</span></span><span id="808" class="l"><a class="l" href="#808">808: </a><span class="php-comment">     *
+</span></span><span id="809" class="l"><a class="l" href="#809">809: </a><span class="php-comment">     * @param string $brand Product brand.
+</span></span><span id="810" class="l"><a class="l" href="#810">810: </a><span class="php-comment">     * @param string $code Product code.
+</span></span><span id="811" class="l"><a class="l" href="#811">811: </a><span class="php-comment">     *
+</span></span><span id="812" class="l"><a class="l" href="#812">812: </a><span class="php-comment">     * @return array The product prices.
+</span></span><span id="813" class="l"><a class="l" href="#813">813: </a><span class="php-comment">     *
+</span></span><span id="814" class="l"><a class="l" href="#814">814: </a><span class="php-comment">     * @throws Exception\InvalidValue If there is no price defined for the product.
+</span></span><span id="815" class="l"><a class="l" href="#815">815: </a><span class="php-comment">     */</span>
+</span><span id="816" class="l"><a class="l" href="#816">816: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_getProductPrice" href="#_getProductPrice">getProductPrice</a>(<span class="php-var">$brand</span>, <span class="php-var">$code</span>)
+</span><span id="817" class="l"><a class="l" href="#817">817: </a>    {
+</span><span id="818" class="l"><a class="l" href="#818">818: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;call(__FUNCTION__, <span class="php-keyword1">array</span>(<span class="php-quote">'brand'</span> =&gt; (string) <span class="php-var">$brand</span>, <span class="php-quote">'code'</span> =&gt; (string) <span class="php-var">$code</span>));
+</span><span id="819" class="l"><a class="l" href="#819">819: </a>    }
+</span><span id="820" class="l"><a class="l" href="#820">820: </a>
+</span><span id="821" class="l"><a class="l" href="#821">821: </a>    <span class="php-comment">/**
+</span></span><span id="822" class="l"><a class="l" href="#822">822: </a><span class="php-comment">     * Set prices for a given product.
+</span></span><span id="823" class="l"><a class="l" href="#823">823: </a><span class="php-comment">     *
+</span></span><span id="824" class="l"><a class="l" href="#824">824: </a><span class="php-comment">     * At least one price (selling or buying) has to be filled.
+</span></span><span id="825" class="l"><a class="l" href="#825">825: </a><span class="php-comment">     *
+</span></span><span id="826" class="l"><a class="l" href="#826">826: </a><span class="php-comment">     * @param string $brand Product brand.
+</span></span><span id="827" class="l"><a class="l" href="#827">827: </a><span class="php-comment">     * @param string $code Product code.
+</span></span><span id="828" class="l"><a class="l" href="#828">828: </a><span class="php-comment">     * @param float $sellingPrice Selling price.
+</span></span><span id="829" class="l"><a class="l" href="#829">829: </a><span class="php-comment">     * @param float $buyingPrice Buying price.
+</span></span><span id="830" class="l"><a class="l" href="#830">830: </a><span class="php-comment">     * @return bool True if the operation was successful, false otherwise.
+</span></span><span id="831" class="l"><a class="l" href="#831">831: </a><span class="php-comment">     */</span>
+</span><span id="832" class="l"><a class="l" href="#832">832: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setProductPrice" href="#_setProductPrice">setProductPrice</a>(<span class="php-var">$brand</span>, <span class="php-var">$code</span>, <span class="php-var">$sellingPrice</span> = <span class="php-keyword1">null</span>, <span class="php-var">$buyingPrice</span> = <span class="php-keyword1">null</span>)
+</span><span id="833" class="l"><a class="l" href="#833">833: </a>    {
+</span><span id="834" class="l"><a class="l" href="#834">834: </a>        <span class="php-keyword1">return</span> (bool) <span class="php-var">$this</span>-&gt;call(__FUNCTION__, <span class="php-keyword1">array</span>(<span class="php-quote">'brand'</span> =&gt; (string) <span class="php-var">$brand</span>, <span class="php-quote">'code'</span> =&gt; (string) <span class="php-var">$code</span>, <span class="php-quote">'sellingPrice'</span> =&gt; <span class="php-var">$sellingPrice</span>, <span class="php-quote">'buyingPrice'</span> =&gt; <span class="php-var">$buyingPrice</span>));
+</span><span id="835" class="l"><a class="l" href="#835">835: </a>    }
+</span><span id="836" class="l"><a class="l" href="#836">836: </a>
+</span><span id="837" class="l"><a class="l" href="#837">837: </a>    <span class="php-comment">/**
+</span></span><span id="838" class="l"><a class="l" href="#838">838: </a><span class="php-comment">     * Return if a product exists.
+</span></span><span id="839" class="l"><a class="l" href="#839">839: </a><span class="php-comment">     *
+</span></span><span id="840" class="l"><a class="l" href="#840">840: </a><span class="php-comment">     * @param string $brand Product brand.
+</span></span><span id="841" class="l"><a class="l" href="#841">841: </a><span class="php-comment">     * @param string $code Product code.
+</span></span><span id="842" class="l"><a class="l" href="#842">842: </a><span class="php-comment">     * @return bool True if the product exists, false otherwise.
+</span></span><span id="843" class="l"><a class="l" href="#843">843: </a><span class="php-comment">     */</span>
+</span><span id="844" class="l"><a class="l" href="#844">844: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_productExists" href="#_productExists">productExists</a>(<span class="php-var">$brand</span>, <span class="php-var">$code</span>)
+</span><span id="845" class="l"><a class="l" href="#845">845: </a>    {
+</span><span id="846" class="l"><a class="l" href="#846">846: </a>        <span class="php-keyword1">return</span> (bool) <span class="php-var">$this</span>-&gt;call(__FUNCTION__, <span class="php-keyword1">array</span>(<span class="php-quote">'brand'</span> =&gt; (string) <span class="php-var">$brand</span>, <span class="php-quote">'code'</span> =&gt; (string) <span class="php-var">$code</span>));
+</span><span id="847" class="l"><a class="l" href="#847">847: </a>    }
+</span><span id="848" class="l"><a class="l" href="#848">848: </a>}
+</span><span id="849" class="l"><a class="l" href="#849">849: </a></span></code></pre>
 
 	<div id="footer">
 		SG Logistics client API Library API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>

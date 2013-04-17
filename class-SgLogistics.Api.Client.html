@@ -115,7 +115,7 @@
 
 				<b>Category:</b>
 				SgLogistics<br />
-		<b>Located at</b> <a href="source-class-SgLogistics.Api.Client.html#13-797" title="Go to source code">SgLogistics/Client.php</a><br />
+		<b>Located at</b> <a href="source-class-SgLogistics.Api.Client.html#13-848" title="Go to source code">SgLogistics/Client.php</a><br />
 	</div>
 
 
@@ -2088,6 +2088,159 @@ class="php-quote">'amount'</span> =&gt; available_amount
 				<div class="list">
 					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If there is no such product.<br />
 				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getProductPrice" id="_getProductPrice">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getProductPrice">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#798-819" title="Go to source code">getProductPrice</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Get prices of the given product.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get prices of the given product.</p>
+
+<p>The returned array is in the following format:</p>
+
+<pre>
+[
+        <span
+class="php-quote">'sellingPrice'</span> =&gt; sellingPrice,
+        <span
+class="php-quote">'buyingPrice'</span> =&gt; buyingPrice,
+]
+</pre>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$brand</var></dt>
+					<dd><code>string</code><br>$brand Product brand.</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>string</code><br>$code Product code.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>The product prices.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br>If there is no price defined for the product.<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setProductPrice" id="_setProductPrice">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setProductPrice">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#821-835" title="Go to source code">setProductPrice</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span>, <span>float <var>$sellingPrice</var> = <span class="php-keyword1">null</span></span>, <span>float <var>$buyingPrice</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Set prices for a given product.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Set prices for a given product.</p>
+
+<p>At least one price (selling or buying) has to be filled.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$brand</var></dt>
+					<dd><code>string</code><br>$brand Product brand.</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>string</code><br>$code Product code.</dd>
+					<dt><var>$sellingPrice</var></dt>
+					<dd><code>float</code><br>$sellingPrice Selling price.</dd>
+					<dt><var>$buyingPrice</var></dt>
+					<dd><code>float</code><br>$buyingPrice Buying price.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True if the operation was successful, false otherwise.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="productExists" id="_productExists">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_productExists">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#837-847" title="Go to source code">productExists</a>( <span>string <var>$brand</var></span>, <span>string <var>$code</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Return if a product exists.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return if a product exists.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$brand</var></dt>
+					<dd><code>string</code><br>$brand Product brand.</dd>
+					<dt><var>$code</var></dt>
+					<dd><code>string</code><br>$code Product code.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True if the product exists, false otherwise.<br />
+				</div>
+
 
 
 
