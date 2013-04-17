@@ -50,29 +50,6 @@ class Rest implements ProtocolInterface
 	}
 
 	/**
-	 * Converts an array to the CURLOPT_POSTFIELDS form.
-	 *
-	 * @param string $name Parameter name
-	 * @param array $values Parameter value
-	 * @return array
-	 */
-	private function convertArray($name, array $values)
-	{
-		$result = array();
-		foreach ($values as $index => $value) {
-			$fieldName = sprintf('%s[%s]', $name, $index);
-
-			if (is_array($value)) {
-				$result = array_merge($result, $this->convertArray($fieldName, $value));
-			} else {
-				$result[$fieldName] = $value;
-			}
-		}
-
-		return $result;
-	}
-
-	/**
 	 * Sends a request and returns the response.
 	 *
 	 * @param string $method Method name
@@ -86,14 +63,15 @@ class Rest implements ProtocolInterface
 		$arguments = array_diff_key($arguments, $post);
 		$url = $this->hostUrl . sprintf($this->route, $method, http_build_query($arguments));
 
+		$postFiles = array();
 		foreach ($post as $fieldName => $fieldValue) {
-			if (is_array($fieldValue)) {
+			if (!is_array($fieldValue) && isset($fieldValue{0}) && '@' === $fieldValue{0}) {
+				$postFiles[$fieldName] = $fieldValue;
 				unset($post[$fieldName]);
-				foreach ($this->convertArray($fieldName, $fieldValue) as $name => $value) {
-					$post[$name] = $value;
-				}
 			}
 		}
+
+		$post = $postFiles + array('_content' => json_encode($post));
 
 		$c = curl_init($url);
 		curl_setopt_array($c, array(
