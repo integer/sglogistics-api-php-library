@@ -4,8 +4,8 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.11
- * @apiVersion 1.0
+ * @version 1.12
+ * @apiVersion 1.1
  */
 
 namespace SgLogistics\Api\Entity;
@@ -24,6 +24,7 @@ namespace SgLogistics\Api\Entity;
  * @property Address $billingAddress
  * @property Address $shippingAddress
  * @property array $items
+ * @property array $metadata
  */
 class Order extends ApiEntity
 {
@@ -173,7 +174,8 @@ class Order extends ApiEntity
 		'billingAddress' => null,
 		'shippingAddress' => null,
 		'shippingPrice' => 0,
-		'items' => array()
+		'items' => array(),
+		'metadata' => array()
 	);
 
 	/**
@@ -206,8 +208,20 @@ class Order extends ApiEntity
 	 */
 	public function __set($name, $value)
 	{
-		if (('billingAddress' === $name || 'shippingAddress' === $name) && !$value instanceof Address) {
-			throw new \InvalidArgumentException(sprintf('The value of the "%s" attribute has to be an instance of \SgLogistics\Api\Entity\Address.', $name));
+		if ('billingAddress' === $name || 'shippingAddress' === $name) {
+			if (!$value instanceof Address) {
+				throw new \InvalidArgumentException(sprintf('The value of the "%s" attribute has to be an instance of \SgLogistics\Api\Entity\Address.', $name));
+			}
+		} elseif ('metadata' === $name) {
+			if (!is_array($value)) {
+				throw new \InvalidArgumentException(sprintf('The value of the "%s" attribute has to be an array.', $name));
+			}
+
+			foreach ($value as $metadataValue) {
+				if (!is_scalar($metadataValue)) {
+					throw new \InvalidArgumentException(sprintf('The value of the "%s" attribute has to be a single-dimensional array.', $name));
+				}
+			}
 		}
 
 		parent::__set($name, $value);

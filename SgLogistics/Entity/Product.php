@@ -4,8 +4,8 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.11
- * @apiVersion 1.0
+ * @version 1.12
+ * @apiVersion 1.1
  */
 
 namespace SgLogistics\Api\Entity;
@@ -23,6 +23,8 @@ namespace SgLogistics\Api\Entity;
  * @property integer $weight
  * @property Address $address
  * @property string $type
+ * @property float $sellingPrice
+ * @property float $buyingPrice
  */
 class Product extends ApiEntity
 {
@@ -73,7 +75,9 @@ class Product extends ApiEntity
 		'picture' => null,
 		'weight' => null,
 		'address' => null,
-		'type' => null
+		'type' => null,
+		'sellingPrice' => null,
+		'buyingPrice' => null,
 	);
 
 	/**

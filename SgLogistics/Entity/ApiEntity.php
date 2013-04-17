@@ -4,8 +4,8 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.11
- * @apiVersion 1.0
+ * @version 1.12
+ * @apiVersion 1.1
  */
 
 namespace SgLogistics\Api\Entity;
@@ -91,13 +91,14 @@ abstract class ApiEntity
 	 *
 	 * @param string $name Attribute name
 	 */
-	public function __get($name)
+	public function &__get($name)
 	{
 		if (!$this->__isset($name)) {
 			throw new \InvalidArgumentException(sprintf('There is no attribute "%s".', $name));
 		}
 
-		return $this->data[$name];
+		$val = $this->data[$name];
+		return $val;
 	}
 
 	/**
