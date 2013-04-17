@@ -23,6 +23,8 @@ namespace SgLogistics\Api\Entity;
  * @property integer $weight
  * @property Address $address
  * @property string $type
+ * @property float $sellingPrice
+ * @property float $buyingPrice
  */
 class Product extends ApiEntity
 {
@@ -73,7 +75,9 @@ class Product extends ApiEntity
 		'picture' => null,
 		'weight' => null,
 		'address' => null,
-		'type' => null
+		'type' => null,
+		'sellingPrice' => null,
+		'buyingPrice' => null,
 	);
 
 	/**

@@ -794,4 +794,55 @@ class Client
 	{
 		return $this->call(__FUNCTION__, array('products' => (array) $products, 'format' => (string) $format, 'type' => (string) $type));
 	}
+
+	/**
+	 * Get prices of the given product.
+	 *
+	 * The returned array is in the following format:
+	 * <code>
+	 *	[
+	 *		'sellingPrice' => sellingPrice,
+	 *		'buyingPrice' => buyingPrice,
+	 *	]
+	 * </code>
+	 *
+	 * @param string $brand Product brand.
+	 * @param string $code Product code.
+	 *
+	 * @return array The product prices.
+	 *
+	 * @throws Exception\InvalidValue If there is no price defined for the product.
+	 */
+	public function getProductPrice($brand, $code)
+	{
+		return $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code));
+	}
+
+	/**
+	 * Set prices for a given product.
+	 *
+	 * At least one price (selling or buying) has to be filled.
+	 *
+	 * @param string $brand Product brand.
+	 * @param string $code Product code.
+	 * @param float $sellingPrice Selling price.
+	 * @param float $buyingPrice Buying price.
+	 * @return bool True if the operation was successful, false otherwise.
+	 */
+	public function setProductPrice($brand, $code, $sellingPrice = null, $buyingPrice = null)
+	{
+		return (bool) $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'sellingPrice' => $sellingPrice, 'buyingPrice' => $buyingPrice));
+	}
+
+	/**
+	 * Return if a product exists.
+	 *
+	 * @param string $brand Product brand.
+	 * @param string $code Product code.
+	 * @return bool True if the product exists, false otherwise.
+	 */
+	public function productExists($brand, $code)
+	{
+		return (bool) $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code));
+	}
 }
