@@ -91,13 +91,14 @@ abstract class ApiEntity
 	 *
 	 * @param string $name Attribute name
 	 */
-	public function __get($name)
+	public function &__get($name)
 	{
 		if (!$this->__isset($name)) {
 			throw new \InvalidArgumentException(sprintf('There is no attribute "%s".', $name));
 		}
 
-		return $this->data[$name];
+		$val = $this->data[$name];
+		return $val;
 	}
 
 	/**
