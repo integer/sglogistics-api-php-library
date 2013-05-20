@@ -19,14 +19,14 @@ namespace SgLogistics\Api\Exception;
 class ProductDoesNotExist extends InvalidValue
 {
 	/**
-	 * Brand produktu.
+	 * Product brand.
 	 *
 	 * @var string
 	 */
 	protected $productBrand;
 
 	/**
-	 * Kód produktu.
+	 * Product code.
 	 *
 	 * @var string
 	 */
@@ -47,7 +47,7 @@ class ProductDoesNotExist extends InvalidValue
 	}
 
 	/**
-	 * Vrátí brand požadovaného produktu.
+	 * Returns the product brand.
 	 *
 	 * @return string
 	 */
@@ -57,7 +57,7 @@ class ProductDoesNotExist extends InvalidValue
 	}
 
 	/**
-	 * Vrátí kód požadovaného produktu.
+	 * Returns the product code.
 	 *
 	 * @return string
 	 */
