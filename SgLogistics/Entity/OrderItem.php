@@ -4,8 +4,8 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.12
- * @apiVersion 1.1
+ * @version 1.13
+ * @apiVersion 1.2
  */
 
 namespace SgLogistics\Api\Entity;
