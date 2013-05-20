@@ -25,6 +25,8 @@ namespace SgLogistics\Api\Entity;
  * @property string $type
  * @property float $sellingPrice
  * @property float $buyingPrice
+ * @property boolean $oversize
+ * @property array $sizes
  */
 class Product extends ApiEntity
 {
@@ -78,6 +80,8 @@ class Product extends ApiEntity
 		'type' => null,
 		'sellingPrice' => null,
 		'buyingPrice' => null,
+		'oversize' => null,
+		'sizes' => null,
 	);
 
 	/**

@@ -173,6 +173,20 @@ class Client
 	 * Make sure that the given product will exist within the SGL system.
 	 * If there is no such product then the given product is added into the system.
 	 *
+	 * For oversize product you have to set <code>oversize</code> atrribute and <code>sizes</code>
+	 * set as array of sizes. One array for one box. Metrics of box have to be sent in cm and weight in kg.
+	 * Sizes can be send only for new products.
+	 * $sizes => [
+	 * 				[
+	 * 					'width' => box_width
+	 * 					'height' => box_height,
+	 * 					'depth' => box_depth,
+	 * 					'weight' => box_weight,
+	 * 					'description' => box_description
+	 * 				],
+	 * 				...
+	 * 			]
+	 *
 	 * @param Entity\Product $product A product that should exists within the system.
 	 *
 	 * @return bool True if the operation was successful, false otherwise.
