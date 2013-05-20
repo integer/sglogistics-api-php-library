@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Class SgLogistics\Api\Exception\SharedLimitDoesNotExist | SG Logistics client API Library</title>
+	<title>Class SgLogistics\Api\Exception\AlreadyExists | SG Logistics client API Library</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
 	<script type="text/javascript" src="elementlist.js?314587839"></script>
@@ -44,7 +44,7 @@
 
 			<h3>Exceptions</h3>
 			<ul>
-				<li><a href="class-SgLogistics.Api.Exception.AlreadyExists.html">AlreadyExists</a></li>
+				<li class="active"><a href="class-SgLogistics.Api.Exception.AlreadyExists.html">AlreadyExists</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.InvalidAccess.html">InvalidAccess</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.InvalidValue.html">InvalidValue</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.Maintenance.html">Maintenance</a></li>
@@ -52,7 +52,7 @@
 				<li><a href="class-SgLogistics.Api.Exception.ProductDoesNotExist.html">ProductDoesNotExist</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.Response.html">Response</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.ServerError.html">ServerError</a></li>
-				<li class="active"><a href="class-SgLogistics.Api.Exception.SharedLimitDoesNotExist.html">SharedLimitDoesNotExist</a></li>
+				<li><a href="class-SgLogistics.Api.Exception.SharedLimitDoesNotExist.html">SharedLimitDoesNotExist</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.SharedLimitReached.html">SharedLimitReached</a></li>
 				<li><a href="class-SgLogistics.Api.Exception.Value.html">Value</a></li>
 			</ul>
@@ -97,12 +97,12 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class SharedLimitDoesNotExist</h1>
+	<h1>Class AlreadyExists</h1>
 
 
 	<div class="description">
 	
-<p>Thrown when there is no share limit for the given product.</p>
+<p>Exception thrown when the created entity already exists.</p>
 
 	</div>
 
@@ -127,7 +127,21 @@ RuntimeException
 		</dd>
 		<dd style="padding-left:90px">
 			<img src="resources/inherit.png" alt="Extended by" />
-<b><span>SgLogistics\Api\Exception\SharedLimitDoesNotExist</span></b>			
+			<a href="class-SgLogistics.Api.Exception.Value.html"><span>SgLogistics\Api\Exception\Value</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:120px">
+			<img src="resources/inherit.png" alt="Extended by" />
+			<a href="class-SgLogistics.Api.Exception.InvalidValue.html"><span>SgLogistics\Api\Exception\InvalidValue</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:150px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>SgLogistics\Api\Exception\AlreadyExists</span></b>			
 			
 			
 		</dd>
@@ -144,21 +158,115 @@ RuntimeException
 		
 		
 		<b>Namespace:</b> <a href="namespace-SgLogistics.html">SgLogistics</a>\<a href="namespace-SgLogistics.Api.html">Api</a>\<a href="namespace-SgLogistics.Api.Exception.html">Exception</a><br />
-		<b>Package:</b> Api\Exception<br />
+		<b>Package:</b> Api<br />
 
 				<b>Category:</b>
 				SgLogistics<br />
-		<b>Located at</b> <a href="source-class-SgLogistics.Api.Exception.SharedLimitDoesNotExist.html#13-23" title="Go to source code">SgLogistics/Exception/SharedLimitDoesNotExist.php</a><br />
+		<b>Located at</b> <a href="source-class-SgLogistics.Api.Exception.AlreadyExists.html#13-52" title="Go to source code">SgLogistics/Exception/AlreadyExists.php</a><br />
 	</div>
 
 
 
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
 
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-SgLogistics.Api.Exception.AlreadyExists.html#28-41" title="Go to source code">__construct</a>( <span>string <var>$entityName</var></span>, <span>string <var>$message</var></span>, <span>string <var>$parameterName</var></span>, <span>mixed <var>$value</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Creates the exception.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Creates the exception.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$entityName</var></dt>
+					<dd><code>string</code><br>$entityName Entity name</dd>
+					<dt><var>$message</var></dt>
+					<dd><code>string</code><br>$message Exception message</dd>
+					<dt><var>$parameterName</var></dt>
+					<dd><code>string</code><br>$parameterName Parameter name</dd>
+					<dt><var>$value</var></dt>
+					<dd><code>mixed</code><br>$value Parameter value</dd>
+				</dl></div>
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html#___construct">SgLogistics\Api\Exception\InvalidValue::__construct()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getEntityName" id="_getEntityName">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getEntityName">#</a>
+		<code><a href="source-class-SgLogistics.Api.Exception.AlreadyExists.html#43-51" title="Go to source code">getEntityName</a>( )</code>
+
+		<div class="description short">
+			
+<p>Return the entity name.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Return the entity name.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-SgLogistics.Api.Exception.Value.html#methods">SgLogistics\Api\Exception\Value</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-SgLogistics.Api.Exception.Value.html#_getParameterName">getParameterName()</a>, 
+			<a href="class-SgLogistics.Api.Exception.Value.html#_getValue">getValue()</a>
+		</code></td>
+	</tr>
+	</table>
 	<table class="summary inherited">
 	<caption>Methods inherited from <a href="class-SgLogistics.Api.Exception.Response.html#methods">SgLogistics\Api\Exception\Response</a></caption>
 	<tr>
 		<td><code>
-			<a href="class-SgLogistics.Api.Exception.Response.html#___construct">__construct()</a>, 
 			<a href="class-SgLogistics.Api.Exception.Response.html#_createFromResponse">createFromResponse()</a>, 
 			<a href="class-SgLogistics.Api.Exception.Response.html#_getDefinition">getDefinition()</a>, 
 			<a href="class-SgLogistics.Api.Exception.Response.html#_getResponse">getResponse()</a>
@@ -191,6 +299,36 @@ getTraceAsString()
 
 
 
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="entityName" id="$entityName">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SgLogistics.Api.Exception.AlreadyExists.html#21-26" title="Go to source code"><var>$entityName</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$entityName" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Entity name.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Entity name.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
 
 	<table class="summary inherited">
 	<caption>Properties inherited from Exception</caption>

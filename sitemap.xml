@@ -63,6 +63,9 @@
 	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Protocol.ProtocolInterface.html</loc>
 </url>
 <url>
+	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Exception.AlreadyExists.html</loc>
+</url>
+<url>
 	<loc>http://slevomat.github.com/sglogistics-api-php-library/class-SgLogistics.Api.Exception.InvalidAccess.html</loc>
 </url>
 <url>
