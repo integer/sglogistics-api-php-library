@@ -162,6 +162,48 @@ class Order extends ApiEntity
 	const EXPEDITION_STATE_RETURNED_TO_SENDER = 7;
 
 	/**
+	 * Return state - return received.
+	 *
+	 * @var integer
+	 */
+	const RETURN_STATE_RECEIVED = 1;
+
+	/**
+	 * Return state - return is being processed.
+	 *
+	 * @var integer
+	 */
+	const RETURN_STATE_IN_PROGRESS = 2;
+
+	/**
+	 * Return state - return has been approved.
+	 *
+	 * @var integer
+	 */
+	const RETURN_STATE_APPROVED = 3;
+
+	/**
+	 * Return state - return has been declined.
+	 *
+	 * @var integer
+	 */
+	const RETURN_STATE_DECLINED = 4;
+
+	/**
+	 * Return state - return has been returned to the customer.
+	 *
+	 * @var integer
+	 */
+	const RETURN_STATE_RETURNED = 5;
+
+	/**
+	 * Return state - is was not possible to return the return to the customer.
+	 *
+	 * @var integer
+	 */
+	const RETURN_STATE_UNABLE_TO_RETURN = 6;
+
+	/**
 	 * Entity data.
 	 *
 	 * @var array
