@@ -4,8 +4,8 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.12
- * @apiVersion 1.1
+ * @version 1.13
+ * @apiVersion 1.2
  */
 
 namespace SgLogistics\Api\Exception;
@@ -19,14 +19,14 @@ namespace SgLogistics\Api\Exception;
 class ProductDoesNotExist extends InvalidValue
 {
 	/**
-	 * Brand produktu.
+	 * Product brand.
 	 *
 	 * @var string
 	 */
 	protected $productBrand;
 
 	/**
-	 * Kód produktu.
+	 * Product code.
 	 *
 	 * @var string
 	 */
@@ -47,7 +47,7 @@ class ProductDoesNotExist extends InvalidValue
 	}
 
 	/**
-	 * Vrátí brand požadovaného produktu.
+	 * Returns the product brand.
 	 *
 	 * @return string
 	 */
@@ -57,7 +57,7 @@ class ProductDoesNotExist extends InvalidValue
 	}
 
 	/**
-	 * Vrátí kód požadovaného produktu.
+	 * Returns the product code.
 	 *
 	 * @return string
 	 */

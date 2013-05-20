@@ -4,8 +4,8 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.12
- * @apiVersion 1.1
+ * @version 1.13
+ * @apiVersion 1.2
  */
 
 namespace SgLogistics\Api\Entity;
@@ -160,6 +160,48 @@ class Order extends ApiEntity
 	 * @var integer
 	 */
 	const EXPEDITION_STATE_RETURNED_TO_SENDER = 7;
+
+	/**
+	 * Return state - return received.
+	 *
+	 * @var integer
+	 */
+	const RETURN_STATE_RECEIVED = 1;
+
+	/**
+	 * Return state - return is being processed.
+	 *
+	 * @var integer
+	 */
+	const RETURN_STATE_IN_PROGRESS = 2;
+
+	/**
+	 * Return state - return has been approved.
+	 *
+	 * @var integer
+	 */
+	const RETURN_STATE_APPROVED = 3;
+
+	/**
+	 * Return state - return has been declined.
+	 *
+	 * @var integer
+	 */
+	const RETURN_STATE_DECLINED = 4;
+
+	/**
+	 * Return state - return has been returned to the customer.
+	 *
+	 * @var integer
+	 */
+	const RETURN_STATE_RETURNED = 5;
+
+	/**
+	 * Return state - is was not possible to return the return to the customer.
+	 *
+	 * @var integer
+	 */
+	const RETURN_STATE_UNABLE_TO_RETURN = 6;
 
 	/**
 	 * Entity data.

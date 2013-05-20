@@ -4,8 +4,8 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.12
- * @apiVersion 1.1
+ * @version 1.13
+ * @apiVersion 1.2
  */
 
 namespace SgLogistics\Api;
@@ -52,6 +52,20 @@ class Client
 	 * @var string
 	 */
 	const HISTORY_TYPE_ORDERS = 'orders';
+
+	/**
+	 * Reservation source - warehouse.
+	 *
+	 * @var int
+	 */
+	const RESERVATION_SOURCE_WAREHOUSE = 1;
+
+	/**
+	 * Reservation source - partner.
+	 *
+	 * @var int
+	 */
+	const RESERVATION_SOURCE_PARTNER = 2;
 
 	/**
 	 * The communication protcol.
@@ -158,6 +172,20 @@ class Client
 	/**
 	 * Make sure that the given product will exist within the SGL system.
 	 * If there is no such product then the given product is added into the system.
+	 *
+	 * For oversize product you have to set <code>oversize</code> atrribute and <code>sizes</code>
+	 * set as array of sizes. One array for one box. Metrics of box have to be sent in cm and weight in kg.
+	 * Sizes can be send only for new products.
+	 * $sizes => [
+	 * 				[
+	 * 					'width' => box_width
+	 * 					'height' => box_height,
+	 * 					'depth' => box_depth,
+	 * 					'weight' => box_weight,
+	 * 					'description' => box_description
+	 * 				],
+	 * 				...
+	 * 			]
 	 *
 	 * @param Entity\Product $product A product that should exists within the system.
 	 *
@@ -514,6 +542,8 @@ class Client
 	 * @param string $brand Product brand.
 	 * @param string $code Product code.
 	 * @param int $amount Amount of pieces of the given product.
+	 * @param int $source Reservation source.
+	 * @param string $campaign Campaign ident
 	 *
 	 * @return int Amount of remaining pieces of the given product.
 	 *
@@ -521,10 +551,10 @@ class Client
 	 * @throws Exception\SharedLimitDoesNotExist If there is no shared limit for the given product.
 	 * @throws Exception\SharedLimitReached If the requested number of pieces is not avialable.
 	 */
-	public function makeSoftProductReservation($brand, $code, $amount = 1)
+	public function makeSoftProductReservation($brand, $code, $amount = 1, $source = self::RESERVATION_SOURCE_PARTNER, $campaign = null)
 	{
 		return (int) $this->call(
-			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount)
+			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount, 'campaign' => $campaign, 'source' => (int) $source)
 		);
 	}
 
@@ -534,6 +564,8 @@ class Client
 	 * @param string $brand Product brand.
 	 * @param string $code Product code.
 	 * @param int $amount Amount of pieces of the given product.
+	 * @param int $source Reservation source.
+	 * @param string $campaign Campaign ident
 	 *
 	 * @return int Amount of remaining pieces of the given product.
 	 *
@@ -541,10 +573,10 @@ class Client
 	 * @throws Exception\SharedLimitDoesNotExist If there is no shared limit for the given product.
 	 * @throws Exception\SharedLimitReached If the requested number of pieces is not avialable.
 	 */
-	public function makeHardProductReservation($brand, $code, $amount = 1)
+	public function makeHardProductReservation($brand, $code, $amount = 1, $source = self::RESERVATION_SOURCE_PARTNER, $campaign = null)
 	{
 		return (int) $this->call(
-			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount)
+			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount, 'campaign' => $campaign, 'source' => (int) $source)
 		);
 	}
 
@@ -593,15 +625,17 @@ class Client
 	 * @param string $brand Product brand.
 	 * @param string $code Product code.
 	 * @param int $amount Amount of pieces of the given product.
+	 * @param int $source Reservation source.
+	 * @param string $campaign Campaign ident
 	 *
 	 * @return int Amount of remaining pieces of the given product.
 	 *
 	 * @throws Exception\InvalidValue If there is no such product.
 	 */
-	public function unmakeSoftProductReservation($brand, $code, $amount = 1)
+	public function unmakeSoftProductReservation($brand, $code, $amount = 1, $source = self::RESERVATION_SOURCE_PARTNER, $campaign = null)
 	{
 		return (int) $this->call(
-			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount)
+			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount, 'campaign' => $campaign, 'source' => (int) $source)
 		);
 	}
 
@@ -623,15 +657,17 @@ class Client
 	 * @param string $brand Product brand.
 	 * @param string $code Product code.
 	 * @param int $amount Amount of pieces of the given product.
+	 * @param int $source Reservation source.
+	 * @param string $campaign Campaign ident
 	 *
 	 * @return int Amount of remaining pieces of the given product.
 	 *
 	 * @throws Exception\InvalidValue If there is no such product.
 	 */
-	public function unmakeHardProductReservation($brand, $code, $amount = 1)
+	public function unmakeHardProductReservation($brand, $code, $amount = 1, $source = self::RESERVATION_SOURCE_PARTNER, $campaign = null)
 	{
 		return (int) $this->call(
-			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount)
+			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount, 'campaign' => $campaign, 'source' => (int) $source)
 		);
 	}
 
@@ -652,26 +688,28 @@ class Client
 	 *
 	 * @param string $brand Product brand.
 	 * @param string $code Product code.
+	 * @param int $source Reservation source.
 	 *
 	 * @return int Amount of remaining pieces of the given product.
 	 *
 	 * @throws Exception\InvalidValue If there is no such product.
 	 */
-	public function getRemainingAmount($brand, $code)
+	public function getRemainingAmount($brand, $code, $source = self::RESERVATION_SOURCE_PARTNER)
 	{
-		return (int) $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code));
+		return (int) $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'source' => (int) $source));
 	}
 
 	/**
 	 * Get an amount of remaining pieces of multiple products at once.
 	 *
 	 * @param array $products Product definition
+	 * @param int $source Reservation source.
 	 *
 	 * @return array Amount of remaining pieces of given products.
 	 */
-	public function getRemainingAmounts(array $products)
+	public function getRemainingAmounts(array $products, $source = self::RESERVATION_SOURCE_PARTNER)
 	{
-		return $this->call(__FUNCTION__, array('products' => $products));
+		return $this->call(__FUNCTION__, array('products' => $products, 'source' => (int) $source));
 	}
 
 	/**
@@ -679,14 +717,15 @@ class Client
 	 *
 	 * @param string $brand Product brand.
 	 * @param string $code Product code.
+	 * @param int $source Reservation source.
 	 *
 	 * @return int The shared limit for the given product or -1 if there is no limit.
 	 *
 	 * @throws Exception\InvalidValue If there is no such product.
 	 */
-	public function getSharedLimit($brand, $code)
+	public function getSharedLimit($brand, $code, $source = self::RESERVATION_SOURCE_PARTNER)
 	{
-		return (int) $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code));
+		return (int) $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'source' => (int) $source));
 	}
 
 	/**
@@ -694,14 +733,15 @@ class Client
 	 *
 	 * @param string $brand Product brand.
 	 * @param string $code Product code.
+	 * @param int $source Reservation source.
 	 *
 	 * @return int The number of reserved pieces of the given product.
 	 *
 	 * @throws Exception\InvalidValue If there is no such product.
 	 */
-	public function getReservedAmount($brand, $code)
+	public function getReservedAmount($brand, $code, $source = self::RESERVATION_SOURCE_PARTNER)
 	{
-		return (int) $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code));
+		return (int) $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'source' => (int) $source));
 	}
 
 	/**

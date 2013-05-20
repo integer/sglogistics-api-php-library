@@ -1,0 +1,22 @@
+{
+	"name": "slevomat/sglogistics-api",
+	"description": "SG Logistics client API Library",
+	"keywords": [
+		"sgl", "logistics", "slevomat", "api"
+	],
+	"homepage": "http://slevomat.github.io/sglogistics-api-php-library/",
+	"license": ["proprietary"],
+	"authors": [
+		{
+			"name": "Slevomat.cz, s.r.o.",
+			"email": "it@slevomat.cz",
+			"homepage": "http://www.slevomat.cz"
+		}
+	],
+	"require": {
+		"php": ">=5.3.2"
+	},
+	"autoload": {
+		"classmap": ["SgLogistics/"]
+	}
+}

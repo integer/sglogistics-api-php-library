@@ -4,8 +4,8 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.12
- * @apiVersion 1.1
+ * @version 1.13
+ * @apiVersion 1.2
  */
 
 namespace SgLogistics\Api\Entity;
@@ -25,6 +25,8 @@ namespace SgLogistics\Api\Entity;
  * @property string $type
  * @property float $sellingPrice
  * @property float $buyingPrice
+ * @property boolean $oversize
+ * @property array $sizes
  */
 class Product extends ApiEntity
 {
@@ -78,6 +80,8 @@ class Product extends ApiEntity
 		'type' => null,
 		'sellingPrice' => null,
 		'buyingPrice' => null,
+		'oversize' => null,
+		'sizes' => null,
 	);
 
 	/**
