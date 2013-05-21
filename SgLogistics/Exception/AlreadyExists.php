@@ -29,11 +29,10 @@ class AlreadyExists extends InvalidValue
 	 * Creates the exception.
 	 *
 	 * @param string $entityName Entity name
-	 * @param string $message Exception message
 	 * @param string $parameterName Parameter name
 	 * @param mixed $value Parameter value
 	 */
-	public function __construct($entityName, $message, $parameterName, $value)
+	public function __construct($entityName, $parameterName, $value)
 	{
 		parent::__construct(sprintf('Could not create a new %s with %s "%s". Such %s already exists', $entityName, $parameterName, $value, $entityName), $parameterName, $value);
 
