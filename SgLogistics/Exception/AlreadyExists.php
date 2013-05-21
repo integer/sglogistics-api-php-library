@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.13
+ * @version 1.13.1
  * @apiVersion 1.2
  */
 
@@ -29,11 +29,10 @@ class AlreadyExists extends InvalidValue
 	 * Creates the exception.
 	 *
 	 * @param string $entityName Entity name
-	 * @param string $message Exception message
 	 * @param string $parameterName Parameter name
 	 * @param mixed $value Parameter value
 	 */
-	public function __construct($entityName, $message, $parameterName, $value)
+	public function __construct($entityName, $parameterName, $value)
 	{
 		parent::__construct(sprintf('Could not create a new %s with %s "%s". Such %s already exists', $entityName, $parameterName, $value, $entityName), $parameterName, $value);
 
