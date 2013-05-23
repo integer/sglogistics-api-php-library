@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.13.1
+ * @version 1.14
  * @apiVersion 1.2
  */
 
@@ -27,6 +27,7 @@ namespace SgLogistics\Api\Entity;
  * @property float $buyingPrice
  * @property boolean $oversize
  * @property array $sizes
+ * @property string $intrastat
  */
 class Product extends ApiEntity
 {
@@ -82,6 +83,7 @@ class Product extends ApiEntity
 		'buyingPrice' => null,
 		'oversize' => null,
 		'sizes' => null,
+		'intrastat' => null,
 	);
 
 	/**
@@ -107,6 +109,10 @@ class Product extends ApiEntity
 			throw new \InvalidArgumentException(sprintf('The value of the "%s" attribute has to be one of %s.', $name, implode(', ', static::getTypes())));
 		}
 
+		if ('intrastat' === $name && $value !== null && !in_array($value, static::getIntrastatTypes())) {
+			throw new \InvalidArgumentException(sprintf('The value of the "%s" attribute has to be one of %s.', $name, implode(', ', static::getIntrastatTypes())));
+		}
+
 		parent::__set($name, $value);
 	}
 
@@ -129,7 +135,7 @@ class Product extends ApiEntity
 	/**
 	 * Returns possible product types.
 	 *
-	 * @return string
+	 * @return array
 	 */
 	public static function getTypes()
 	{
@@ -140,6 +146,30 @@ class Product extends ApiEntity
 
 			foreach ($constants as $name => $value) {
 				if (0 !== strpos($name, 'TYPE_')) {
+					unset($constants[$name]);
+				}
+			}
+
+			$types = array_values($constants);
+		}
+
+		return $types;
+	}
+
+	/**
+	 * Returns possible intrastat types.
+	 *
+	 * @return array
+	 */
+	public static function getIntrastatTypes()
+	{
+		static $types;
+		if (!isset($types)) {
+			$reflection = new \ReflectionClass(get_called_class());
+			$constants = $reflection->getConstants();
+
+			foreach ($constants as $name => $value) {
+				if (0 !== strpos($name, 'INTRASTAT_')) {
 					unset($constants[$name]);
 				}
 			}
