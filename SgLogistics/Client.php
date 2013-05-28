@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.14
+ * @version 1.15
  * @apiVersion 1.2
  */
 
@@ -543,7 +543,8 @@ class Client
 	 * @param string $code Product code.
 	 * @param int $amount Amount of pieces of the given product.
 	 * @param int $source Reservation source.
-	 * @param string $campaign Campaign ident
+	 * @param string $campaign Campaign ident.
+	 * @param string $orderId Future order ID.
 	 *
 	 * @return int Amount of remaining pieces of the given product.
 	 *
@@ -551,10 +552,10 @@ class Client
 	 * @throws Exception\SharedLimitDoesNotExist If there is no shared limit for the given product.
 	 * @throws Exception\SharedLimitReached If the requested number of pieces is not avialable.
 	 */
-	public function makeSoftProductReservation($brand, $code, $amount = 1, $source = self::RESERVATION_SOURCE_PARTNER, $campaign = null)
+	public function makeSoftProductReservation($brand, $code, $amount = 1, $source = self::RESERVATION_SOURCE_PARTNER, $campaign = null, $orderId = null)
 	{
 		return (int) $this->call(
-			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount, 'campaign' => $campaign, 'source' => (int) $source)
+			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount, 'campaign' => $campaign, 'source' => (int) $source, 'orderId' => $orderId)
 		);
 	}
 
@@ -566,6 +567,7 @@ class Client
 	 * @param int $amount Amount of pieces of the given product.
 	 * @param int $source Reservation source.
 	 * @param string $campaign Campaign ident
+	 * @param string $orderId Future order ID.
 	 *
 	 * @return int Amount of remaining pieces of the given product.
 	 *
@@ -573,10 +575,10 @@ class Client
 	 * @throws Exception\SharedLimitDoesNotExist If there is no shared limit for the given product.
 	 * @throws Exception\SharedLimitReached If the requested number of pieces is not avialable.
 	 */
-	public function makeHardProductReservation($brand, $code, $amount = 1, $source = self::RESERVATION_SOURCE_PARTNER, $campaign = null)
+	public function makeHardProductReservation($brand, $code, $amount = 1, $source = self::RESERVATION_SOURCE_PARTNER, $campaign = null, $orderId = null)
 	{
 		return (int) $this->call(
-			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount, 'campaign' => $campaign, 'source' => (int) $source)
+			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount, 'campaign' => $campaign, 'source' => (int) $source, 'orderId' => $orderId)
 		);
 	}
 
@@ -626,16 +628,17 @@ class Client
 	 * @param string $code Product code.
 	 * @param int $amount Amount of pieces of the given product.
 	 * @param int $source Reservation source.
-	 * @param string $campaign Campaign ident
+	 * @param string $campaign Campaign ident.
+	 * @param string $orderId Future order ID.
 	 *
 	 * @return int Amount of remaining pieces of the given product.
 	 *
 	 * @throws Exception\InvalidValue If there is no such product.
 	 */
-	public function unmakeSoftProductReservation($brand, $code, $amount = 1, $source = self::RESERVATION_SOURCE_PARTNER, $campaign = null)
+	public function unmakeSoftProductReservation($brand, $code, $amount = 1, $source = self::RESERVATION_SOURCE_PARTNER, $campaign = null, $orderId = null)
 	{
 		return (int) $this->call(
-			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount, 'campaign' => $campaign, 'source' => (int) $source)
+			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount, 'campaign' => $campaign, 'source' => (int) $source, 'orderId' => $orderId)
 		);
 	}
 
@@ -658,16 +661,17 @@ class Client
 	 * @param string $code Product code.
 	 * @param int $amount Amount of pieces of the given product.
 	 * @param int $source Reservation source.
-	 * @param string $campaign Campaign ident
+	 * @param string $campaign Campaign ident.
+	 * @param string $orderId Future order ID.
 	 *
 	 * @return int Amount of remaining pieces of the given product.
 	 *
 	 * @throws Exception\InvalidValue If there is no such product.
 	 */
-	public function unmakeHardProductReservation($brand, $code, $amount = 1, $source = self::RESERVATION_SOURCE_PARTNER, $campaign = null)
+	public function unmakeHardProductReservation($brand, $code, $amount = 1, $source = self::RESERVATION_SOURCE_PARTNER, $campaign = null, $orderId = null)
 	{
 		return (int) $this->call(
-			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount, 'campaign' => $campaign, 'source' => (int) $source)
+			__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'amount' => (int) $amount, 'campaign' => $campaign, 'source' => (int) $source, 'orderId' => $orderId)
 		);
 	}
 
