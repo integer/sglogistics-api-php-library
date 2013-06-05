@@ -19,6 +19,20 @@ namespace SgLogistics\Api;
 class Client
 {
 	/**
+	 * Actual library version.
+	 *
+	 * @var string
+	 */
+	const VERSION = '1.15';
+
+	/**
+	 * URL of the Github repository.
+	 *
+	 * @var string
+	 */
+	const REPOSITORY_NAME = 'slevomat/sglogistics-api-php-library';
+
+	/**
 	 * Document format will be PDF.
 	 *
 	 * @var string
@@ -96,6 +110,58 @@ class Client
 	public function __construct(Protocol\ProtocolInterface $protocol)
 	{
 		$this->protocol = $protocol;
+		$this->protocol->setUserAgent($this->getUserAgent());
+	}
+
+	/**
+	 * Checks if there is a newer version of the library available.
+	 *
+	 * @return boolean
+	 * @throws \Exception on cURL error
+	 */
+	public function hasNewerVersion()
+	{
+		$c = curl_init(sprintf('https://api.github.com/repos/%s/tags', self::REPOSITORY_NAME));
+		curl_setopt_array($c, array(
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_USERAGENT => $this->getUserAgent()
+		));
+
+		$content = curl_exec($c);
+
+		curl_close($c);
+
+		if (false === $content) {
+			throw new \Exception(sprintf('Could not execute the cURL request to URL "%s" (%d: %s).', $url, curl_errno($c), curl_error($c)));
+		}
+
+		$jsonData = @json_decode($content, true);
+
+		if (null === $content) {
+			throw new \Exception('Invalid repository data returned.');
+		}
+
+		foreach ((array) $jsonData as $tag) {
+			if (empty($tag['name'])) {
+				throw new \Exception('Invalid repository data returned.');
+			}
+
+			if (version_compare(self::VERSION, $tag['name']) < 0) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Returns the user agent header value.
+	 *
+	 * @return string
+	 */
+	protected function getUserAgent()
+	{
+		return sprintf('SG Logistics API client library/%s [admin@sglogistics.cz]', self::VERSION);
 	}
 
 	/**

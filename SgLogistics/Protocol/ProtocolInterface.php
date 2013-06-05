@@ -28,4 +28,12 @@ interface ProtocolInterface
 	 * @return \SgLogistics\Api\Response Method call result.
 	 */
 	public function request($method, array $arguments = array());
+
+	/**
+	 * Sets the user agent header value for HTTP requests.
+	 *
+	 * @param string $userAgent Header value
+	 * @return \SgLogistics\Api\Protocol\ProtocolInterface
+	 */
+	public function setUserAgent($userAgent);
 }
