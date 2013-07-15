@@ -364,7 +364,10 @@ class Client
 	 * 					'number' => package_number,
 	 * 					'trackingUrl' => url_for_detailed_package_tracking,
 	 * 					'state' => tracking_state,
-	 * 					'date' => date_and_time_of_the_tracking_state
+	 * 					'date' => date_and_time_of_the_tracking_state,
+	 * 					'additional' => [
+	 * 						optional_delivery_client_specific_information
+	 * 					]
 	 * 				],
 	 * 				...
 	 * 			]
@@ -433,6 +436,9 @@ class Client
 	 * 						'date' => date_and_time_of_the_tracking_state
 	 * 					],
 	 * 					...
+	 * 				],
+	 * 				'additional' => [
+	 * 					optional_delivery_client_specific_information
 	 * 				]
 	 * 			],
 	 * 			...
