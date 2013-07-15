@@ -25,6 +25,7 @@ namespace SgLogistics\Api\Entity;
  * @property Address $shippingAddress
  * @property array $items
  * @property array $metadata
+ * @property boolean $cashOnDelivery
  */
 class Order extends ApiEntity
 {
@@ -217,7 +218,8 @@ class Order extends ApiEntity
 		'shippingAddress' => null,
 		'shippingPrice' => 0,
 		'items' => array(),
-		'metadata' => array()
+		'metadata' => array(),
+		'cashOnDelivery' => false,
 	);
 
 	/**
