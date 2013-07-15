@@ -593,6 +593,21 @@ class Client
 	}
 
 	/**
+	 * Get a return confirmation document for the given return.
+	 *
+	 * @param int $id ID of a return for which to get a return confirmation document.
+	 * @param string $format Document format.
+	 *
+	 * @return string The requested return receipt document as a base64 encoded data stream.
+	 *
+	 * @throws Exception\InvalidValue If there is no such return.
+	 */
+	public function getReturnConfirmation($id, $format = self::DOCUMENT_FORMAT_PDF)
+	{
+		return $this->call(__FUNCTION__, array('id' => $id, 'format' => $format));
+	}
+
+	/**
 	 * Updates the given order shipping address.
 	 *
 	 * @param int $id ID of an order for which to update the shipping address.
