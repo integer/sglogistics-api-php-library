@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.15
+ * @version 1.16
  * @apiVersion 1.2
  */
 
@@ -34,6 +34,13 @@ class Rest implements ProtocolInterface
 	private $hostUrl;
 
 	/**
+	 * User agent header value.
+	 *
+	 * @var string
+	 */
+	private $userAgent;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param string $hostUrl Server URL.
@@ -47,6 +54,19 @@ class Rest implements ProtocolInterface
 		}
 
 		$this->hostUrl = (string) $hostUrl;
+	}
+
+	/**
+	 * Sets the user agent header value for HTTP requests.
+	 *
+	 * @param string $userAgent Header value
+	 * @return \SgLogistics\Api\Protocol\ProtocolInterface
+	 */
+	public function setUserAgent($userAgent)
+	{
+		$this->userAgent = (string) $userAgent;
+
+		return $this;
 	}
 
 	/**
@@ -77,7 +97,8 @@ class Rest implements ProtocolInterface
 		curl_setopt_array($c, array(
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_POST => true,
-			CURLOPT_POSTFIELDS => $post
+			CURLOPT_POSTFIELDS => $post,
+			CURLOPT_USERAGENT => sprintf('%s php_curl', $this->userAgent),
 		));
 
 		$content = curl_exec($c);

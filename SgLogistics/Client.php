@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.15
+ * @version 1.16
  * @apiVersion 1.2
  */
 
@@ -18,6 +18,20 @@ namespace SgLogistics\Api;
  */
 class Client
 {
+	/**
+	 * Actual library version.
+	 *
+	 * @var string
+	 */
+	const VERSION = '1.16';
+
+	/**
+	 * URL of the Github repository.
+	 *
+	 * @var string
+	 */
+	const REPOSITORY_NAME = 'slevomat/sglogistics-api-php-library';
+
 	/**
 	 * Document format will be PDF.
 	 *
@@ -96,6 +110,58 @@ class Client
 	public function __construct(Protocol\ProtocolInterface $protocol)
 	{
 		$this->protocol = $protocol;
+		$this->protocol->setUserAgent($this->getUserAgent());
+	}
+
+	/**
+	 * Checks if there is a newer version of the library available.
+	 *
+	 * @return boolean
+	 * @throws \Exception on cURL error
+	 */
+	public function hasNewerVersion()
+	{
+		$c = curl_init(sprintf('https://api.github.com/repos/%s/tags', self::REPOSITORY_NAME));
+		curl_setopt_array($c, array(
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_USERAGENT => $this->getUserAgent()
+		));
+
+		$content = curl_exec($c);
+
+		curl_close($c);
+
+		if (false === $content) {
+			throw new \Exception(sprintf('Could not execute the cURL request to URL "%s" (%d: %s).', $url, curl_errno($c), curl_error($c)));
+		}
+
+		$jsonData = @json_decode($content, true);
+
+		if (null === $content) {
+			throw new \Exception('Invalid repository data returned.');
+		}
+
+		foreach ((array) $jsonData as $tag) {
+			if (empty($tag['name'])) {
+				throw new \Exception('Invalid repository data returned.');
+			}
+
+			if (version_compare(self::VERSION, $tag['name']) < 0) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Returns the user agent header value.
+	 *
+	 * @return string
+	 */
+	protected function getUserAgent()
+	{
+		return sprintf('SG Logistics API client library/%s [admin@sglogistics.cz]', self::VERSION);
 	}
 
 	/**
@@ -298,7 +364,10 @@ class Client
 	 * 					'number' => package_number,
 	 * 					'trackingUrl' => url_for_detailed_package_tracking,
 	 * 					'state' => tracking_state,
-	 * 					'date' => date_and_time_of_the_tracking_state
+	 * 					'date' => date_and_time_of_the_tracking_state,
+	 * 					'additional' => [
+	 * 						optional_delivery_client_specific_information
+	 * 					]
 	 * 				],
 	 * 				...
 	 * 			]
@@ -367,6 +436,9 @@ class Client
 	 * 						'date' => date_and_time_of_the_tracking_state
 	 * 					],
 	 * 					...
+	 * 				],
+	 * 				'additional' => [
+	 * 					optional_delivery_client_specific_information
 	 * 				]
 	 * 			],
 	 * 			...
@@ -506,16 +578,31 @@ class Client
 	}
 
 	/**
-	 * Get a return receipt document for the given order.
+	 * Get a return receipt document for the given order cancel/return.
 	 *
-	 * @param int $id ID of an order for which to get a return receipt document.
+	 * @param int $id ID of an order cancel/return for which to get a return receipt document.
 	 * @param string $format Document format.
 	 *
 	 * @return string The requested return receipt document as a base64 encoded data stream.
 	 *
-	 * @throws Exception\InvalidValue If there is no such order.
+	 * @throws Exception\InvalidValue If there is no such order cancel/return.
 	 */
 	public function getReturnReceipt($id, $format = self::DOCUMENT_FORMAT_PDF)
+	{
+		return $this->call(__FUNCTION__, array('id' => $id, 'format' => $format));
+	}
+
+	/**
+	 * Get a return confirmation document for the given return.
+	 *
+	 * @param int $id ID of a return for which to get a return confirmation document.
+	 * @param string $format Document format.
+	 *
+	 * @return string The requested return receipt document as a base64 encoded data stream.
+	 *
+	 * @throws Exception\InvalidValue If there is no such return.
+	 */
+	public function getReturnConfirmation($id, $format = self::DOCUMENT_FORMAT_PDF)
 	{
 		return $this->call(__FUNCTION__, array('id' => $id, 'format' => $format));
 	}
