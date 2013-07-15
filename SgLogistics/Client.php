@@ -578,14 +578,14 @@ class Client
 	}
 
 	/**
-	 * Get a return receipt document for the given order.
+	 * Get a return receipt document for the given order cancel/return.
 	 *
-	 * @param int $id ID of an order for which to get a return receipt document.
+	 * @param int $id ID of an order cancel/return for which to get a return receipt document.
 	 * @param string $format Document format.
 	 *
 	 * @return string The requested return receipt document as a base64 encoded data stream.
 	 *
-	 * @throws Exception\InvalidValue If there is no such order.
+	 * @throws Exception\InvalidValue If there is no such order cancel/return.
 	 */
 	public function getReturnReceipt($id, $format = self::DOCUMENT_FORMAT_PDF)
 	{
