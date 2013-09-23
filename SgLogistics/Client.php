@@ -23,7 +23,7 @@ class Client
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.16';
+	const VERSION = '1.17.1';
 
 	/**
 	 * URL of the Github repository.
