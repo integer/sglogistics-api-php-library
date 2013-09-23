@@ -7,7 +7,7 @@
 	<title>Class SgLogistics\Api\Entity\OrderPart | SG Logistics client API Library</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?314587839"></script>
+	<script type="text/javascript" src="elementlist.js?4221289173"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -49,6 +49,7 @@
 				<li><a href="class-SgLogistics.Api.Entity.OrderItem.html">OrderItem</a></li>
 				<li class="active"><a href="class-SgLogistics.Api.Entity.OrderPart.html">OrderPart</a></li>
 				<li><a href="class-SgLogistics.Api.Entity.Product.html">Product</a></li>
+				<li><a href="class-SgLogistics.Api.Entity.SupplierOrder.html">SupplierOrder</a></li>
 			</ul>
 
 
@@ -133,7 +134,7 @@
 
 				<b>Category:</b>
 				SgLogistics<br />
-		<b>Located at</b> <a href="source-class-SgLogistics.Api.Entity.OrderPart.html#13-37" title="Go to source code">SgLogistics/Entity/OrderPart.php</a><br />
+		<b>Located at</b> <a href="source-class-SgLogistics.Api.Entity.OrderPart.html#13-60" title="Go to source code">SgLogistics/Entity/OrderPart.php</a><br />
 	</div>
 
 
@@ -159,6 +160,81 @@
 
 
 
+	<table class="summary" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="RETURN_STATE_MINT" id="RETURN_STATE_MINT">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-SgLogistics.Api.Entity.OrderPart.html#27-32" title="Go to source code"><b>RETURN_STATE_MINT</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">1</span></code></td>
+		<td class="description"><div>
+			<a href="#RETURN_STATE_MINT" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Returned goods is in mint state.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returned goods is in mint state.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="RETURN_STATE_GOOD" id="RETURN_STATE_GOOD">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-SgLogistics.Api.Entity.OrderPart.html#34-39" title="Go to source code"><b>RETURN_STATE_GOOD</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">2</span></code></td>
+		<td class="description"><div>
+			<a href="#RETURN_STATE_GOOD" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Returned goods is in good state.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returned goods is in good state.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="RETURN_STATE_GARBAGE" id="RETURN_STATE_GARBAGE">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-SgLogistics.Api.Entity.OrderPart.html#41-46" title="Go to source code"><b>RETURN_STATE_GARBAGE</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">3</span></code></td>
+		<td class="description"><div>
+			<a href="#RETURN_STATE_GARBAGE" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Returned goods is garbage.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Returned goods is garbage.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
 
 
 
@@ -172,13 +248,14 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-SgLogistics.Api.Entity.OrderPart.html#26-36" title="Go to source code"><var>$data</var></a>
+				<a href="source-class-SgLogistics.Api.Entity.OrderPart.html#48-59" title="Go to source code"><var>$data</var></a>
 		</td>
 		<td class="value"><code><span class="php-keyword1">array</span>(
 	<span class="php-quote">'orderId'</span> =&gt; <span class="php-keyword1">null</span>,
 	<span class="php-quote">'brand'</span> =&gt; <span class="php-keyword1">null</span>,
 	<span class="php-quote">'code'</span> =&gt; <span class="php-keyword1">null</span>,
-	<span class="php-quote">'amount'</span> =&gt; <span class="php-keyword1">null</span>
+	<span class="php-quote">'amount'</span> =&gt; <span class="php-keyword1">null</span>,
+	<span class="php-quote">'returnState'</span> =&gt; <span class="php-keyword1">null</span>
 )</code></td>
 		<td class="description"><div>
 			<a href="#$data" class="anchor">#</a>
@@ -280,6 +357,28 @@
 		</td>
 		<td class="description"><div>
 			<a href="#m$amount" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="returnState" id="m$returnState">
+		<td class="attributes"><code>
+			public  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SgLogistics.Api.Entity.OrderPart.html#23" title="Go to source code"><var>$returnState</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$returnState" class="anchor">#</a>
 
 			<div class="description short">
 				

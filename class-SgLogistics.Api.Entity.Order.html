@@ -7,7 +7,7 @@
 	<title>Class SgLogistics\Api\Entity\Order | SG Logistics client API Library</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?314587839"></script>
+	<script type="text/javascript" src="elementlist.js?4221289173"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -49,6 +49,7 @@
 				<li><a href="class-SgLogistics.Api.Entity.OrderItem.html">OrderItem</a></li>
 				<li><a href="class-SgLogistics.Api.Entity.OrderPart.html">OrderPart</a></li>
 				<li><a href="class-SgLogistics.Api.Entity.Product.html">Product</a></li>
+				<li><a href="class-SgLogistics.Api.Entity.SupplierOrder.html">SupplierOrder</a></li>
 			</ul>
 
 
@@ -133,7 +134,7 @@
 
 				<b>Category:</b>
 				SgLogistics<br />
-		<b>Located at</b> <a href="source-class-SgLogistics.Api.Entity.Order.html#13-273" title="Go to source code">SgLogistics/Entity/Order.php</a><br />
+		<b>Located at</b> <a href="source-class-SgLogistics.Api.Entity.Order.html#13-266" title="Go to source code">SgLogistics/Entity/Order.php</a><br />
 	</div>
 
 
@@ -151,7 +152,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addItem">#</a>
-		<code><a href="source-class-SgLogistics.Api.Entity.Order.html#225-242" title="Go to source code">addItem</a>( <span><code><a href="class-SgLogistics.Api.Entity.OrderItem.html">SgLogistics\Api\Entity\OrderItem</a></code> <var>$item</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Entity.Order.html#218-235" title="Go to source code">addItem</a>( <span><code><a href="class-SgLogistics.Api.Entity.OrderItem.html">SgLogistics\Api\Entity\OrderItem</a></code> <var>$item</var></span> )</code>
 
 		<div class="description short">
 			
@@ -197,7 +198,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___set">#</a>
-		<code><a href="source-class-SgLogistics.Api.Entity.Order.html#244-272" title="Go to source code">__set</a>( <span>string <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Entity.Order.html#237-265" title="Go to source code">__set</a>( <span>string <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
 
 		<div class="description short">
 			
@@ -812,49 +813,25 @@ will be made.</p>
 			</div>
 		</div></td>
 	</tr>
-	<tr data-order="RETURN_STATE_RETURNED" id="RETURN_STATE_RETURNED">
+	<tr data-order="RETURN_STATE_TRANSPORTED" id="RETURN_STATE_TRANSPORTED">
 
 		<td class="attributes"><code>integer</code></td>
 		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.Order.html#193-198" title="Go to source code"><b>RETURN_STATE_RETURNED</b></a>
+				<a href="source-class-SgLogistics.Api.Entity.Order.html#193-198" title="Go to source code"><b>RETURN_STATE_TRANSPORTED</b></a>
 		</code></td>
-		<td class="value"><code><span class="php-num">5</span></code></td>
+		<td class="value"><code><span class="php-num">7</span></code></td>
 		<td class="description"><div>
-			<a href="#RETURN_STATE_RETURNED" class="anchor">#</a>
+			<a href="#RETURN_STATE_TRANSPORTED" class="anchor">#</a>
 
 			<div class="description short">
 				
-<p>Return state - return has been returned to the customer.</p>
+<p>Return state - return is being transported between seller's warehouses.</p>
 
 			</div>
 
 			<div class="description detailed hidden">
 				
-<p>Return state - return has been returned to the customer.</p>
-
-
-			</div>
-		</div></td>
-	</tr>
-	<tr data-order="RETURN_STATE_UNABLE_TO_RETURN" id="RETURN_STATE_UNABLE_TO_RETURN">
-
-		<td class="attributes"><code>integer</code></td>
-		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.Order.html#200-205" title="Go to source code"><b>RETURN_STATE_UNABLE_TO_RETURN</b></a>
-		</code></td>
-		<td class="value"><code><span class="php-num">6</span></code></td>
-		<td class="description"><div>
-			<a href="#RETURN_STATE_UNABLE_TO_RETURN" class="anchor">#</a>
-
-			<div class="description short">
-				
-<p>Return state - is was not possible to return the return to the customer.</p>
-
-			</div>
-
-			<div class="description detailed hidden">
-				
-<p>Return state - is was not possible to return the return to the customer.</p>
+<p>Return state - return is being transported between seller's warehouses.</p>
 
 
 			</div>
@@ -874,7 +851,7 @@ will be made.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-SgLogistics.Api.Entity.Order.html#207-223" title="Go to source code"><var>$data</var></a>
+				<a href="source-class-SgLogistics.Api.Entity.Order.html#200-216" title="Go to source code"><var>$data</var></a>
 		</td>
 		<td class="value"><code><span class="php-keyword1">array</span>(
 	<span class="php-quote">'id'</span> =&gt; <span class="php-keyword1">null</span>,
