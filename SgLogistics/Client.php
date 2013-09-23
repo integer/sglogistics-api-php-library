@@ -831,7 +831,7 @@ class Client
 	/**
 	 * Get an amount of remaining pieces of multiple products at once.
 	 *
-	 * @param array $products Product definition
+	 * @param array $products Product definition (individual definitions may include the "source" parameter; if not present, the method parameter "source" will be used)
 	 * @param int $source Reservation source.
 	 *
 	 * @return array Amount of remaining pieces of given products.
