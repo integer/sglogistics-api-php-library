@@ -341,6 +341,32 @@ class Client
 	}
 
 	/**
+	 * Create a return or complain of the given order parts.
+	 *
+	 * @param array $orderParts Array of Entity\OrderPart instances.
+	 * @param string $returnType Type of return (Entity\OrderItem::STATE_REPAYMENT or Entity\OrderItem::STATE_COMPLAINT).
+	 * @param Entity\Address $address Address of the customer.
+	 * @param int $returnPlace Id of the warehouse where items are physically returned.
+	 * @param string $reason Reason for returning items.
+	 *
+	 * @return int Cancel ID
+	 *
+	 * @throws \InvalidArgumentException If there is no such order, order item or warehouse.
+	 * @throws Exception\InvalidValue If the given order does not contain the given product or the amount to cancel
+	 *                                is higher than amount contained within the order. Or an invalid value for productState or returnType was provided.
+	 */
+	public function addReturn(array $orderParts, $returnType, Entity\Address $address, $returnPlace, $reason)
+	{
+		return (int) $this->call(__FUNCTION__, array(
+			'returnType' => $returnType,
+			'address' => $address->export(),
+			'returnPlace' => $returnPlace,
+			'reason' => $reason,
+			'orderParts' => array_map(function(Entity\OrderPart $part) { return $part->export(); }, $orderParts)
+		));
+	}
+
+	/**
 	 * Get order(s) state(s) along with tracking information if available.
 	 *
 	 * The returned array is in the following format:
@@ -543,6 +569,18 @@ class Client
 	 * @throws Exception\InvalidValue If there is no such order.
 	 */
 	public function getReturn($id)
+	{
+		return $this->call(__FUNCTION__, array('id' => $id));
+	}
+
+	/**
+	 * Returns the state of a return of the given ID.
+	 *
+	 * @param int|array $id Return ID. Can be a single ID or a list of IDs in which case the result will an array
+	 * 							where its keys are IDs of corresponding cancels.
+	 * @return int
+	 */
+	public function getReturnState($id)
 	{
 		return $this->call(__FUNCTION__, array('id' => $id));
 	}
