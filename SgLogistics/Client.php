@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.16
+ * @version 1.17
  * @apiVersion 1.2
  */
 
@@ -285,14 +285,14 @@ class Client
 	 *
 	 * @param Entity\Order $order The customer order to be added.
 	 *
-	 * @return bool True if the operation was successful, false otherwise.
+	 * @return int Created order state.
 	 *
 	 * @throws Exception\MissingValue If a value of some required property is missing.
 	 * @throws Exception\InvalidValue If a value of some property is not valid one.
 	 */
 	public function addOrder(Entity\Order $order)
 	{
-		return (bool) $this->call(__FUNCTION__, $order->export());
+		return (int) $this->call(__FUNCTION__, $order->export());
 	}
 
 	/**
@@ -338,6 +338,32 @@ class Client
 	public function cancelOrderPart(Entity\OrderPart $part, $returnShippingPrice = false)
 	{
 		return (int) $this->call(__FUNCTION__, $part->export() + array('returnShippingPrice' => $returnShippingPrice));
+	}
+
+	/**
+	 * Create a return or complain of the given order parts.
+	 *
+	 * @param array $orderParts Array of Entity\OrderPart instances.
+	 * @param string $returnType Type of return (Entity\OrderItem::STATE_REPAYMENT or Entity\OrderItem::STATE_COMPLAINT).
+	 * @param Entity\Address $address Address of the customer.
+	 * @param int $returnPlace Id of the warehouse where items are physically returned.
+	 * @param string $reason Reason for returning items.
+	 *
+	 * @return int Cancel ID
+	 *
+	 * @throws \InvalidArgumentException If there is no such order, order item or warehouse.
+	 * @throws Exception\InvalidValue If the given order does not contain the given product or the amount to cancel
+	 *                                is higher than amount contained within the order. Or an invalid value for productState or returnType was provided.
+	 */
+	public function addReturn(array $orderParts, $returnType, Entity\Address $address, $returnPlace, $reason)
+	{
+		return (int) $this->call(__FUNCTION__, array(
+			'returnType' => $returnType,
+			'address' => $address->export(),
+			'returnPlace' => $returnPlace,
+			'reason' => $reason,
+			'orderParts' => array_map(function(Entity\OrderPart $part) { return $part->export(); }, $orderParts)
+		));
 	}
 
 	/**
@@ -543,6 +569,18 @@ class Client
 	 * @throws Exception\InvalidValue If there is no such order.
 	 */
 	public function getReturn($id)
+	{
+		return $this->call(__FUNCTION__, array('id' => $id));
+	}
+
+	/**
+	 * Returns the state of a return of the given ID.
+	 *
+	 * @param int|array $id Return ID. Can be a single ID or a list of IDs in which case the result will an array
+	 * 							where its keys are IDs of corresponding cancels.
+	 * @return int
+	 */
+	public function getReturnState($id)
 	{
 		return $this->call(__FUNCTION__, array('id' => $id));
 	}
@@ -793,7 +831,7 @@ class Client
 	/**
 	 * Get an amount of remaining pieces of multiple products at once.
 	 *
-	 * @param array $products Product definition
+	 * @param array $products Product definition (individual definitions may include the "source" parameter; if not present, the method parameter "source" will be used)
 	 * @param int $source Reservation source.
 	 *
 	 * @return array Amount of remaining pieces of given products.
@@ -975,5 +1013,20 @@ class Client
 	public function productExists($brand, $code)
 	{
 		return (bool) $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code));
+	}
+
+	/**
+	 * Add order to supplier.
+	 *
+	 * @param Entity\SupplierOrder $supplierOrder The supplier order to be added.
+	 *
+	 * @return bool Was order created?
+	 *
+	 * @throws Exception\MissingValue If a value of some required property is missing.
+	 * @throws Exception\InvalidValue If a value of some property is not valid one.
+	 */
+	public function addSupplierOrder(Entity\SupplierOrder $supplierOrder)
+	{
+		return (bool) $this->call(__FUNCTION__, $supplierOrder->export());
 	}
 }

@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.16
+ * @version 1.17
  * @apiVersion 1.2
  */
 
@@ -191,18 +191,11 @@ class Order extends ApiEntity
 	const RETURN_STATE_DECLINED = 4;
 
 	/**
-	 * Return state - return has been returned to the customer.
+	 * Return state - return is being transported between seller's warehouses.
 	 *
 	 * @var integer
 	 */
-	const RETURN_STATE_RETURNED = 5;
-
-	/**
-	 * Return state - is was not possible to return the return to the customer.
-	 *
-	 * @var integer
-	 */
-	const RETURN_STATE_UNABLE_TO_RETURN = 6;
+	const RETURN_STATE_TRANSPORTED = 7;
 
 	/**
 	 * Entity data.
