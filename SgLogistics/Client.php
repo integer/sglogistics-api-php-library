@@ -285,14 +285,14 @@ class Client
 	 *
 	 * @param Entity\Order $order The customer order to be added.
 	 *
-	 * @return bool True if the operation was successful, false otherwise.
+	 * @return int Created order state.
 	 *
 	 * @throws Exception\MissingValue If a value of some required property is missing.
 	 * @throws Exception\InvalidValue If a value of some property is not valid one.
 	 */
 	public function addOrder(Entity\Order $order)
 	{
-		return (bool) $this->call(__FUNCTION__, $order->export());
+		return (int) $this->call(__FUNCTION__, $order->export());
 	}
 
 	/**
