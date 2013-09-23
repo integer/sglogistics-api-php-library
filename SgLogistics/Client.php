@@ -1014,4 +1014,19 @@ class Client
 	{
 		return (bool) $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code));
 	}
+
+	/**
+	 * Add order to supplier.
+	 *
+	 * @param Entity\SupplierOrder $supplierOrder The supplier order to be added.
+	 *
+	 * @return bool Was order created?
+	 *
+	 * @throws Exception\MissingValue If a value of some required property is missing.
+	 * @throws Exception\InvalidValue If a value of some property is not valid one.
+	 */
+	public function addSupplierOrder(Entity\SupplierOrder $supplierOrder)
+	{
+		return (bool) $this->call(__FUNCTION__, $supplierOrder->export());
+	}
 }
