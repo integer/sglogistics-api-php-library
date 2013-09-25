@@ -813,6 +813,22 @@ class Client
 	}
 
 	/**
+	 * Migrate reservations from order with id $fromOrderId to order with id $toOrderId.
+	 *
+	 * @param string $fromOrderId Source order ID.
+	 * @param string $toOrderId Target order ID.
+	 *
+	 * @return true
+	 *
+	 * @throws Exception\InvalidValue If both order IDs are same.
+	 * @throws Exception\InvalidValue If such orders already exist.
+	 */
+	public function migrateReservations($fromOrderId, $toOrderId)
+	{
+		return (bool) $this->call(__FUNCTION__, array('fromOrderId' => $fromOrderId, 'toOrderId' => $toOrderId));
+	}
+
+	/**
 	 * Get an amount of remaining pieces of the given product.
 	 *
 	 * @param string $brand Product brand.
