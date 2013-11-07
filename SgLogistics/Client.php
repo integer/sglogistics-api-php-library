@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.18
+ * @version 1.19
  * @apiVersion 1.2
  */
 
@@ -23,7 +23,7 @@ class Client
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.18';
+	const VERSION = '1.19';
 
 	/**
 	 * URL of the Github repository.
@@ -825,7 +825,7 @@ class Client
 	 */
 	public function migrateReservations($fromOrderId, $toOrderId)
 	{
-		return (bool) $this->call(__FUNCTION__, array('fromOrderId' => $fromOrderId, 'toOrderId' => $toOrderId));
+		return (bool) $this->call(__FUNCTION__, array('fromOrderId' =>$fromOrderId, 'toOrderId' => $toOrderId));
 	}
 
 	/**
@@ -1044,5 +1044,17 @@ class Client
 	public function addSupplierOrder(Entity\SupplierOrder $supplierOrder)
 	{
 		return (bool) $this->call(__FUNCTION__, $supplierOrder->export());
+	}
+
+	/**
+	 * End a campaign.
+	 *
+	 * @param string $campaign Client campaign identificator.
+	 *
+	 * @return bool Was campaign ended?
+	 */
+	public function endCampaign($campaign)
+	{
+		return (bool) $this->call(__FUNCTION__, array('campaign' => $campaign));
 	}
 }

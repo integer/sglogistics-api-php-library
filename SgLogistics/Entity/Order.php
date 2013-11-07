@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.18
+ * @version 1.19
  * @apiVersion 1.2
  */
 
@@ -26,6 +26,7 @@ namespace SgLogistics\Api\Entity;
  * @property array $items
  * @property array $metadata
  * @property boolean $cashOnDelivery
+ * @property integer|null $expectedDeliveryDate
  */
 class Order extends ApiEntity
 {
@@ -213,6 +214,7 @@ class Order extends ApiEntity
 		'items' => array(),
 		'metadata' => array(),
 		'cashOnDelivery' => false,
+		'expectedDeliveryDate' => null,
 	);
 
 	/**
