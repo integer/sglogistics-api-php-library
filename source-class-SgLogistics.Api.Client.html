@@ -97,7 +97,7 @@
 </span></span><span id="4" class="l"><a class="l" href="#4">   4: </a><span class="php-comment"> * SG Logistics client API
 </span></span><span id="5" class="l"><a class="l" href="#5">   5: </a><span class="php-comment"> *
 </span></span><span id="6" class="l"><a class="l" href="#6">   6: </a><span class="php-comment"> * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
-</span></span><span id="7" class="l"><a class="l" href="#7">   7: </a><span class="php-comment"> * @version 1.18
+</span></span><span id="7" class="l"><a class="l" href="#7">   7: </a><span class="php-comment"> * @version 1.19
 </span></span><span id="8" class="l"><a class="l" href="#8">   8: </a><span class="php-comment"> * @apiVersion 1.2
 </span></span><span id="9" class="l"><a class="l" href="#9">   9: </a><span class="php-comment"> */</span>
 </span><span id="10" class="l"><a class="l" href="#10">  10: </a>
@@ -116,7 +116,7 @@
 </span></span><span id="23" class="l"><a class="l" href="#23">  23: </a><span class="php-comment">     *
 </span></span><span id="24" class="l"><a class="l" href="#24">  24: </a><span class="php-comment">     * @var string
 </span></span><span id="25" class="l"><a class="l" href="#25">  25: </a><span class="php-comment">     */</span>
-</span><span id="26" class="l"><a class="l" href="#26">  26: </a>    <span class="php-keyword1">const</span> <a id="VERSION" href="#VERSION">VERSION</a> = <span class="php-quote">'1.18'</span>;
+</span><span id="26" class="l"><a class="l" href="#26">  26: </a>    <span class="php-keyword1">const</span> <a id="VERSION" href="#VERSION">VERSION</a> = <span class="php-quote">'1.19'</span>;
 </span><span id="27" class="l"><a class="l" href="#27">  27: </a>
 </span><span id="28" class="l"><a class="l" href="#28">  28: </a>    <span class="php-comment">/**
 </span></span><span id="29" class="l"><a class="l" href="#29">  29: </a><span class="php-comment">     * URL of the Github repository.
@@ -918,7 +918,7 @@
 </span></span><span id="825" class="l"><a class="l" href="#825"> 825: </a><span class="php-comment">     */</span>
 </span><span id="826" class="l"><a class="l" href="#826"> 826: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_migrateReservations" href="#_migrateReservations">migrateReservations</a>(<span class="php-var">$fromOrderId</span>, <span class="php-var">$toOrderId</span>)
 </span><span id="827" class="l"><a class="l" href="#827"> 827: </a>    {
-</span><span id="828" class="l"><a class="l" href="#828"> 828: </a>        <span class="php-keyword1">return</span> (bool) <span class="php-var">$this</span>-&gt;call(__FUNCTION__, <span class="php-keyword1">array</span>(<span class="php-quote">'fromOrderId'</span> =&gt; <span class="php-var">$fromOrderId</span>, <span class="php-quote">'toOrderId'</span> =&gt; <span class="php-var">$toOrderId</span>));
+</span><span id="828" class="l"><a class="l" href="#828"> 828: </a>        <span class="php-keyword1">return</span> (bool) <span class="php-var">$this</span>-&gt;call(__FUNCTION__, <span class="php-keyword1">array</span>(<span class="php-quote">'fromOrderId'</span> =&gt;<span class="php-var">$fromOrderId</span>, <span class="php-quote">'toOrderId'</span> =&gt; <span class="php-var">$toOrderId</span>));
 </span><span id="829" class="l"><a class="l" href="#829"> 829: </a>    }
 </span><span id="830" class="l"><a class="l" href="#830"> 830: </a>
 </span><span id="831" class="l"><a class="l" href="#831"> 831: </a>    <span class="php-comment">/**
@@ -1138,8 +1138,20 @@
 </span><span id="1045" class="l"><a class="l" href="#1045">1045: </a>    {
 </span><span id="1046" class="l"><a class="l" href="#1046">1046: </a>        <span class="php-keyword1">return</span> (bool) <span class="php-var">$this</span>-&gt;call(__FUNCTION__, <span class="php-var">$supplierOrder</span>-&gt;export());
 </span><span id="1047" class="l"><a class="l" href="#1047">1047: </a>    }
-</span><span id="1048" class="l"><a class="l" href="#1048">1048: </a>}
-</span><span id="1049" class="l"><a class="l" href="#1049">1049: </a></span></code></pre>
+</span><span id="1048" class="l"><a class="l" href="#1048">1048: </a>
+</span><span id="1049" class="l"><a class="l" href="#1049">1049: </a>    <span class="php-comment">/**
+</span></span><span id="1050" class="l"><a class="l" href="#1050">1050: </a><span class="php-comment">     * End a campaign.
+</span></span><span id="1051" class="l"><a class="l" href="#1051">1051: </a><span class="php-comment">     *
+</span></span><span id="1052" class="l"><a class="l" href="#1052">1052: </a><span class="php-comment">     * @param string $campaign Client campaign identificator.
+</span></span><span id="1053" class="l"><a class="l" href="#1053">1053: </a><span class="php-comment">     *
+</span></span><span id="1054" class="l"><a class="l" href="#1054">1054: </a><span class="php-comment">     * @return bool Was campaign ended?
+</span></span><span id="1055" class="l"><a class="l" href="#1055">1055: </a><span class="php-comment">     */</span>
+</span><span id="1056" class="l"><a class="l" href="#1056">1056: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_endCampaign" href="#_endCampaign">endCampaign</a>(<span class="php-var">$campaign</span>)
+</span><span id="1057" class="l"><a class="l" href="#1057">1057: </a>    {
+</span><span id="1058" class="l"><a class="l" href="#1058">1058: </a>        <span class="php-keyword1">return</span> (bool) <span class="php-var">$this</span>-&gt;call(__FUNCTION__, <span class="php-keyword1">array</span>(<span class="php-quote">'campaign'</span> =&gt; <span class="php-var">$campaign</span>));
+</span><span id="1059" class="l"><a class="l" href="#1059">1059: </a>    }
+</span><span id="1060" class="l"><a class="l" href="#1060">1060: </a>}
+</span><span id="1061" class="l"><a class="l" href="#1061">1061: </a></span></code></pre>
 
 	<div id="footer">
 		SG Logistics client API Library API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
