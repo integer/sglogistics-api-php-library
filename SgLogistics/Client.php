@@ -825,7 +825,7 @@ class Client
 	 */
 	public function migrateReservations($fromOrderId, $toOrderId)
 	{
-		return (bool) $this->call(__FUNCTION__, array('fromOrderId' => $fromOrderId, 'toOrderId' => $toOrderId));
+		return (bool) $this->call(__FUNCTION__, array('fromOrderId' =>$fromOrderId, 'toOrderId' => $toOrderId));
 	}
 
 	/**
@@ -1044,5 +1044,17 @@ class Client
 	public function addSupplierOrder(Entity\SupplierOrder $supplierOrder)
 	{
 		return (bool) $this->call(__FUNCTION__, $supplierOrder->export());
+	}
+
+	/**
+	 * End a campaign.
+	 *
+	 * @param string $campaign Client campaign identificator.
+	 *
+	 * @return bool Was campaign ended?
+	 */
+	public function endCampaign($campaign)
+	{
+		return (bool) $this->call(__FUNCTION__, array('campaign' => $campaign));
 	}
 }
