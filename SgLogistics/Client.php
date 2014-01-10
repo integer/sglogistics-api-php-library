@@ -296,6 +296,23 @@ class Client
 	}
 
 	/**
+	 * Set new metadata to the given order.
+	 * The original order metadata are completely overwritten by the new ones.
+	 *
+	 * @param string $orderId The order ID.
+	 * @param array $metadata The new metadata to be set.
+	 *
+	 * @return bool True on success.
+	 *
+	 * @throws Exception\InvalidValue In case that some invalid values are provided.
+	 * @throws Exception\Response In case of an internal error on the remote server.
+	 */
+	public function setOrderMetadata($orderId, array $metadata)
+	{
+		return (bool) $this->call(__FUNCTION__, array('orderId' => (string) $orderId, 'metadata' => $metadata));
+	}
+
+	/**
 	 * Cancel the given order entirely.
 	 *
 	 * @param string $id The ID of order to be cancelled entirely.
