@@ -361,7 +361,7 @@ class Client
 	 * Create a return or complain of the given order parts.
 	 *
 	 * @param array $orderParts Array of Entity\OrderPart instances.
-	 * @param string $returnType Type of return (Entity\OrderItem::STATE_REPAYMENT or Entity\OrderItem::STATE_COMPLAINT).
+	 * @param string $returnType Type of return (Entity\OrderItem::STATE_REPAYMENT, Entity\OrderItem::STATE_COMPLAINT or Entity\OrderItem::STATE_BROKEN_BY_COURIER).
 	 * @param Entity\Address $address Address of the customer.
 	 * @param int $returnPlace Id of the warehouse where items are physically returned.
 	 * @param string $reason Reason for returning items.

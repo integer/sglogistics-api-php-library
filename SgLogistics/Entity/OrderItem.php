@@ -62,6 +62,13 @@ class OrderItem extends ApiEntity
 	const STATE_UNANSWERED = 5;
 
 	/**
+	 * Order item state - broken by a courier.
+	 *
+	 * @var int
+	 */
+	const STATE_BROKEN_BY_COURIER = 6;
+
+	/**
 	 * Order item type - normal.
 	 *
 	 * @var int
