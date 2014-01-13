@@ -1111,4 +1111,29 @@ class Client
 	{
 		return $this->call(__FUNCTION__, array('courierName' => (string) $courierName));
 	}
+
+	/**
+	 * Store the given signed invoice and attach it to the given order.
+	 *
+	 * @param string $orderId The ID of order which the signed invoice should be attached to.
+	 * @param string $signedInvoicePath The path to a file containing the signed invoice.
+	 *
+	 * @return boolean True on success.
+	 *
+	 * @throws \InvalidArgumentException In case the signed invoice file does not exist.
+	 */
+	public function storeSignedInvoice($orderId, $signedInvoicePath)
+	{
+		$signedInvoicePath = (string) $signedInvoicePath;
+
+		if (!is_file($signedInvoicePath)) {
+			$message = sprintf('The given signed invoice file path "%s" does not exist.', $signedInvoicePath);
+			throw new \InvalidArgumentException($message);
+		}
+
+		return (bool) $this->call(__FUNCTION__, array(
+			'orderId' => (string) $orderId,
+			'signedInvoice' => '@' . $signedInvoicePath
+		));
+	}
 }
