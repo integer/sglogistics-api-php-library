@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.19
+ * @version 1.20
  * @apiVersion 1.2
  */
 
@@ -60,6 +60,13 @@ class OrderItem extends ApiEntity
 	 * @var int
 	 */
 	const STATE_UNANSWERED = 5;
+
+	/**
+	 * Order item state - broken by a courier.
+	 *
+	 * @var int
+	 */
+	const STATE_BROKEN_BY_COURIER = 6;
 
 	/**
 	 * Order item type - normal.

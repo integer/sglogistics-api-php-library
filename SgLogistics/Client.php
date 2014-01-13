@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.19
+ * @version 1.20
  * @apiVersion 1.2
  */
 
@@ -23,7 +23,7 @@ class Client
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.19';
+	const VERSION = '1.20';
 
 	/**
 	 * URL of the Github repository.
@@ -296,6 +296,23 @@ class Client
 	}
 
 	/**
+	 * Set new metadata to the given order.
+	 * The original order metadata are completely overwritten by the new ones.
+	 *
+	 * @param string $orderId The order ID.
+	 * @param array $metadata The new metadata to be set.
+	 *
+	 * @return bool True on success.
+	 *
+	 * @throws Exception\InvalidValue In case that some invalid values are provided.
+	 * @throws Exception\Response In case of an internal error on the remote server.
+	 */
+	public function setOrderMetadata($orderId, array $metadata)
+	{
+		return (bool) $this->call(__FUNCTION__, array('orderId' => (string) $orderId, 'metadata' => $metadata));
+	}
+
+	/**
 	 * Cancel the given order entirely.
 	 *
 	 * @param string $id The ID of order to be cancelled entirely.
@@ -344,7 +361,7 @@ class Client
 	 * Create a return or complain of the given order parts.
 	 *
 	 * @param array $orderParts Array of Entity\OrderPart instances.
-	 * @param string $returnType Type of return (Entity\OrderItem::STATE_REPAYMENT or Entity\OrderItem::STATE_COMPLAINT).
+	 * @param string $returnType Type of return (Entity\OrderItem::STATE_REPAYMENT, Entity\OrderItem::STATE_COMPLAINT or Entity\OrderItem::STATE_BROKEN_BY_COURIER).
 	 * @param Entity\Address $address Address of the customer.
 	 * @param int $returnPlace Id of the warehouse where items are physically returned.
 	 * @param string $reason Reason for returning items.
@@ -1056,5 +1073,67 @@ class Client
 	public function endCampaign($campaign)
 	{
 		return (bool) $this->call(__FUNCTION__, array('campaign' => $campaign));
+	}
+
+	/**
+	 * Updates (or sets) the latest possible pickup date for the given order.
+	 *
+	 * @param string $orderId Order Id.
+	 * @param stirng|int $pickupDate The latest possible pickup date (YYYY-MM-DD or UNIX timestamp).
+	 * @return bool
+	 */
+	public function prolongLatestPersonalPickupDate($orderId, $pickupDate)
+	{
+		return (bool) $this->call(__FUNCTION__, array('orderId' => $orderId, 'newDate' => $pickupDate));
+	}
+
+	/**
+	 * Get a list of all delivery destinations any shipments can be delivered to by the given courier.
+	 *
+	 * The returned array is in the following format:
+	 * <code>
+	 * [
+	 *		definition_id => [
+	 *			'name' => destination_name
+				...
+	 *		],
+	 *		...
+	 * ]
+	 * </code>
+	 *
+	 * @param string $courierName The name of the courier.
+	 *
+	 * @return mixed[] List of all delivery destinations any shipments can be delivered to by the given courier.
+	 *
+	 * @throws Exception\InvalidValue If the given courier not exists or is not associated with you.
+	 */
+	public function getDeliveryDestinations($courierName)
+	{
+		return $this->call(__FUNCTION__, array('courierName' => (string) $courierName));
+	}
+
+	/**
+	 * Store the given signed invoice and attach it to the given order.
+	 *
+	 * @param string $orderId The ID of order which the signed invoice should be attached to.
+	 * @param string $signedInvoicePath The path to a file containing the signed invoice.
+	 *
+	 * @return boolean True on success.
+	 *
+	 * @throws \InvalidArgumentException In case the signed invoice file does not exist.
+	 */
+	public function storeSignedInvoice($orderId, $signedInvoicePath)
+	{
+		$signedInvoicePath = (string) $signedInvoicePath;
+
+		if (!is_file($signedInvoicePath)) {
+			$message = sprintf('The given signed invoice file path "%s" does not exist.', $signedInvoicePath);
+			throw new \InvalidArgumentException($message);
+		}
+
+		return (bool) $this->call(__FUNCTION__, array(
+			'orderId' => (string) $orderId,
+			'signedInvoice' => '@' . $signedInvoicePath
+		));
 	}
 }
