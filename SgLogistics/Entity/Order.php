@@ -27,6 +27,7 @@ namespace SgLogistics\Api\Entity;
  * @property array $metadata
  * @property boolean $cashOnDelivery
  * @property integer|null $expectedDeliveryDate
+ * @property string $attachment
  */
 class Order extends ApiEntity
 {
@@ -215,6 +216,7 @@ class Order extends ApiEntity
 		'metadata' => array(),
 		'cashOnDelivery' => false,
 		'expectedDeliveryDate' => null,
+		'attachment' => null,
 	);
 
 	/**
@@ -242,11 +244,16 @@ class Order extends ApiEntity
 	 * @param string $name Attribute name
 	 * @param mixed $value Attribute value
 	 *
+	 * @throws \InvalidArgumentException If the file provided as the "attachment" attribute value does not exist
 	 * @throws \InvalidArgumentException If the "shippingAddress" attribute was not an instance of \SgLogistics\Api\Entity\Address
 	 * @throws \InvalidArgumentException If the "billingAddress" attribute was not an instance of \SgLogistics\Api\Entity\Address
 	 */
 	public function __set($name, $value)
 	{
+		if ('attachment' === $name && !is_file($value)) {
+			throw new \InvalidArgumentException(sprintf('File "%s" does not exist.', $value));
+		}
+
 		if ('billingAddress' === $name || 'shippingAddress' === $name) {
 			if (!$value instanceof Address) {
 				throw new \InvalidArgumentException(sprintf('The value of the "%s" attribute has to be an instance of \SgLogistics\Api\Entity\Address.', $name));
@@ -264,5 +271,21 @@ class Order extends ApiEntity
 		}
 
 		parent::__set($name, $value);
+	}
+
+	/**
+	 * Exports the entity into an array.
+	 *
+	 * @return array
+	 */
+	public function export()
+	{
+		$data = parent::export();
+
+		if (!empty($data['attachment'])) {
+			$data['attachment'] = '@' . $data['attachment'];
+		}
+
+		return $data;
 	}
 }
