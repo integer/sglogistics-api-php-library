@@ -1074,4 +1074,16 @@ class Client
 	{
 		return (bool) $this->call(__FUNCTION__, array('campaign' => $campaign));
 	}
+
+	/**
+	 * Updates (or sets) the latest possible pickup date for the given order.
+	 *
+	 * @param string $orderId Order Id.
+	 * @param stirng|int $pickupDate The latest possible pickup date (YYYY-MM-DD or UNIX timestamp).
+	 * @return bool
+	 */
+	public function prolongLatestPersonalPickupDate($orderId, $pickupDate)
+	{
+		return (bool) $this->call(__FUNCTION__, array('orderId' => $orderId, 'newDate' => $pickupDate));
+	}
 }
