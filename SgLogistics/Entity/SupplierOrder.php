@@ -21,6 +21,8 @@ namespace SgLogistics\Api\Entity;
  * @property string $productsFile
  * @property string $description
  * @property string $currency
+ * @property integer $expectedDeliveryDate
+ * @property string $salesmanEmail
  * @property boolean $consignment
  */
 class SupplierOrder extends ApiEntity
@@ -36,6 +38,8 @@ class SupplierOrder extends ApiEntity
 		'productsFile' => null,
 		'description' => null,
 		'currency' => null,
+		'expectedDeliveryDate' => null,
+		'salesmanEmail' => null,
 		'consignment' => null,
 	);
 
