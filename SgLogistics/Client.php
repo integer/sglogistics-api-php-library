@@ -1086,4 +1086,29 @@ class Client
 	{
 		return (bool) $this->call(__FUNCTION__, array('orderId' => $orderId, 'newDate' => $pickupDate));
 	}
+
+	/**
+	 * Get a list of all delivery destinations any shipments can be delivered to by the given courier.
+	 *
+	 * The returned array is in the following format:
+	 * <code>
+	 * [
+	 *		definition_id => [
+	 *			'name' => destination_name
+				...
+	 *		],
+	 *		...
+	 * ]
+	 * </code>
+	 *
+	 * @param string $courierName The name of the courier.
+	 *
+	 * @return mixed[] List of all delivery destinations any shipments can be delivered to by the given courier.
+	 *
+	 * @throws Exception\InvalidValue If the given courier not exists or is not associated with you.
+	 */
+	public function getDeliveryDestinations($courierName)
+	{
+		return $this->call(__FUNCTION__, array('courierName' => (string) $courierName));
+	}
 }
