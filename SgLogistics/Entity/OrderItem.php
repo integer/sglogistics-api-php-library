@@ -83,6 +83,13 @@ class OrderItem extends ApiEntity
 	const TYPE_CONSIGNMENT = 2;
 
 	/**
+	 * Order item type - gift.
+	 *
+	 * @var int
+	 */
+	const TYPE_GIFT = 4;
+
+	/**
 	 * Entity data.
 	 *
 	 * @var array
@@ -107,10 +114,22 @@ class OrderItem extends ApiEntity
 	 */
 	public function __set($name, $value)
 	{
-		if ('type' === $name && self::TYPE_CONSIGNMENT !== $value && self::TYPE_NORMAL !== $value) {
+		if ('type' === $name && !($value & (self::TYPE_CONSIGNMENT | self::TYPE_NORMAL))) {
 			throw new \InvalidArgumentException(sprintf('The value of the "%s" attribute has to be SgLogistics\\Api\\Entity\\OrderItem::TYPE_NORMAL or SgLogistics\\Api\\Entity\\OrderItem::TYPE_CONSIGNMENT.', $name));
 		}
 
 		parent::__set($name, $value);
+	}
+
+	/**
+	 * Mark the item as gift.
+	 *
+	 * @return OrderItem Provides a fluent interface.
+	 */
+	public function markAsGift()
+	{
+		$this->type |= self::TYPE_GIFT;
+
+		return $this;
 	}
 }
