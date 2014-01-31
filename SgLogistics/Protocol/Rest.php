@@ -86,7 +86,7 @@ class Rest implements ProtocolInterface
 		$postFiles = array();
 		foreach ($post as $fieldName => $fieldValue) {
 			if (!is_array($fieldValue) && isset($fieldValue{0}) && '@' === $fieldValue{0}) {
-				$postFiles[$fieldName] = $fieldValue;
+				$postFiles[$fieldName] = $this->postFile($fieldValue);
 				unset($post[$fieldName]);
 			}
 		}
@@ -119,5 +119,25 @@ class Rest implements ProtocolInterface
 		$exception = isset($response['exception']) ? $response['exception'] : array();
 
 		return new \SgLogistics\Api\Response($result, $status, $message, $exception);
+	}
+
+	/**
+	 * Prepare the given file to be sent via HTTP POST.
+	 *
+	 * @param string $file The file to be sent.
+	 *
+	 * @return \CURLFile|string
+	 */
+	protected function postFile($file)
+	{
+		static $classExists = null;
+
+		if (null === $classExists) {
+			$classExists = class_exists('CURLFile');
+		}
+
+		$file = trim((string) $file);
+
+		return $classExists ? new \CURLFile(ltrim($file, '@')) : $file;
 	}
 }
