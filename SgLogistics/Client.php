@@ -882,6 +882,35 @@ class Client
 	}
 
 	/**
+	 * Get an amount of sold and available pieces of the given product.
+	 *
+	 * @param string $brand Product brand.
+	 * @param string $code Product code.
+	 * @param int $source Reservation source.
+	 *
+	 * @return int Amount of sold and available pieces of the given product.
+	 *
+	 * @throws Exception\InvalidValue If there is no such product.
+	 */
+	public function getTotalAmount($brand, $code, $source = self::RESERVATION_SOURCE_PARTNER)
+	{
+		return (int) $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'source' => (int) $source));
+	}
+
+	/**
+	 * Get an amount of sold and available pieces of multiple products at once.
+	 *
+	 * @param array $products Product definition (individual definitions may include the "source" parameter; if not present, the method parameter "source" will be used)
+	 * @param int $source Reservation source.
+	 *
+	 * @return array Amount of sold and available pieces of given products.
+	 */
+	public function getTotalAmounts(array $products, $source = self::RESERVATION_SOURCE_PARTNER)
+	{
+		return $this->call(__FUNCTION__, array('products' => $products, 'source' => (int) $source));
+	}
+
+	/**
 	 * Get the shared limit for the given product.
 	 *
 	 * @param string $brand Product brand.
