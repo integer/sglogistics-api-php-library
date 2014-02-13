@@ -1136,4 +1136,27 @@ class Client
 			'signedInvoice' => '@' . $signedInvoicePath
 		));
 	}
+
+	/**
+	 * Returns the current push URL for the client.
+	 *
+	 * @return string
+	 */
+	public function getPushUrl()
+	{
+		return $this->call(__FUNCTION__);
+	}
+
+	/**
+	 * Sets a new push URL for the client.
+	 *
+	 * @param string $url Push URL.
+	 * @return string The newly set URL.
+	 *
+	 * @throws Exception\InvalidValue If the given URL is not valid.
+	 */
+	public function setPushUrl($url)
+	{
+		return $this->call(__FUNCTION__, array('url' => $url));
+	}
 }
