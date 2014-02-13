@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.21
+ * @version 1.22
  * @apiVersion 1.2
  */
 
@@ -23,7 +23,7 @@ class Client
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.21';
+	const VERSION = '1.22';
 
 	/**
 	 * URL of the Github repository.
