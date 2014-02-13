@@ -82,6 +82,13 @@ class Client
 	const RESERVATION_SOURCE_PARTNER = 2;
 
 	/**
+	 * Push notification type - order cancel/return.
+	 *
+	 * @var int
+	 */
+	const PUSH_TYPE_ORDER_CANCEL = 1;
+
+	/**
 	 * The communication protcol.
 	 *
 	 * @var Protocol\ProtocolInterface
