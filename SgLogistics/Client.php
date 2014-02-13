@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.21
+ * @version 1.22
  * @apiVersion 1.2
  */
 
@@ -23,7 +23,7 @@ class Client
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.21';
+	const VERSION = '1.22';
 
 	/**
 	 * URL of the Github repository.
@@ -80,6 +80,13 @@ class Client
 	 * @var int
 	 */
 	const RESERVATION_SOURCE_PARTNER = 2;
+
+	/**
+	 * Push notification type - order cancel/return.
+	 *
+	 * @var int
+	 */
+	const PUSH_TYPE_ORDER_CANCEL = 1;
 
 	/**
 	 * The communication protcol.
@@ -875,6 +882,35 @@ class Client
 	}
 
 	/**
+	 * Get an amount of sold and available pieces of the given product.
+	 *
+	 * @param string $brand Product brand.
+	 * @param string $code Product code.
+	 * @param int $source Reservation source.
+	 *
+	 * @return int Amount of sold and available pieces of the given product.
+	 *
+	 * @throws Exception\InvalidValue If there is no such product.
+	 */
+	public function getTotalAmount($brand, $code, $source = self::RESERVATION_SOURCE_PARTNER)
+	{
+		return (int) $this->call(__FUNCTION__, array('brand' => (string) $brand, 'code' => (string) $code, 'source' => (int) $source));
+	}
+
+	/**
+	 * Get an amount of sold and available pieces of multiple products at once.
+	 *
+	 * @param array $products Product definition (individual definitions may include the "source" parameter; if not present, the method parameter "source" will be used)
+	 * @param int $source Reservation source.
+	 *
+	 * @return array Amount of sold and available pieces of given products.
+	 */
+	public function getTotalAmounts(array $products, $source = self::RESERVATION_SOURCE_PARTNER)
+	{
+		return $this->call(__FUNCTION__, array('products' => $products, 'source' => (int) $source));
+	}
+
+	/**
 	 * Get the shared limit for the given product.
 	 *
 	 * @param string $brand Product brand.
@@ -1135,5 +1171,28 @@ class Client
 			'orderId' => (string) $orderId,
 			'signedInvoice' => '@' . $signedInvoicePath
 		));
+	}
+
+	/**
+	 * Returns the current push URL for the client.
+	 *
+	 * @return string
+	 */
+	public function getPushUrl()
+	{
+		return $this->call(__FUNCTION__);
+	}
+
+	/**
+	 * Sets a new push URL for the client.
+	 *
+	 * @param string $url Push URL.
+	 * @return string The newly set URL.
+	 *
+	 * @throws Exception\InvalidValue If the given URL is not valid.
+	 */
+	public function setPushUrl($url)
+	{
+		return $this->call(__FUNCTION__, array('url' => $url));
 	}
 }
