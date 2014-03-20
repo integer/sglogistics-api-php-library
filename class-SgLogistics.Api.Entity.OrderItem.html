@@ -86,6 +86,9 @@
 			<li>
 				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
 			</li>
+			<li>
+				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+			</li>
 		</ul>
 		<ul>
 			<li>
@@ -134,7 +137,7 @@
 
 				<b>Category:</b>
 				SgLogistics<br />
-		<b>Located at</b> <a href="source-class-SgLogistics.Api.Entity.OrderItem.html#13-135" title="Go to source code">SgLogistics/Entity/OrderItem.php</a><br />
+		<b>Located at</b> <a href="source-class-SgLogistics.Api.Entity.OrderItem.html#13-146" title="Go to source code">SgLogistics/Entity/OrderItem.php</a><br />
 	</div>
 
 
@@ -152,7 +155,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___set">#</a>
-		<code><a href="source-class-SgLogistics.Api.Entity.OrderItem.html#107-122" title="Go to source code">__set</a>( <span>string <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
+		<code><a href="source-class-SgLogistics.Api.Entity.OrderItem.html#118-133" title="Go to source code">__set</a>( <span>string <var>$name</var></span>, <span>mixed <var>$value</var></span> )</code>
 
 		<div class="description short">
 			
@@ -198,7 +201,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_markAsGift">#</a>
-		<code><a href="source-class-SgLogistics.Api.Entity.OrderItem.html#124-134" title="Go to source code">markAsGift</a>( )</code>
+		<code><a href="source-class-SgLogistics.Api.Entity.OrderItem.html#135-145" title="Go to source code">markAsGift</a>( )</code>
 
 		<div class="description short">
 			
@@ -251,7 +254,7 @@
 
 		<td class="attributes"><code>integer</code></td>
 		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#29-34" title="Go to source code"><b>STATE_DEFAULT</b></a>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#31-36" title="Go to source code"><b>STATE_DEFAULT</b></a>
 		</code></td>
 		<td class="value"><code><span class="php-num">1</span></code></td>
 		<td class="description"><div>
@@ -275,7 +278,7 @@
 
 		<td class="attributes"><code>integer</code></td>
 		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#36-41" title="Go to source code"><b>STATE_CANCELLED</b></a>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#38-43" title="Go to source code"><b>STATE_CANCELLED</b></a>
 		</code></td>
 		<td class="value"><code><span class="php-num">2</span></code></td>
 		<td class="description"><div>
@@ -299,7 +302,7 @@
 
 		<td class="attributes"><code>integer</code></td>
 		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#43-48" title="Go to source code"><b>STATE_REPAYMENT</b></a>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#45-50" title="Go to source code"><b>STATE_REPAYMENT</b></a>
 		</code></td>
 		<td class="value"><code><span class="php-num">3</span></code></td>
 		<td class="description"><div>
@@ -323,7 +326,7 @@
 
 		<td class="attributes"><code>integer</code></td>
 		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#50-55" title="Go to source code"><b>STATE_COMPLAINT</b></a>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#52-57" title="Go to source code"><b>STATE_COMPLAINT</b></a>
 		</code></td>
 		<td class="value"><code><span class="php-num">4</span></code></td>
 		<td class="description"><div>
@@ -347,7 +350,7 @@
 
 		<td class="attributes"><code>integer</code></td>
 		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#57-62" title="Go to source code"><b>STATE_UNANSWERED</b></a>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#59-64" title="Go to source code"><b>STATE_UNANSWERED</b></a>
 		</code></td>
 		<td class="value"><code><span class="php-num">5</span></code></td>
 		<td class="description"><div>
@@ -371,7 +374,7 @@
 
 		<td class="attributes"><code>integer</code></td>
 		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#64-69" title="Go to source code"><b>STATE_BROKEN_BY_COURIER</b></a>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#66-71" title="Go to source code"><b>STATE_BROKEN_BY_COURIER</b></a>
 		</code></td>
 		<td class="value"><code><span class="php-num">6</span></code></td>
 		<td class="description"><div>
@@ -391,11 +394,35 @@
 			</div>
 		</div></td>
 	</tr>
+	<tr data-order="STATE_PROCESSED" id="STATE_PROCESSED">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name"><code>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#73-78" title="Go to source code"><b>STATE_PROCESSED</b></a>
+		</code></td>
+		<td class="value"><code><span class="php-num">7</span></code></td>
+		<td class="description"><div>
+			<a href="#STATE_PROCESSED" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Oder item state - processed item.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Oder item state - processed item.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
 	<tr data-order="TYPE_NORMAL" id="TYPE_NORMAL">
 
 		<td class="attributes"><code>integer</code></td>
 		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#71-76" title="Go to source code"><b>TYPE_NORMAL</b></a>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#80-85" title="Go to source code"><b>TYPE_NORMAL</b></a>
 		</code></td>
 		<td class="value"><code><span class="php-num">1</span></code></td>
 		<td class="description"><div>
@@ -419,7 +446,7 @@
 
 		<td class="attributes"><code>integer</code></td>
 		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#78-83" title="Go to source code"><b>TYPE_CONSIGNMENT</b></a>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#87-92" title="Go to source code"><b>TYPE_CONSIGNMENT</b></a>
 		</code></td>
 		<td class="value"><code><span class="php-num">2</span></code></td>
 		<td class="description"><div>
@@ -443,7 +470,7 @@
 
 		<td class="attributes"><code>integer</code></td>
 		<td class="name"><code>
-				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#85-90" title="Go to source code"><b>TYPE_GIFT</b></a>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#94-99" title="Go to source code"><b>TYPE_GIFT</b></a>
 		</code></td>
 		<td class="value"><code><span class="php-num">4</span></code></td>
 		<td class="description"><div>
@@ -477,7 +504,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#92-105" title="Go to source code"><var>$data</var></a>
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#101-116" title="Go to source code"><var>$data</var></a>
 		</td>
 		<td class="value"><code><span class="php-keyword1">array</span>(
 	<span class="php-quote">'id'</span> =&gt; <span class="php-keyword1">null</span>,
@@ -486,7 +513,9 @@
 	<span class="php-quote">'amount'</span> =&gt; <span class="php-keyword1">null</span>,
 	<span class="php-quote">'unitPrice'</span> =&gt; <span class="php-keyword1">null</span>,
 	<span class="php-quote">'description'</span> =&gt; <span class="php-keyword1">null</span>,
-	<span class="php-quote">'type'</span> =&gt; self::TYPE_NORMAL
+	<span class="php-quote">'type'</span> =&gt; self::TYPE_NORMAL,
+	<span class="php-quote">'customProductId'</span> =&gt; <span class="php-keyword1">null</span>,
+	<span class="php-quote">'vatRate'</span> =&gt; <span class="php-keyword1">null</span>,
 )</code></td>
 		<td class="description"><div>
 			<a href="#$data" class="anchor">#</a>
@@ -654,6 +683,50 @@
 		</td>
 		<td class="description"><div>
 			<a href="#m$type" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="customProductId" id="m$customProductId">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#26" title="Go to source code"><var>$customProductId</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$customProductId" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="vatRate" id="m$vatRate">
+		<td class="attributes"><code>
+			public  
+			float
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-SgLogistics.Api.Entity.OrderItem.html#27" title="Go to source code"><var>$vatRate</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$vatRate" class="anchor">#</a>
 
 			<div class="description short">
 				
