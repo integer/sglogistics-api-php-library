@@ -24,6 +24,7 @@ namespace SgLogistics\Api\Entity;
  * @property string $description
  * @property integer $type
  * @property string $customProductId
+ * @property float $vatRate
  */
 class OrderItem extends ApiEntity
 {
@@ -111,6 +112,7 @@ class OrderItem extends ApiEntity
 		'description' => null,
 		'type' => self::TYPE_NORMAL,
 		'customProductId' => null,
+		'vatRate' => null,
 	);
 
 	/**
