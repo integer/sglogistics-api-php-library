@@ -69,6 +69,13 @@ class OrderItem extends ApiEntity
 	const STATE_BROKEN_BY_COURIER = 6;
 
 	/**
+	 * Oder item state - processed item.
+	 *
+	 * @var int
+	 */
+	const STATE_PROCESSED = 7;
+
+	/**
 	 * Order item type - normal.
 	 *
 	 * @var int

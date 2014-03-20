@@ -60,6 +60,13 @@ class Order extends ApiEntity
 	const STATE_IN_EXPEDITION = 4;
 
 	/**
+	 * Part of the order has been handled over to an expeditor.
+	 *
+	 * @var int
+	 */
+	const STATE_PARTIALLY_EXPEDITED = 10;
+
+	/**
 	 * The order was handed over to an expeditor.
 	 *
 	 * @var int
