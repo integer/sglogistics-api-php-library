@@ -4,7 +4,7 @@ title: "SG Logistics client API Library"
 baseUrl: 'http://slevomat.github.com/sglogistics-api-php-library'
 php: No
 tree: Yes
-deprecated: No
+deprecated: Yes
 todo: No
 sourceCode: Yes
 download: Yes
