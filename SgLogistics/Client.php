@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.22
+ * @version 1.23
  * @apiVersion 1.2
  */
 
@@ -23,7 +23,7 @@ class Client
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.22';
+	const VERSION = '1.23';
 
 	/**
 	 * URL of the Github repository.
@@ -87,6 +87,27 @@ class Client
 	 * @var int
 	 */
 	const PUSH_TYPE_ORDER_CANCEL = 1;
+
+	/**
+	 * Push notification type - order or its part was expedited.
+	 *
+	 * @var int
+	 */
+	const PUSH_TYPE_ORDER_EXPEDITION = 2;
+
+	/**
+	 * Push notification type - package tracking update.
+	 *
+	 * @var int
+	 */
+	const PUSH_TYPE_TRACKING_UPDATE = 3;
+
+	/**
+	 * Push notification type - package state change.
+	 *
+	 * @var int
+	 */
+	const PUSH_TYPE_PACKAGE_STATE = 4;
 
 	/**
 	 * The communication protcol.
@@ -378,10 +399,40 @@ class Client
 	 * @throws \InvalidArgumentException If there is no such order, order item or warehouse.
 	 * @throws Exception\InvalidValue If the given order does not contain the given product or the amount to cancel
 	 *                                is higher than amount contained within the order. Or an invalid value for productState or returnType was provided.
+	 *
+	 * @deprecated Use the {@link addPackageReturn()} method along with the push API.
 	 */
 	public function addReturn(array $orderParts, $returnType, Entity\Address $address, $returnPlace, $reason)
 	{
 		return (int) $this->call(__FUNCTION__, array(
+			'returnType' => $returnType,
+			'address' => $address->export(),
+			'returnPlace' => $returnPlace,
+			'reason' => $reason,
+			'orderParts' => array_map(function(Entity\OrderPart $part) { return $part->export(); }, $orderParts)
+		));
+	}
+
+	/**
+	 * Create a return or complain of the given order parts.
+	 *
+	 * @param int $packageId The ID of an expedited package received in a push notification.
+	 * @param array $orderParts Array of Entity\OrderPart instances.
+	 * @param string $returnType Type of return (Entity\OrderItem::STATE_REPAYMENT, Entity\OrderItem::STATE_COMPLAINT or Entity\OrderItem::STATE_BROKEN_BY_COURIER).
+	 * @param Entity\Address $address Address of the customer.
+	 * @param int $returnPlace Id of the warehouse where items are physically returned.
+	 * @param string $reason Reason for returning items.
+	 *
+	 * @return int Cancel ID
+	 *
+	 * @throws \InvalidArgumentException If there is no such order, order item or warehouse.
+	 * @throws Exception\InvalidValue If the given order does not contain the given product or the amount to cancel
+	 *                                is higher than amount contained within the order. Or an invalid value for productState or returnType was provided.
+	 */
+	public function addPackageReturn($packageId, array $orderParts, $returnType, Entity\Address $address, $returnPlace, $reason)
+	{
+		return (int) $this->call(__FUNCTION__, array(
+			'packageId' => $packageId,
 			'returnType' => $returnType,
 			'address' => $address->export(),
 			'returnPlace' => $returnPlace,
@@ -618,10 +669,26 @@ class Client
 	 * @return string The requested invoice as a base64 encoded data stream.
 	 *
 	 * @throws Exception\InvalidValue If there is no such order or an unknown document format is requested.
+	 * @deprecated Use {@link getPackageInvoice()} method along with the push API.
 	 */
 	public function getInvoice($id, $format = self::DOCUMENT_FORMAT_PDF)
 	{
 		return $this->call(__FUNCTION__, array('id' => $id, 'format' => $format));
+	}
+
+	/**
+	 * Get an invoice for the given order.
+	 *
+	 * @param int $packageId The ID of an expedited package received in a push notification.
+	 * @param string $format Invoice format.
+	 *
+	 * @return string The requested invoice as a base64 encoded data stream.
+	 *
+	 * @throws Exception\InvalidValue If there is no such order or an unknown document format is requested.
+	 */
+	public function getPackageInvoice($packageId, $format = self::DOCUMENT_FORMAT_PDF)
+	{
+		return $this->call(__FUNCTION__, array('packageId' => $packageId, 'format' => $format));
 	}
 
 	/**
@@ -1157,6 +1224,8 @@ class Client
 	 * @return boolean True on success.
 	 *
 	 * @throws \InvalidArgumentException In case the signed invoice file does not exist.
+	 *
+	 * @deprecated Use the {@link storeSignedPackageInvoice()} method along with the push API.
 	 */
 	public function storeSignedInvoice($orderId, $signedInvoicePath)
 	{
@@ -1169,6 +1238,31 @@ class Client
 
 		return (bool) $this->call(__FUNCTION__, array(
 			'orderId' => (string) $orderId,
+			'signedInvoice' => '@' . $signedInvoicePath
+		));
+	}
+
+	/**
+	 * Store the given signed invoice and attach it to the given package.
+	 *
+	 * @param int $packageId The ID of an expedited package received in a push notification.
+	 * @param string $signedInvoicePath The path to a file containing the signed invoice.
+	 *
+	 * @return boolean True on success.
+	 *
+	 * @throws \InvalidArgumentException In case the signed invoice file does not exist.
+	 */
+	public function storeSignedPackageInvoice($packageId, $signedInvoicePath)
+	{
+		$signedInvoicePath = (string) $signedInvoicePath;
+
+		if (!is_file($signedInvoicePath)) {
+			$message = sprintf('The given signed invoice file path "%s" does not exist.', $signedInvoicePath);
+			throw new \InvalidArgumentException($message);
+		}
+
+		return (bool) $this->call(__FUNCTION__, array(
+			'packageId' => (string) $packageId,
 			'signedInvoice' => '@' . $signedInvoicePath
 		));
 	}

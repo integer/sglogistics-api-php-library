@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.22
+ * @version 1.23
  * @apiVersion 1.2
  */
 
@@ -23,6 +23,8 @@ namespace SgLogistics\Api\Entity;
  * @property float $unitPrice
  * @property string $description
  * @property integer $type
+ * @property string $customProductId
+ * @property float $vatRate
  */
 class OrderItem extends ApiEntity
 {
@@ -69,6 +71,13 @@ class OrderItem extends ApiEntity
 	const STATE_BROKEN_BY_COURIER = 6;
 
 	/**
+	 * Oder item state - processed item.
+	 *
+	 * @var int
+	 */
+	const STATE_PROCESSED = 7;
+
+	/**
 	 * Order item type - normal.
 	 *
 	 * @var int
@@ -101,7 +110,9 @@ class OrderItem extends ApiEntity
 		'amount' => null,
 		'unitPrice' => null,
 		'description' => null,
-		'type' => self::TYPE_NORMAL
+		'type' => self::TYPE_NORMAL,
+		'customProductId' => null,
+		'vatRate' => null,
 	);
 
 	/**

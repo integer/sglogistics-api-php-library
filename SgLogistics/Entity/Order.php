@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.22
+ * @version 1.23
  * @apiVersion 1.2
  */
 
@@ -58,6 +58,13 @@ class Order extends ApiEntity
 	 * @var int
 	 */
 	const STATE_IN_EXPEDITION = 4;
+
+	/**
+	 * Part of the order has been handled over to an expeditor.
+	 *
+	 * @var int
+	 */
+	const STATE_PARTIALLY_EXPEDITED = 10;
 
 	/**
 	 * The order was handed over to an expeditor.
