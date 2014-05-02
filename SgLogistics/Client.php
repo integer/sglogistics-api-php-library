@@ -396,7 +396,7 @@ class Client
 	 * Create a return or complain of the given order parts.
 	 *
 	 * @param array $orderParts Array of Entity\OrderPart instances.
-	 * @param string $returnType Type of return (Entity\OrderItem::STATE_REPAYMENT, Entity\OrderItem::STATE_COMPLAINT or Entity\OrderItem::STATE_BROKEN_BY_COURIER).
+	 * @param string $returnType Type of return (Entity\OrderItem::STATE_REPAYMENT, Entity\OrderItem::STATE_COMPLAINT, Entity\OrderItem::STATE_BROKEN_BY_COURIER or Entity\OrderItem::STATE_UNDELIVERED).
 	 * @param Entity\Address $address Address of the customer.
 	 * @param int $returnPlace Id of the warehouse where items are physically returned.
 	 * @param string $reason Reason for returning items.
@@ -425,7 +425,7 @@ class Client
 	 *
 	 * @param int $packageId The ID of an expedited package received in a push notification.
 	 * @param array $orderParts Array of Entity\OrderPart instances.
-	 * @param string $returnType Type of return (Entity\OrderItem::STATE_REPAYMENT, Entity\OrderItem::STATE_COMPLAINT or Entity\OrderItem::STATE_BROKEN_BY_COURIER).
+	 * @param string $returnType Type of return (Entity\OrderItem::STATE_REPAYMENT, Entity\OrderItem::STATE_COMPLAINT, Entity\OrderItem::STATE_BROKEN_BY_COURIER or Entity\OrderItem::STATE_UNDELIVERED).
 	 * @param Entity\Address $address Address of the customer.
 	 * @param int $returnPlace Id of the warehouse where items are physically returned.
 	 * @param string $reason Reason for returning items.
