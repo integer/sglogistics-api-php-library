@@ -28,6 +28,27 @@ namespace SgLogistics\Api\Entity;
 class SupplierOrder extends ApiEntity
 {
 	/**
+	 * Order state - newly created, no goods received so far.
+	 *
+	 * @var int
+	 */
+	const ORDER_STATE_CREATED = 1;
+
+	/**
+	 * Order state - currently receiving goods.
+	 *
+	 * @var int
+	 */
+	const ORDER_STATE_RECEVING = 2;
+
+	/**
+	 * Order state - good receiving finished.
+	 *
+	 * @var int
+	 */
+	const ORDER_STATE_RECEIVED = 3;
+
+	/**
 	 * Entity data.
 	 *
 	 * @var array

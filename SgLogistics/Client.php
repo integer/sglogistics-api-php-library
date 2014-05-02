@@ -110,6 +110,13 @@ class Client
 	const PUSH_TYPE_PACKAGE_STATE = 4;
 
 	/**
+	 * Push notification type - supplier order state change.
+	 *
+	 * @var int
+	 */
+	const PUSH_TYPE_SUPPLIER_ORDER_STATE = 5;
+
+	/**
 	 * The communication protcol.
 	 *
 	 * @var Protocol\ProtocolInterface
