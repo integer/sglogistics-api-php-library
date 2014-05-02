@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.23
+ * @version 1.24
  * @apiVersion 1.2
  */
 
@@ -23,7 +23,7 @@ class Client
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.23';
+	const VERSION = '1.24';
 
 	/**
 	 * URL of the Github repository.
@@ -108,6 +108,13 @@ class Client
 	 * @var int
 	 */
 	const PUSH_TYPE_PACKAGE_STATE = 4;
+
+	/**
+	 * Push notification type - supplier order state change.
+	 *
+	 * @var int
+	 */
+	const PUSH_TYPE_SUPPLIER_ORDER_STATE = 5;
 
 	/**
 	 * The communication protcol.
@@ -281,6 +288,24 @@ class Client
 	 * 				...
 	 * 			]
 	 *
+	 * If you need to create a set (one product consists of one or more other products) you have two options:
+	 * 	1. If you know the parts, you can pass them as the <code>parts</code> attribute. It is supposed to be
+	 * 	   an array in the form of:
+	 * 		[
+	 * 			[
+	 * 				'brand' => part_brand,   // brand of the product part
+	 * 				'code' => part_code,     // code of the product part
+	 * 				'amount' => part_amount  // amount of the particular product in the set
+	 * 			],
+	 * 			...
+	 * 		]
+	 * 	    In this case all parts of the set have to exist in the SGL system.
+	 *
+	 * 	2. If you don't know the structure of the set when creating the product, just set the <code>set</code>
+	 * 	   parameter of the \SgLogistics\Api\Entity\Product entity to TRUE.
+	 *
+	 * Please note that it is not possible to convert already existing products to sets and vice versa.
+	 *
 	 * @param Entity\Product $product A product that should exists within the system.
 	 *
 	 * @return bool True if the operation was successful, false otherwise.
@@ -389,7 +414,7 @@ class Client
 	 * Create a return or complain of the given order parts.
 	 *
 	 * @param array $orderParts Array of Entity\OrderPart instances.
-	 * @param string $returnType Type of return (Entity\OrderItem::STATE_REPAYMENT, Entity\OrderItem::STATE_COMPLAINT or Entity\OrderItem::STATE_BROKEN_BY_COURIER).
+	 * @param string $returnType Type of return (Entity\OrderItem::STATE_REPAYMENT, Entity\OrderItem::STATE_COMPLAINT, Entity\OrderItem::STATE_BROKEN_BY_COURIER or Entity\OrderItem::STATE_UNDELIVERED).
 	 * @param Entity\Address $address Address of the customer.
 	 * @param int $returnPlace Id of the warehouse where items are physically returned.
 	 * @param string $reason Reason for returning items.
@@ -418,7 +443,7 @@ class Client
 	 *
 	 * @param int $packageId The ID of an expedited package received in a push notification.
 	 * @param array $orderParts Array of Entity\OrderPart instances.
-	 * @param string $returnType Type of return (Entity\OrderItem::STATE_REPAYMENT, Entity\OrderItem::STATE_COMPLAINT or Entity\OrderItem::STATE_BROKEN_BY_COURIER).
+	 * @param string $returnType Type of return (Entity\OrderItem::STATE_REPAYMENT, Entity\OrderItem::STATE_COMPLAINT, Entity\OrderItem::STATE_BROKEN_BY_COURIER or Entity\OrderItem::STATE_UNDELIVERED).
 	 * @param Entity\Address $address Address of the customer.
 	 * @param int $returnPlace Id of the warehouse where items are physically returned.
 	 * @param string $reason Reason for returning items.

@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.23
+ * @version 1.24
  * @apiVersion 1.2
  */
 
@@ -29,6 +29,8 @@ namespace SgLogistics\Api\Entity;
  * @property array $sizes
  * @property string $intrastat
  * @property string $note
+ * @property array $parts
+ * @property boolean $set
  */
 class Product extends ApiEntity
 {
@@ -86,6 +88,8 @@ class Product extends ApiEntity
 		'sizes' => null,
 		'intrastat' => null,
 		'note' => null,
+		'parts' => array(),
+		'set' => false,
 	);
 
 	/**
@@ -113,6 +117,24 @@ class Product extends ApiEntity
 
 		if ('intrastat' === $name && $value !== null && !in_array($value, static::getIntrastatTypes())) {
 			throw new \InvalidArgumentException(sprintf('The value of the "%s" attribute has to be one of %s.', $name, implode(', ', static::getIntrastatTypes())));
+		}
+
+		if ('parts' === $name) {
+			if (!is_array($value)) {
+				throw new \InvalidArgumentException(sprintf('The value of the "%s" attribute has to be an array.', $name));
+			}
+
+			foreach ($value as $partDefinition) {
+				if (!isset($partDefinition['brand'], $partDefinition['code'], $partDefinition['amount'])) {
+					throw new \InvalidArgumentException('A product part definition has to contain the "brand", "code" and "amount" parameters.');
+				}
+			}
+
+			$this->set = !empty($value);
+		}
+
+		if ('set' === $name && !$value && !empty($this->parts)) {
+			throw new \InvalidArgumentException('You cannot explicitly set the "set" parameter to FALSE when product parts are set.');
 		}
 
 		parent::__set($name, $value);

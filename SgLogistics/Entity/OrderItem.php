@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.23
+ * @version 1.24
  * @apiVersion 1.2
  */
 
@@ -71,11 +71,18 @@ class OrderItem extends ApiEntity
 	const STATE_BROKEN_BY_COURIER = 6;
 
 	/**
-	 * Oder item state - processed item.
+	 * Order item state - processed item.
 	 *
 	 * @var int
 	 */
 	const STATE_PROCESSED = 7;
+
+	/**
+	 * Order item state - undelivered to a customer
+	 *
+	 * @var int
+	 */
+	const STATE_UNDELIVERED = 8;
 
 	/**
 	 * Order item type - normal.
