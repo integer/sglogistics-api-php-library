@@ -288,6 +288,24 @@ class Client
 	 * 				...
 	 * 			]
 	 *
+	 * If you need to create a set (one product consists of one or more other products) you have two options:
+	 * 	1. If you know the parts, you can pass them as the <code>parts</code> attribute. It is supposed to be
+	 * 	   an array in the form of:
+	 * 		[
+	 * 			[
+	 * 				'brand' => part_brand,   // brand of the product part
+	 * 				'code' => part_code,     // code of the product part
+	 * 				'amount' => part_amount  // amount of the particular product in the set
+	 * 			],
+	 * 			...
+	 * 		]
+	 * 	    In this case all parts of the set have to exist in the SGL system.
+	 *
+	 * 	2. If you don't know the structure of the set when creating the product, just set the <code>set</code>
+	 * 	   parameter of the \SgLogistics\Api\Entity\Product entity to TRUE.
+	 *
+	 * Please note that it is not possible to convert already existing products to sets and vice versa.
+	 *
 	 * @param Entity\Product $product A product that should exists within the system.
 	 *
 	 * @return bool True if the operation was successful, false otherwise.
