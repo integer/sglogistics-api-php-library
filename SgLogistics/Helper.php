@@ -27,7 +27,7 @@ class Helper
 	public static function normalizeProductCode($code)
 	{
 		$code = strtoupper(static::toAscii($code));
-		return preg_replace('~[^0-9A-Z]+~', '', $code);
+		return preg_replace('~[^0-9A-Z|@]+~', '', $code);
 	}
 
 	/**
