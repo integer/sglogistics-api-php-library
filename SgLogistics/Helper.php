@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.24
+ * @version 1.25
  * @apiVersion 1.2
  */
 
@@ -27,7 +27,7 @@ class Helper
 	public static function normalizeProductCode($code)
 	{
 		$code = strtoupper(static::toAscii($code));
-		return preg_replace('~[^0-9A-Z]+~', '', $code);
+		return preg_replace('~[^0-9A-Z|@]+~', '', $code);
 	}
 
 	/**
