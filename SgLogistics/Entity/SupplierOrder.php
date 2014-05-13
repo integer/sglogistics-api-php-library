@@ -24,6 +24,7 @@ namespace SgLogistics\Api\Entity;
  * @property integer $expectedDeliveryDate
  * @property string $salesmanEmail
  * @property boolean $consignment
+ * @property integer $externalFulfillmentPartnerId
  */
 class SupplierOrder extends ApiEntity
 {
@@ -62,6 +63,7 @@ class SupplierOrder extends ApiEntity
 		'expectedDeliveryDate' => null,
 		'salesmanEmail' => null,
 		'consignment' => null,
+		'externalFulfillmentPartnerId' => null
 	);
 
 	/**
