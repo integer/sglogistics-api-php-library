@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.25
+ * @version 1.26
  * @apiVersion 1.2
  */
 
@@ -24,6 +24,7 @@ namespace SgLogistics\Api\Entity;
  * @property integer $expectedDeliveryDate
  * @property string $salesmanEmail
  * @property boolean $consignment
+ * @property integer $externalFulfillmentPartnerId
  */
 class SupplierOrder extends ApiEntity
 {
@@ -62,6 +63,7 @@ class SupplierOrder extends ApiEntity
 		'expectedDeliveryDate' => null,
 		'salesmanEmail' => null,
 		'consignment' => null,
+		'externalFulfillmentPartnerId' => null
 	);
 
 	/**
