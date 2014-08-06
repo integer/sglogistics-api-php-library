@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.26
+ * @version 1.27
  * @apiVersion 1.2
  */
 
@@ -23,7 +23,7 @@ class Client
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.26';
+	const VERSION = '1.27';
 
 	/**
 	 * URL of the Github repository.
@@ -1290,6 +1290,38 @@ class Client
 			'packageId' => (string) $packageId,
 			'signedInvoice' => '@' . $signedInvoicePath
 		));
+	}
+
+	/**
+	 * Get a signed invoice attached to the given order.
+	 *
+	 * @param string $orderId The ID of the order to get a signed invoice attached to.
+	 *
+	 * @return string Base64 encoded contents of the signed invoice file.
+	 *
+	 * @throws Exception/InvalidValue If the given order does not exist or does not have any attached signed invoice.
+	 * @throws Exception/ServerError If the signed invoice file contents cannot be read.
+	 *
+	 * @deprecated Use the {@link getSignedPackageInvoice()} method along with the push API.
+	 */
+	public function getSignedInvoice($orderId)
+	{
+		return $this->call(__FUNCTION__, array('orderId' => (string) $orderId));
+	}
+
+	/**
+	 * Get a signed invoice attached to the given package.
+	 *
+	 * @param string $packageId The ID of the package to get a signed invoice attached to.
+	 *
+	 * @return string Base64 encoded contents of the signed invoice file.
+	 *
+	 * @throws Exception/InvalidValue If the given package does not exist or does not have any attached signed invoice.
+	 * @throws Exception/ServerError If the signed invoice file contents cannot be read.
+	 */
+	public function getSignedPackageInvoice($packageId)
+	{
+		return $this->call(__FUNCTION__, array('packageId' => (string) $packageId));
 	}
 
 	/**
