@@ -100,7 +100,7 @@
 </span></span><span id="4" class="l"><a class="l" href="#4">   4: </a><span class="php-comment"> * SG Logistics client API
 </span></span><span id="5" class="l"><a class="l" href="#5">   5: </a><span class="php-comment"> *
 </span></span><span id="6" class="l"><a class="l" href="#6">   6: </a><span class="php-comment"> * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
-</span></span><span id="7" class="l"><a class="l" href="#7">   7: </a><span class="php-comment"> * @version 1.26
+</span></span><span id="7" class="l"><a class="l" href="#7">   7: </a><span class="php-comment"> * @version 1.27
 </span></span><span id="8" class="l"><a class="l" href="#8">   8: </a><span class="php-comment"> * @apiVersion 1.2
 </span></span><span id="9" class="l"><a class="l" href="#9">   9: </a><span class="php-comment"> */</span>
 </span><span id="10" class="l"><a class="l" href="#10">  10: </a>
@@ -119,7 +119,7 @@
 </span></span><span id="23" class="l"><a class="l" href="#23">  23: </a><span class="php-comment">     *
 </span></span><span id="24" class="l"><a class="l" href="#24">  24: </a><span class="php-comment">     * @var string
 </span></span><span id="25" class="l"><a class="l" href="#25">  25: </a><span class="php-comment">     */</span>
-</span><span id="26" class="l"><a class="l" href="#26">  26: </a>    <span class="php-keyword1">const</span> <a id="VERSION" href="#VERSION">VERSION</a> = <span class="php-quote">'1.26'</span>;
+</span><span id="26" class="l"><a class="l" href="#26">  26: </a>    <span class="php-keyword1">const</span> <a id="VERSION" href="#VERSION">VERSION</a> = <span class="php-quote">'1.27'</span>;
 </span><span id="27" class="l"><a class="l" href="#27">  27: </a>
 </span><span id="28" class="l"><a class="l" href="#28">  28: </a>    <span class="php-comment">/**
 </span></span><span id="29" class="l"><a class="l" href="#29">  29: </a><span class="php-comment">     * URL of the Github repository.
@@ -1389,29 +1389,61 @@
 </span><span id="1293" class="l"><a class="l" href="#1293">1293: </a>    }
 </span><span id="1294" class="l"><a class="l" href="#1294">1294: </a>
 </span><span id="1295" class="l"><a class="l" href="#1295">1295: </a>    <span class="php-comment">/**
-</span></span><span id="1296" class="l"><a class="l" href="#1296">1296: </a><span class="php-comment">     * Returns the current push URL for the client.
+</span></span><span id="1296" class="l"><a class="l" href="#1296">1296: </a><span class="php-comment">     * Get a signed invoice attached to the given order.
 </span></span><span id="1297" class="l"><a class="l" href="#1297">1297: </a><span class="php-comment">     *
-</span></span><span id="1298" class="l"><a class="l" href="#1298">1298: </a><span class="php-comment">     * @return string
-</span></span><span id="1299" class="l"><a class="l" href="#1299">1299: </a><span class="php-comment">     */</span>
-</span><span id="1300" class="l"><a class="l" href="#1300">1300: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_getPushUrl" href="#_getPushUrl">getPushUrl</a>()
-</span><span id="1301" class="l"><a class="l" href="#1301">1301: </a>    {
-</span><span id="1302" class="l"><a class="l" href="#1302">1302: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;call(__FUNCTION__);
-</span><span id="1303" class="l"><a class="l" href="#1303">1303: </a>    }
-</span><span id="1304" class="l"><a class="l" href="#1304">1304: </a>
-</span><span id="1305" class="l"><a class="l" href="#1305">1305: </a>    <span class="php-comment">/**
-</span></span><span id="1306" class="l"><a class="l" href="#1306">1306: </a><span class="php-comment">     * Sets a new push URL for the client.
-</span></span><span id="1307" class="l"><a class="l" href="#1307">1307: </a><span class="php-comment">     *
-</span></span><span id="1308" class="l"><a class="l" href="#1308">1308: </a><span class="php-comment">     * @param string $url Push URL.
-</span></span><span id="1309" class="l"><a class="l" href="#1309">1309: </a><span class="php-comment">     * @return string The newly set URL.
-</span></span><span id="1310" class="l"><a class="l" href="#1310">1310: </a><span class="php-comment">     *
-</span></span><span id="1311" class="l"><a class="l" href="#1311">1311: </a><span class="php-comment">     * @throws Exception\InvalidValue If the given URL is not valid.
-</span></span><span id="1312" class="l"><a class="l" href="#1312">1312: </a><span class="php-comment">     */</span>
-</span><span id="1313" class="l"><a class="l" href="#1313">1313: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setPushUrl" href="#_setPushUrl">setPushUrl</a>(<span class="php-var">$url</span>)
-</span><span id="1314" class="l"><a class="l" href="#1314">1314: </a>    {
-</span><span id="1315" class="l"><a class="l" href="#1315">1315: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;call(__FUNCTION__, <span class="php-keyword1">array</span>(<span class="php-quote">'url'</span> =&gt; <span class="php-var">$url</span>));
-</span><span id="1316" class="l"><a class="l" href="#1316">1316: </a>    }
-</span><span id="1317" class="l"><a class="l" href="#1317">1317: </a>}
-</span><span id="1318" class="l"><a class="l" href="#1318">1318: </a></span></code></pre>
+</span></span><span id="1298" class="l"><a class="l" href="#1298">1298: </a><span class="php-comment">     * @param string $orderId The ID of the order to get a signed invoice attached to.
+</span></span><span id="1299" class="l"><a class="l" href="#1299">1299: </a><span class="php-comment">     *
+</span></span><span id="1300" class="l"><a class="l" href="#1300">1300: </a><span class="php-comment">     * @return string Base64 encoded contents of the signed invoice file.
+</span></span><span id="1301" class="l"><a class="l" href="#1301">1301: </a><span class="php-comment">     *
+</span></span><span id="1302" class="l"><a class="l" href="#1302">1302: </a><span class="php-comment">     * @throws Exception/InvalidValue If the given order does not exist or does not have any attached signed invoice.
+</span></span><span id="1303" class="l"><a class="l" href="#1303">1303: </a><span class="php-comment">     * @throws Exception/ServerError If the signed invoice file contents cannot be read.
+</span></span><span id="1304" class="l"><a class="l" href="#1304">1304: </a><span class="php-comment">     *
+</span></span><span id="1305" class="l"><a class="l" href="#1305">1305: </a><span class="php-comment">     * @deprecated Use the {@link getSignedPackageInvoice()} method along with the push API.
+</span></span><span id="1306" class="l"><a class="l" href="#1306">1306: </a><span class="php-comment">     */</span>
+</span><span id="1307" class="l"><a class="l" href="#1307">1307: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_getSignedInvoice" href="#_getSignedInvoice">getSignedInvoice</a>(<span class="php-var">$orderId</span>)
+</span><span id="1308" class="l"><a class="l" href="#1308">1308: </a>    {
+</span><span id="1309" class="l"><a class="l" href="#1309">1309: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;call(__FUNCTION__, <span class="php-keyword1">array</span>(<span class="php-quote">'orderId'</span> =&gt; (string) <span class="php-var">$orderId</span>));
+</span><span id="1310" class="l"><a class="l" href="#1310">1310: </a>    }
+</span><span id="1311" class="l"><a class="l" href="#1311">1311: </a>
+</span><span id="1312" class="l"><a class="l" href="#1312">1312: </a>    <span class="php-comment">/**
+</span></span><span id="1313" class="l"><a class="l" href="#1313">1313: </a><span class="php-comment">     * Get a signed invoice attached to the given package.
+</span></span><span id="1314" class="l"><a class="l" href="#1314">1314: </a><span class="php-comment">     *
+</span></span><span id="1315" class="l"><a class="l" href="#1315">1315: </a><span class="php-comment">     * @param string $packageId The ID of the package to get a signed invoice attached to.
+</span></span><span id="1316" class="l"><a class="l" href="#1316">1316: </a><span class="php-comment">     *
+</span></span><span id="1317" class="l"><a class="l" href="#1317">1317: </a><span class="php-comment">     * @return string Base64 encoded contents of the signed invoice file.
+</span></span><span id="1318" class="l"><a class="l" href="#1318">1318: </a><span class="php-comment">     *
+</span></span><span id="1319" class="l"><a class="l" href="#1319">1319: </a><span class="php-comment">     * @throws Exception/InvalidValue If the given package does not exist or does not have any attached signed invoice.
+</span></span><span id="1320" class="l"><a class="l" href="#1320">1320: </a><span class="php-comment">     * @throws Exception/ServerError If the signed invoice file contents cannot be read.
+</span></span><span id="1321" class="l"><a class="l" href="#1321">1321: </a><span class="php-comment">     */</span>
+</span><span id="1322" class="l"><a class="l" href="#1322">1322: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_getSignedPackageInvoice" href="#_getSignedPackageInvoice">getSignedPackageInvoice</a>(<span class="php-var">$packageId</span>)
+</span><span id="1323" class="l"><a class="l" href="#1323">1323: </a>    {
+</span><span id="1324" class="l"><a class="l" href="#1324">1324: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;call(__FUNCTION__, <span class="php-keyword1">array</span>(<span class="php-quote">'packageId'</span> =&gt; (string) <span class="php-var">$packageId</span>));
+</span><span id="1325" class="l"><a class="l" href="#1325">1325: </a>    }
+</span><span id="1326" class="l"><a class="l" href="#1326">1326: </a>
+</span><span id="1327" class="l"><a class="l" href="#1327">1327: </a>    <span class="php-comment">/**
+</span></span><span id="1328" class="l"><a class="l" href="#1328">1328: </a><span class="php-comment">     * Returns the current push URL for the client.
+</span></span><span id="1329" class="l"><a class="l" href="#1329">1329: </a><span class="php-comment">     *
+</span></span><span id="1330" class="l"><a class="l" href="#1330">1330: </a><span class="php-comment">     * @return string
+</span></span><span id="1331" class="l"><a class="l" href="#1331">1331: </a><span class="php-comment">     */</span>
+</span><span id="1332" class="l"><a class="l" href="#1332">1332: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_getPushUrl" href="#_getPushUrl">getPushUrl</a>()
+</span><span id="1333" class="l"><a class="l" href="#1333">1333: </a>    {
+</span><span id="1334" class="l"><a class="l" href="#1334">1334: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;call(__FUNCTION__);
+</span><span id="1335" class="l"><a class="l" href="#1335">1335: </a>    }
+</span><span id="1336" class="l"><a class="l" href="#1336">1336: </a>
+</span><span id="1337" class="l"><a class="l" href="#1337">1337: </a>    <span class="php-comment">/**
+</span></span><span id="1338" class="l"><a class="l" href="#1338">1338: </a><span class="php-comment">     * Sets a new push URL for the client.
+</span></span><span id="1339" class="l"><a class="l" href="#1339">1339: </a><span class="php-comment">     *
+</span></span><span id="1340" class="l"><a class="l" href="#1340">1340: </a><span class="php-comment">     * @param string $url Push URL.
+</span></span><span id="1341" class="l"><a class="l" href="#1341">1341: </a><span class="php-comment">     * @return string The newly set URL.
+</span></span><span id="1342" class="l"><a class="l" href="#1342">1342: </a><span class="php-comment">     *
+</span></span><span id="1343" class="l"><a class="l" href="#1343">1343: </a><span class="php-comment">     * @throws Exception\InvalidValue If the given URL is not valid.
+</span></span><span id="1344" class="l"><a class="l" href="#1344">1344: </a><span class="php-comment">     */</span>
+</span><span id="1345" class="l"><a class="l" href="#1345">1345: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_setPushUrl" href="#_setPushUrl">setPushUrl</a>(<span class="php-var">$url</span>)
+</span><span id="1346" class="l"><a class="l" href="#1346">1346: </a>    {
+</span><span id="1347" class="l"><a class="l" href="#1347">1347: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;call(__FUNCTION__, <span class="php-keyword1">array</span>(<span class="php-quote">'url'</span> =&gt; <span class="php-var">$url</span>));
+</span><span id="1348" class="l"><a class="l" href="#1348">1348: </a>    }
+</span><span id="1349" class="l"><a class="l" href="#1349">1349: </a>}
+</span><span id="1350" class="l"><a class="l" href="#1350">1350: </a></span></code></pre>
 
 	<div id="footer">
 		SG Logistics client API Library API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
