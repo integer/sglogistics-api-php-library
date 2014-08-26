@@ -118,7 +118,7 @@
 
 				<b>Category:</b>
 				SgLogistics<br />
-		<b>Located at</b> <a href="source-class-SgLogistics.Api.Client.html#13-1349" title="Go to source code">SgLogistics/Client.php</a><br />
+		<b>Located at</b> <a href="source-class-SgLogistics.Api.Client.html#13-1369" title="Go to source code">SgLogistics/Client.php</a><br />
 	</div>
 
 
@@ -1919,7 +1919,7 @@ do not exist corresponding ones are tried to be created.</p>
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$softReservations</var></dt>
-					<dd><code>array</code><br>$softReservations List of soft reservations which should be made hard.</dd>
+					<dd><code>array</code><br>$softReservations List of soft reservations which should be prolonged.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -3331,6 +3331,59 @@ invoice.<br />
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="isCourierDeliveringToZipCode" id="_isCourierDeliveringToZipCode">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isCourierDeliveringToZipCode">#</a>
+		<code><a href="source-class-SgLogistics.Api.Client.html#1350-1368" title="Go to source code">isCourierDeliveringToZipCode</a>( <span>string <var>$courier</var></span>, <span>integer <var>$zipCode</var></span>, <span>string <var>$countryCode</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Tell whether the given courier is delivering packages to the given ZIP code
+in the given country.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Tell whether the given courier is delivering packages to the given ZIP code
+in the given country.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$courier</var></dt>
+					<dd><code>string</code><br>$courier The identifier of the courier.</dd>
+					<dt><var>$zipCode</var></dt>
+					<dd><code>integer</code><br>$zipCode The ZIP code.</dd>
+					<dt><var>$countryCode</var></dt>
+					<dd><code>string</code><br>$countryCode The country code.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br>True if the given courier is delivering packages to the given ZIP code in the
+given country, false otherwise.<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-SgLogistics.Api.Exception.InvalidValue.html">SgLogistics\Api\Exception\InvalidValue</a></code></code><br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	</table>
 
 
@@ -3348,7 +3401,7 @@ invoice.<br />
 		<td class="name"><code>
 				<a href="source-class-SgLogistics.Api.Client.html#21-26" title="Go to source code"><b>VERSION</b></a>
 		</code></td>
-		<td class="value"><code><span class="php-quote">'1.27'</span></code></td>
+		<td class="value"><code><span class="php-quote">'1.28'</span></code></td>
 		<td class="description"><div>
 			<a href="#VERSION" class="anchor">#</a>
 

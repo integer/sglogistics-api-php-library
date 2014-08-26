@@ -100,7 +100,7 @@
 </span></span><span id="4" class="l"><a class="l" href="#4">   4: </a><span class="php-comment"> * SG Logistics client API
 </span></span><span id="5" class="l"><a class="l" href="#5">   5: </a><span class="php-comment"> *
 </span></span><span id="6" class="l"><a class="l" href="#6">   6: </a><span class="php-comment"> * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
-</span></span><span id="7" class="l"><a class="l" href="#7">   7: </a><span class="php-comment"> * @version 1.27
+</span></span><span id="7" class="l"><a class="l" href="#7">   7: </a><span class="php-comment"> * @version 1.28
 </span></span><span id="8" class="l"><a class="l" href="#8">   8: </a><span class="php-comment"> * @apiVersion 1.2
 </span></span><span id="9" class="l"><a class="l" href="#9">   9: </a><span class="php-comment"> */</span>
 </span><span id="10" class="l"><a class="l" href="#10">  10: </a>
@@ -119,7 +119,7 @@
 </span></span><span id="23" class="l"><a class="l" href="#23">  23: </a><span class="php-comment">     *
 </span></span><span id="24" class="l"><a class="l" href="#24">  24: </a><span class="php-comment">     * @var string
 </span></span><span id="25" class="l"><a class="l" href="#25">  25: </a><span class="php-comment">     */</span>
-</span><span id="26" class="l"><a class="l" href="#26">  26: </a>    <span class="php-keyword1">const</span> <a id="VERSION" href="#VERSION">VERSION</a> = <span class="php-quote">'1.27'</span>;
+</span><span id="26" class="l"><a class="l" href="#26">  26: </a>    <span class="php-keyword1">const</span> <a id="VERSION" href="#VERSION">VERSION</a> = <span class="php-quote">'1.28'</span>;
 </span><span id="27" class="l"><a class="l" href="#27">  27: </a>
 </span><span id="28" class="l"><a class="l" href="#28">  28: </a>    <span class="php-comment">/**
 </span></span><span id="29" class="l"><a class="l" href="#29">  29: </a><span class="php-comment">     * URL of the Github repository.
@@ -949,7 +949,7 @@
 </span></span><span id="853" class="l"><a class="l" href="#853"> 853: </a><span class="php-comment">     * Try to prolong the given soft reservations.
 </span></span><span id="854" class="l"><a class="l" href="#854"> 854: </a><span class="php-comment">     * If any of the given reservations do not exist corresponding ones are tried to be created.
 </span></span><span id="855" class="l"><a class="l" href="#855"> 855: </a><span class="php-comment">     *
-</span></span><span id="856" class="l"><a class="l" href="#856"> 856: </a><span class="php-comment">     * @param array $softReservations List of soft reservations which should be made hard.
+</span></span><span id="856" class="l"><a class="l" href="#856"> 856: </a><span class="php-comment">     * @param array $softReservations List of soft reservations which should be prolonged.
 </span></span><span id="857" class="l"><a class="l" href="#857"> 857: </a><span class="php-comment">     *
 </span></span><span id="858" class="l"><a class="l" href="#858"> 858: </a><span class="php-comment">     * @return array List of successfully prolonged reservations.
 </span></span><span id="859" class="l"><a class="l" href="#859"> 859: </a><span class="php-comment">     */</span>
@@ -1442,8 +1442,28 @@
 </span><span id="1346" class="l"><a class="l" href="#1346">1346: </a>    {
 </span><span id="1347" class="l"><a class="l" href="#1347">1347: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;call(__FUNCTION__, <span class="php-keyword1">array</span>(<span class="php-quote">'url'</span> =&gt; <span class="php-var">$url</span>));
 </span><span id="1348" class="l"><a class="l" href="#1348">1348: </a>    }
-</span><span id="1349" class="l"><a class="l" href="#1349">1349: </a>}
-</span><span id="1350" class="l"><a class="l" href="#1350">1350: </a></span></code></pre>
+</span><span id="1349" class="l"><a class="l" href="#1349">1349: </a>
+</span><span id="1350" class="l"><a class="l" href="#1350">1350: </a>    <span class="php-comment">/**
+</span></span><span id="1351" class="l"><a class="l" href="#1351">1351: </a><span class="php-comment">     * Tell whether the given courier is delivering packages to the given ZIP code in the given country.
+</span></span><span id="1352" class="l"><a class="l" href="#1352">1352: </a><span class="php-comment">     *
+</span></span><span id="1353" class="l"><a class="l" href="#1353">1353: </a><span class="php-comment">     * @param string $courier The identifier of the courier.
+</span></span><span id="1354" class="l"><a class="l" href="#1354">1354: </a><span class="php-comment">     * @param int $zipCode The ZIP code.
+</span></span><span id="1355" class="l"><a class="l" href="#1355">1355: </a><span class="php-comment">     * @param string $countryCode The country code.
+</span></span><span id="1356" class="l"><a class="l" href="#1356">1356: </a><span class="php-comment">     *
+</span></span><span id="1357" class="l"><a class="l" href="#1357">1357: </a><span class="php-comment">     * @return bool True if the given courier is delivering packages to the given ZIP code in the given country, false otherwise.
+</span></span><span id="1358" class="l"><a class="l" href="#1358">1358: </a><span class="php-comment">     *
+</span></span><span id="1359" class="l"><a class="l" href="#1359">1359: </a><span class="php-comment">     * @throws Exception\InvalidValue
+</span></span><span id="1360" class="l"><a class="l" href="#1360">1360: </a><span class="php-comment">     */</span>
+</span><span id="1361" class="l"><a class="l" href="#1361">1361: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <a id="_isCourierDeliveringToZipCode" href="#_isCourierDeliveringToZipCode">isCourierDeliveringToZipCode</a>(<span class="php-var">$courier</span>, <span class="php-var">$zipCode</span>, <span class="php-var">$countryCode</span>)
+</span><span id="1362" class="l"><a class="l" href="#1362">1362: </a>    {
+</span><span id="1363" class="l"><a class="l" href="#1363">1363: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;call(__FUNCTION__, <span class="php-keyword1">array</span>(
+</span><span id="1364" class="l"><a class="l" href="#1364">1364: </a>            <span class="php-quote">'courier'</span> =&gt; (string) <span class="php-var">$courier</span>,
+</span><span id="1365" class="l"><a class="l" href="#1365">1365: </a>            <span class="php-quote">'zipCode'</span> =&gt; (string) <span class="php-var">$zipCode</span>,
+</span><span id="1366" class="l"><a class="l" href="#1366">1366: </a>            <span class="php-quote">'countryCode'</span> =&gt; (string) <span class="php-var">$countryCode</span>
+</span><span id="1367" class="l"><a class="l" href="#1367">1367: </a>        ));
+</span><span id="1368" class="l"><a class="l" href="#1368">1368: </a>    }
+</span><span id="1369" class="l"><a class="l" href="#1369">1369: </a>}
+</span><span id="1370" class="l"><a class="l" href="#1370">1370: </a></span></code></pre>
 
 	<div id="footer">
 		SG Logistics client API Library API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
