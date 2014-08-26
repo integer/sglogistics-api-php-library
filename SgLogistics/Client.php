@@ -1346,4 +1346,24 @@ class Client
 	{
 		return $this->call(__FUNCTION__, array('url' => $url));
 	}
+
+	/**
+	 * Tell whether the given courier is delivering packages to the given ZIP code in the given country.
+	 *
+	 * @param string $courier The identifier of the courier.
+	 * @param int $zipCode The ZIP code.
+	 * @param string $countryCode The country code.
+	 *
+	 * @return bool True if the given courier is delivering packages to the given ZIP code in the given country, false otherwise.
+	 *
+	 * @throws Exception\InvalidValue
+	 */
+	public function isCourierDeliveringToZipCode($courier, $zipCode, $countryCode)
+	{
+		return $this->call(__FUNCTION__, array(
+			'courier' => (string) $courier,
+			'zipCode' => (string) $zipCode,
+			'countryCode' => (string) $countryCode
+		));
+	}
 }
