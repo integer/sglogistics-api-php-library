@@ -4,7 +4,7 @@
  * SG Logistics client API
  *
  * @copyright Copyright (c) 2012-2013 Slevomat.cz, s.r.o.
- * @version 1.27
+ * @version 1.28
  * @apiVersion 1.2
  */
 
@@ -23,7 +23,7 @@ class Client
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.27';
+	const VERSION = '1.28';
 
 	/**
 	 * URL of the Github repository.
@@ -853,7 +853,7 @@ class Client
 	 * Try to prolong the given soft reservations.
 	 * If any of the given reservations do not exist corresponding ones are tried to be created.
 	 *
-	 * @param array $softReservations List of soft reservations which should be made hard.
+	 * @param array $softReservations List of soft reservations which should be prolonged.
 	 *
 	 * @return array List of successfully prolonged reservations.
 	 */
@@ -1345,5 +1345,25 @@ class Client
 	public function setPushUrl($url)
 	{
 		return $this->call(__FUNCTION__, array('url' => $url));
+	}
+
+	/**
+	 * Tell whether the given courier is delivering packages to the given ZIP code in the given country.
+	 *
+	 * @param string $courier The identifier of the courier.
+	 * @param int $zipCode The ZIP code.
+	 * @param string $countryCode The country code.
+	 *
+	 * @return bool True if the given courier is delivering packages to the given ZIP code in the given country, false otherwise.
+	 *
+	 * @throws Exception\InvalidValue
+	 */
+	public function isCourierDeliveringToZipCode($courier, $zipCode, $countryCode)
+	{
+		return $this->call(__FUNCTION__, array(
+			'courier' => (string) $courier,
+			'zipCode' => (string) $zipCode,
+			'countryCode' => (string) $countryCode
+		));
 	}
 }
