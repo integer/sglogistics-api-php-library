@@ -853,7 +853,7 @@ class Client
 	 * Try to prolong the given soft reservations.
 	 * If any of the given reservations do not exist corresponding ones are tried to be created.
 	 *
-	 * @param array $softReservations List of soft reservations which should be made hard.
+	 * @param array $softReservations List of soft reservations which should be prolonged.
 	 *
 	 * @return array List of successfully prolonged reservations.
 	 */
