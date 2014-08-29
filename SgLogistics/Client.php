@@ -156,7 +156,8 @@ class Client
 	 */
 	public function hasNewerVersion()
 	{
-		$c = curl_init(sprintf('https://api.github.com/repos/%s/tags', self::REPOSITORY_NAME));
+		$url = sprintf('https://api.github.com/repos/%s/tags', self::REPOSITORY_NAME);
+		$c = curl_init($url);
 		curl_setopt_array($c, array(
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_USERAGENT => $this->getUserAgent()
